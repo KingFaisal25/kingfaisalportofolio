@@ -2,7 +2,6 @@
 // Focus on core functionality without complex animations
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Portfolio website loaded successfully!');
     
     // Mobile menu toggle
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
@@ -535,5 +534,5 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
     });
     
-    console.log('All core functionality initialized successfully!');
+    
 });
