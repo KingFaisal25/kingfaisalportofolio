@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile menu toggle
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const navMenu = document.querySelector('.nav-menu');
+    if (navMenu) navMenu.classList.remove('active');
+    if (mobileMenuToggle) mobileMenuToggle.setAttribute('aria-expanded', 'false');
 
     // Language toggle & i18n
     const i18n = {
@@ -231,6 +233,26 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.toggle('menu-open');
             const expanded = mobileMenuToggle.classList.contains('active');
             mobileMenuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        });
+        document.addEventListener('click', (e) => {
+            const t = e.target;
+            const withinToggle = mobileMenuToggle.contains(t);
+            const withinMenu = navMenu.contains(t);
+            if (navMenu.classList.contains('active') && !withinToggle && !withinMenu) {
+                navMenu.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('menu-open');
+            }
+        }, { passive: true });
+        window.addEventListener('resize', () => {
+            const isMobile = window.matchMedia('(max-width: 768px)').matches;
+            if (!isMobile) {
+                navMenu.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('menu-open');
+            }
         });
     }
     
