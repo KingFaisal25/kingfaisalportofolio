@@ -173,6 +173,57 @@ document.addEventListener('DOMContentLoaded', () => {
             applyLanguage(next);
         });
     }
+
+    // Background music autoplay (best-effort, respects browser policies)
+    (function(){
+        const audio = document.getElementById('bgAudio');
+        if (!audio) return;
+        const targetVol = 0.4;
+        let fading = null;
+        const fadeTo = (to) => {
+            if (fading) cancelAnimationFrame(fading);
+            const step = () => {
+                const diff = to - audio.volume;
+                if (Math.abs(diff) < 0.02) { audio.volume = to; return; }
+                audio.volume += diff * 0.12;
+                fading = requestAnimationFrame(step);
+            };
+            fading = requestAnimationFrame(step);
+        };
+        const tryPlay = async () => {
+            try {
+                audio.muted = false;
+                audio.volume = 0.0;
+                await audio.play();
+                fadeTo(targetVol);
+            } catch(e) {
+                // Fallback: play muted, then unmute on first user interaction
+                try {
+                    audio.muted = true;
+                    audio.volume = 0.0;
+                    await audio.play();
+                    const unlock = () => {
+                        audio.muted = false;
+                        fadeTo(targetVol);
+                        window.removeEventListener('pointerdown', unlock);
+                        window.removeEventListener('keydown', unlock);
+                        window.removeEventListener('touchstart', unlock);
+                        window.removeEventListener('scroll', unlock, { passive: true });
+                    };
+                    window.addEventListener('pointerdown', unlock, { once: true });
+                    window.addEventListener('keydown', unlock, { once: true });
+                    window.addEventListener('touchstart', unlock, { once: true });
+                    window.addEventListener('scroll', unlock, { once: true, passive: true });
+                } catch(_) {
+                    // If even muted autoplay fails, do nothing
+                }
+            }
+        };
+        tryPlay();
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden && !audio.paused) fadeTo(0.15); else if (!document.hidden && !audio.paused) fadeTo(targetVol);
+        });
+    })();
     if (mobileMenuToggle && navMenu) {
         mobileMenuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
@@ -233,6 +284,25 @@ document.addEventListener('DOMContentLoaded', () => {
             if (window.scrollY > 20) navbar.classList.add('scrolled');
             else navbar.classList.remove('scrolled');
         }
+        // subtle parallax for hero (disabled if reduced motion)
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reduceMotion) {
+            const heroImg = document.querySelector('.hero-image-container-modern');
+            const heroTitleEl = document.getElementById('heroTitle');
+            const maxScroll = 500;
+            const s = Math.min(window.scrollY, maxScroll);
+            const factorImg = window.matchMedia('(max-width: 767px)').matches ? 0.02 : 0.04;
+            const factorTitle = window.matchMedia('(max-width: 767px)').matches ? 0.008 : 0.015;
+            if (heroImg) {
+                const ty = -(s * factorImg);
+                const scale = 1 + (s / (factorImg === 0.02 ? 18000 : 12000));
+                heroImg.style.transform = `translateY(${ty}px) scale(${scale.toFixed(3)})`;
+            }
+            if (heroTitleEl) {
+                const ty2 = -(s * factorTitle);
+                heroTitleEl.style.transform = `translateY(${ty2}px)`;
+            }
+        }
         const sections = ['home', 'about', 'skills', 'projects', 'contact'];
         const navLinks = document.querySelectorAll('.nav-link');
         sections.forEach(sectionId => {
@@ -251,40 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!scheduled) { scheduled = true; requestAnimationFrame(onScrollRaf); }
     }, { passive: true });
 
-    const breadcrumbList = document.getElementById('breadcrumbList');
-    if (breadcrumbList) {
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.id;
-                    let label = 'Home';
-                    if (id !== 'home') {
-                        const titleEl = entry.target.querySelector('.section-title');
-                        label = titleEl ? titleEl.textContent.trim() : id.charAt(0).toUpperCase() + id.slice(1);
-                    }
-                    breadcrumbList.innerHTML = '';
-                    const liHome = document.createElement('li');
-                    const aHome = document.createElement('a');
-                    aHome.href = '#home';
-                    aHome.textContent = 'Home';
-                    liHome.appendChild(aHome);
-                    breadcrumbList.appendChild(liHome);
-                    if (id !== 'home') {
-                        const liCurrent = document.createElement('li');
-                        const spanCurrent = document.createElement('span');
-                        spanCurrent.textContent = label;
-                        spanCurrent.setAttribute('aria-current', 'page');
-                        liCurrent.appendChild(spanCurrent);
-                        breadcrumbList.appendChild(liCurrent);
-                    }
-                }
-            });
-        }, { rootMargin: '-60px 0px -70% 0px', threshold: 0.2 });
-        ['home', 'about', 'services', 'projects', 'skills', 'contact'].forEach(id => {
-            const el = document.getElementById(id);
-            if (el) io.observe(el);
-        });
-    }
+    
     
     // Simple typing effect
     const typingText = document.getElementById('typingText');
@@ -385,13 +422,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (window.AOS && typeof window.AOS.init === 'function') {
             window.AOS.init({
-                duration: 300,
-                easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
-                offset: 120,
+                duration: 500,
+                easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+                offset: 140,
                 once: true,
+                anchorPlacement: 'top-bottom'
             });
             document.querySelectorAll('.section-header, .service-card, .project-card, .expertise-item, .highlight-item, .personal-card').forEach(el => {
                 if (!el.hasAttribute('data-aos')) el.setAttribute('data-aos', 'fade-up');
+                if (!el.hasAttribute('data-aos-delay')) el.setAttribute('data-aos-delay', '100');
             });
         }
         if (window.gsap) {
@@ -462,8 +501,41 @@ document.addEventListener('DOMContentLoaded', () => {
             revealTargets.forEach(el => { el.classList.add('reveal-item'); ioReveal.observe(el); });
         }
 
+    // Interactive tilt on cards (desktop only)
+    (function(){
+        const supportsHover = window.matchMedia('(hover: hover)').matches;
+        if (!supportsHover) return;
+        const cards = document.querySelectorAll('.service-card, .project-card');
+        cards.forEach(card => {
+            const handler = (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left; const y = e.clientY - rect.top;
+                const rx = ((y / rect.height) - 0.5) * -6;
+                const ry = ((x / rect.width) - 0.5) * 6;
+                card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+            };
+            const reset = () => { card.style.transform = ''; };
+            card.addEventListener('mousemove', handler);
+            card.addEventListener('mouseleave', reset);
+            card.addEventListener('blur', reset);
+        });
+        const hero = document.querySelector('.hero-image-container-modern');
+        if (hero) {
+            const onMove = (e) => {
+                const rect = hero.getBoundingClientRect();
+                const x = e.clientX - rect.left; const y = e.clientY - rect.top;
+                const rx = ((y / rect.height) - 0.5) * -4;
+                const ry = ((x / rect.width) - 0.5) * 4;
+                hero.style.transform += ` rotateX(${rx}deg) rotateY(${ry}deg)`;
+            };
+            const resetHero = () => { hero.style.transform = ''; };
+            hero.addEventListener('mousemove', onMove);
+            hero.addEventListener('mouseleave', resetHero);
+        }
+    })();
+
     // Back to top button
-    (function() {
+    (function(){
         let btn = document.querySelector('.back-to-top');
         if (!btn) {
             btn = document.createElement('button');
@@ -480,7 +552,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => smoothScrollTo(0, 600));
     })();
 
-    (function() {
+    (function(){
         let wa = document.querySelector('.cta-whatsapp');
         if (!wa) {
             wa = document.createElement('a');
@@ -514,6 +586,48 @@ document.addEventListener('DOMContentLoaded', () => {
                 : `Halo King Faisal,\n\nNama: ${name}\nEmail: ${email}\nJudul: ${subject}\nLayanan: ${service}\nPesan: ${message}`;
             const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
             window.open(url, '_blank');
+        });
+    })();
+
+    (function(){
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reduceMotion) {
+            const cards = Array.from(document.querySelectorAll('.project-card'));
+            const update = () => {
+                cards.forEach(card => {
+                    const img = card.querySelector('.project-image');
+                    if (!img) return;
+                    const rect = card.getBoundingClientRect();
+                    const vh = window.innerHeight;
+                    if (rect.top > vh || rect.bottom < 0) return;
+                    const mid = rect.top + rect.height / 2;
+                    const dist = (mid - vh / 2) / vh;
+                    const ty = dist * -20;
+                    const sc = 1 + Math.max(-0.01, Math.min(0.02, -dist * 0.04));
+                    img.style.transform = `translateY(${ty.toFixed(1)}px) scale(${sc.toFixed(3)})`;
+                });
+            };
+            window.addEventListener('scroll', update, { passive: true });
+            update();
+        }
+    })();
+
+    (function(){
+        const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .submit-btn-modern');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function(e){
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const r = document.createElement('span');
+                r.className = 'ripple';
+                r.style.left = x + 'px';
+                r.style.top = y + 'px';
+                const maxDim = Math.max(rect.width, rect.height);
+                r.style.width = r.style.height = maxDim + 'px';
+                this.appendChild(r);
+                setTimeout(() => { r.remove(); }, 600);
+            }, { passive: true });
         });
     })();
 
