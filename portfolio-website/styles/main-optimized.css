@@ -3391,6 +3391,7 @@ img, video, canvas { max-width: 100%; height: auto; }
 @media (max-width: 1024px) {
   .nav-menu { gap: var(--space-md); }
 }
+@media (max-width: 768px) { .nav-menu:not(.active) { display: none !important; } }
 
 .footer-modern { position: relative; background: linear-gradient(180deg, rgba(10,10,14,0.85), rgba(10,10,14,0.95)); padding: var(--space-3xl) 0 var(--space-xl); border-top: 1px solid rgba(255,255,255,0.08); }
 .footer-modern::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--gradient-primary); opacity: 0.55; }
