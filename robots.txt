@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://portofolio-kingfaisal.vercel.app/sitemap.xml
