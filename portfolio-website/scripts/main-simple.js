@@ -365,13 +365,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             if (!isDeleting && charIndex === currentWord.length) {
-                setTimeout(() => isDeleting = true, 2000);
+                setTimeout(() => isDeleting = true, 3000);
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 wordIndex = (wordIndex + 1) % words.length;
             }
             
-            setTimeout(typeEffect, isDeleting ? 50 : 100);
+            setTimeout(typeEffect, isDeleting ? 80 : 150);
         }
         
         typeEffect();

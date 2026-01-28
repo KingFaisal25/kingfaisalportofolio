@@ -70,7 +70,7 @@
   --border-radius-lg: var(--radius-lg);
   --icon-size-sm: 16px;
   --icon-size-md: 24px;
-  --icon-size-lg: 32px;
+  --icon-size-lg: 82px;
 
   /* Unified Background System */
   --unified-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
@@ -3982,48 +3982,25 @@ img, video, canvas { max-width: 100%; height: auto; }
   height: 40px;
   display: grid;
   place-items: center;
-  border-radius: 10px;
-  background: var(--gradient-modern);
-  box-shadow: var(--shadow-neon);
-  border: 1px solid rgba(255,255,255,0.16);
-  overflow: hidden;
 }
 
 .brand-logo .logo-chip {
-  font-size: 16px;
-  color: #fff;
+  font-size: 24px;
+  color: var(--primary-400);
   z-index: 2;
   position: relative;
-  filter: drop-shadow(0 0 2px rgba(0,255,255,0.6));
 }
 
 .brand-logo .logo-bracket {
   position: absolute;
-  font-size: 10px;
-  color: rgba(255,255,255,0.8);
-  bottom: 4px;
-  right: 4px;
+  font-size: 30px;
+  color: var(--accent-400);
+  bottom: 5px;
+  right: 5px;
   z-index: 3;
-  filter: drop-shadow(0 0 1px rgba(0,255,255,0.8));
 }
 
-.brand-logo .logo-glow {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: radial-gradient(circle, rgba(0,255,255,0.4) 0%, transparent 70%);
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: pulseGlow 2s ease-in-out infinite alternate;
-  z-index: 1;
-}
 
-@keyframes pulseGlow {
-  0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.8); }
-  100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.2); }
-}
 
 .brand-logo .logo-name { 
   color: var(--text-100); 
@@ -4089,17 +4066,16 @@ img, video, canvas { max-width: 100%; height: auto; }
   .brand-logo .logo-container {
     width: 36px;
     height: 36px;
-    border-radius: 8px;
   }
   
   .brand-logo .logo-chip {
-    font-size: 14px;
+    font-size: 20px;
   }
   
   .brand-logo .logo-bracket {
-    font-size: 9px;
-    bottom: 3px;
-    right: 3px;
+    font-size: 12px;
+    bottom: 2px;
+    right: 2px;
   }
   
   .brand-logo .logo-name {
@@ -4114,13 +4090,13 @@ img, video, canvas { max-width: 100%; height: auto; }
   }
   
   .brand-logo .logo-chip {
-    font-size: 12px;
+    font-size: 18px;
   }
   
   .brand-logo .logo-bracket {
-    font-size: 8px;
-    bottom: 2px;
-    right: 2px;
+    font-size: 11px;
+    bottom: 1px;
+    right: 1px;
   }
   
   .brand-logo .logo-name {
