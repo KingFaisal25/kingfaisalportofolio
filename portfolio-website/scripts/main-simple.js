@@ -7,15 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const navMenu = document.querySelector('.nav-menu');
     if (navMenu) navMenu.classList.remove('active');
-    if (mobileMenuToggle) mobileMenuToggle.setAttribute('aria-expanded', 'false');
+    if (mobileMenuToggle) mobileMenuToggle.setAttribute('aria-expanded', 'true');
 
     // Language toggle & i18n
     const i18n = {
         en: {
             nav: { home: 'Home', about: 'About', services: 'Services', projects: 'Projects', skills: 'Skills', contact: 'Contact' },
             badge: '🚀 Available for new projects',
-            heroTitle: '<span class="gradient-text">King Faisal</span> — <span class="title-accent">IT Engineer & Enterprise Solutions</span>',
-            heroDescription: '🚀 Professional in <strong>IT Engineering</strong> and <strong>Enterprise Architecture</strong> focusing on <span class="highlight-tech">Cybersecurity</span>, <span class="highlight-tech">Database Architecture</span>, and <span class="highlight-tech">Cloud Infrastructure</span>. I design <strong>scalable</strong>, <strong>secure</strong>, and <strong>high‑performance</strong> solutions to accelerate your digital transformation.<br><br>I also deliver modern <strong>Web Development</strong> and <strong>Mobile Apps (Android/iOS)</strong> — responsive, fast, and results‑oriented to grow your brand and business.',
+            heroTitle: '<span class="gradient-text">King Faisal</span> <span class="title-accent">IT Engineer</span>',
+            heroDescription: '🚀 Professional in <strong>IT Engineering</strong>  focusing on <span class="highlight-tech">Cybersecurity</span>, <span class="highlight-tech">Database Architecture</span>, and <span class="highlight-tech">Cloud Infrastructure</span>. I design <strong>scalable</strong>, <strong>secure</strong>, and <strong>high‑performance</strong> solutions to accelerate your digital transformation.<br><br>I also deliver modern <strong>Web Development</strong> and <strong>Mobile Apps (Android/iOS)</strong> — responsive, fast, and results‑oriented to grow your brand and business.',
             ctaPrimary: '<i class="fas fa-globe"></i> 🌐 Order Website & App',
             ctaSecondary: '<i class="fas fa-comments"></i> 💬 Free Consultation',
             footer: { nav: 'Navigation', services: 'Services', contact: 'Contact' },
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             misc: { backToTop: 'Back to top', breadcrumbHome: 'Home' },
             dict: {
                 'contact.cta.form': '<i class="fas fa-edit"></i> Fill Project Form',
-                'hero.status': '🟢 Available for Projects',
+                'hero.status': '🟢 Available for new Projects',
                 'services.badge': 'Services',
                 'services.title': 'End‑to‑End Digital Solutions',
                 'services.desc': 'Integrated services for <span class="gradient-text">modern websites</span>, <span class="gradient-text">mobile applications</span>, and <span class="gradient-text">security & operations</span> with high performance and measurable outcomes.',
@@ -66,8 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
         id: {
             nav: { home: 'Beranda', about: 'Tentang', services: 'Layanan', projects: 'Projek', skills: 'Keahlian', contact: 'Kontak' },
             badge: '🚀 Tersedia untuk proyek baru',
-            heroTitle: '<span class="gradient-text">King Faisal</span> — <span class="title-accent">IT Engineer & Enterprise Solutions</span>',
-            heroDescription: '🚀 Profesional di bidang <strong>IT Engineering</strong> dan <strong>Enterprise Architecture</strong> yang fokus pada <span class="highlight-tech">Keamanan Siber</span>, <span class="highlight-tech">Arsitektur Database</span>, dan <span class="highlight-tech">Infrastruktur Cloud</span>. Saya merancang solusi yang <strong>scalable</strong>, <strong>aman</strong>, dan <strong>berkinerja tinggi</strong> untuk mempercepat transformasi digital Anda.<br><br>Saya juga menerima <strong>Pembuatan Website</strong> dan <strong>Aplikasi (Android/iOS)</strong> modern yang responsif, cepat, dan berorientasi hasil — siap membantu brand dan bisnis Anda tumbuh.',
+            heroTitle: '<span class="gradient-text">King Faisal</span> <span class="title-accent">IT Engineer</span>',
+            heroDescription: '🚀 Profesional di bidang <strong>IT Engineering</strong> dan <strong>Enterprise Architecture</strong> yang fokus pada <span class="highlight-tech">Keamanan Siber</span>, <span class="highlight-tech">Arsitektur Database</span>, dan <span class="highlight-tech">Infrastruktur Cloud</span>. Saya merancang solusi yang <strong>scalable</strong>, <strong>aman</strong>, dan <strong>berkinerja tinggi</strong> untuk mempercepat transformasi digital Anda.<br><br>Menerima <strong>Pembuatan Website</strong> dan <strong>Aplikasi (Android/iOS)</strong> modern yang responsif, cepat, dan berorientasi hasil — siap membantu brand dan bisnis Anda tumbuh.',
             ctaPrimary: '<i class="fas fa-globe"></i> 🌐 Pesan Jasa Website & Aplikasi',
             ctaSecondary: '<i class="fas fa-comments"></i> 💬 Konsultasi Gratis',
             footer: { nav: 'Navigasi', services: 'Layanan', contact: 'Kontak' },
@@ -80,10 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
             misc: { backToTop: 'Kembali ke atas', breadcrumbHome: 'Beranda' },
             dict: {
                 'contact.cta.form': '<i class="fas fa-edit"></i> Isi Form Proyek',
-                'hero.status': '🟢 Tersedia untuk Proyek',
+                'hero.status': '🟢 Tersedia untuk Proyek Baru',
                 'services.badge': 'Layanan',
                 'services.title': 'Solusi Digital End‑to‑End',
-                'services.desc': 'Layanan terintegrasi untuk <span class="gradient-text">website modern</span>, <span class="gradient-text">aplikasi mobile</span>, dan <span class="gradient-text">keamanan & operasi</span> dengan performa tinggi serta hasil yang terukur.',
+                'services.desc': 'Layanan terintegr asi untuk <span class="gradient-text">website modern</span>, <span class="gradient-text">aplikasi mobile</span>, dan <span class="gradient-text">keamanan & operasi</span> dengan performa tinggi serta hasil yang terukur.',
                 'services.web.title': 'Pembuatan Website',
                 'services.web.text': 'Company profile, landing page, e‑commerce, dan dashboard admin dengan desain modern, SEO‑ready, akses cepat, dan konversi optimal.',
                 'services.web.cta': '<i class="fas fa-rocket"></i> Pesan Sekarang',
