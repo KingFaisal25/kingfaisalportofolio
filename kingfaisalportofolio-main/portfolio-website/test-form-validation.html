@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation Test</title>
+    <link rel="stylesheet" href="styles/contact-form-modern.css">
+    <style>
+        body { padding: 2rem; background: #f8f9fa; }
+        .test-container { max-width: 600px; margin: 0 auto; }
+        .test-result { margin: 1rem 0; padding: 1rem; border-radius: 8px; }
+        .test-success { background: #d4edda; color: #155724; }
+        .test-error { background: #f8d7da; color: #721c24; }
+        .test-info { background: #d1ecf1; color: #0c5460; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Form Validation Test</h1>
+        <div id="test-results"></div>
+        
+        <!-- Test form from index.html -->
+        <form class="contact-form-modern" id="testForm" novalidate>
+            <div class="form-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="progress-text">0% lengkap</div>
+            </div>
+            
+            <div class="form-group floating-label">
+                <input type="text" 
+                       id="test-name" 
+                       name="name" 
+                       class="form-control" 
+                       placeholder=" " 
+                       data-validate="text"
+                       data-required-message="Nama lengkap wajib diisi"
+                       data-min-length="2"
+                       data-min-length-message="Nama minimal 2 karakter"
+                       required>
+                <label for="test-name" class="form-label">Nama Lengkap</label>
+                <div class="input-group-prepend">
+                    <i class="fas fa-user input-icon"></i>
+                </div>
+            </div>
+            
+            <div class="form-group floating-label">
+                <input type="email" 
+                       id="test-email" 
+                       name="email" 
+                       class="form-control" 
+                       placeholder=" " 
+                       data-validate="email"
+                       data-required-message="Email wajib diisi"
+                       data-email-message="Format email tidak valid"
+                       required>
+                <label for="test-email" class="form-label">Alamat Email</label>
+                <div class="input-group-prepend">
+                    <i class="fas fa-envelope input-icon"></i>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit" class="btn-submit">
+                    <span class="btn-text">Test Submit</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+    
+    <script src="scripts/contact-form-validation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const resultsDiv = document.getElementById('test-results');
+            
+            function addResult(message, type = 'info') {
+                const result = document.createElement('div');
+                result.className = `test-result test-${type}`;
+                result.textContent = message;
+                resultsDiv.appendChild(result);
+            }
+            
+            // Test 1: Check if ContactFormValidator exists
+            try {
+                if (typeof ContactFormValidator === 'function') {
+                    addResult('✅ ContactFormValidator class found', 'success');
+                } else {
+                    addResult('❌ ContactFormValidator class not found', 'error');
+                    return;
+                }
+            } catch (e) {
+                addResult(`❌ Error checking ContactFormValidator: ${e.message}`, 'error');
+                return;
+            }
+            
+            // Test 2: Initialize validator
+            try {
+                const validator = new ContactFormValidator('#testForm');
+                addResult('✅ Form validator initialized successfully', 'success');
+                
+                // Test 3: Test field validation
+                const nameInput = document.getElementById('test-name');
+                const emailInput = document.getElementById('test-email');
+                
+                // Test empty validation
+                const isNameValid = validator.validateField('name', '');
+                addResult(`Empty name validation: ${isNameValid ? 'Valid' : 'Invalid'} (should be invalid)`, isNameValid ? 'error' : 'success');
+                
+                // Test valid name
+                const isValidNameValid = validator.validateField('name', 'John Doe');
+                addResult(`Valid name validation: ${isValidNameValid ? 'Valid' : 'Invalid'} (should be valid)`, isValidNameValid ? 'success' : 'error');
+                
+                // Test email validation
+                const isInvalidEmailValid = validator.validateField('email', 'invalid-email');
+                addResult(`Invalid email validation: ${isInvalidEmailValid ? 'Valid' : 'Invalid'} (should be invalid)`, isInvalidEmailValid ? 'error' : 'success');
+                
+                const isValidEmailValid = validator.validateField('email', 'john@example.com');
+                addResult(`Valid email validation: ${isValidEmailValid ? 'Valid' : 'Invalid'} (should be valid)`, isValidEmailValid ? 'success' : 'error');
+                
+                // Test 4: Test form data
+                nameInput.value = 'John Doe';
+                emailInput.value = 'john@example.com';
+                const formData = validator.getFormData();
+                addResult(`Form data: ${JSON.stringify(formData)}`, 'info');
+                
+            } catch (e) {
+                addResult(`❌ Error testing validator: ${e.message}`, 'error');
+                console.error('Validation test error:', e);
+            }
+        });
+    </script>
+</body>
+</html>

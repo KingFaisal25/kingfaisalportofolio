@@ -1,0 +1,884 @@
+/* ===== ENHANCED MICRO-INTERACTIONS & ANIMATIONS ===== */
+
+/* Loading Animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== CREATIVE ICON ANIMATIONS ===== */
+
+/* Floating Icons Animation */
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-8px) rotate(5deg);
+  }
+  66% {
+    transform: translateY(4px) rotate(-3deg);
+  }
+}
+
+/* Rotating Icons with Glow */
+@keyframes iconRotateGlow {
+  0% {
+    transform: rotate(0deg);
+    filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.8));
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5));
+  }
+}
+
+/* Bounce Animation */
+@keyframes iconBounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-7px);
+  }
+}
+
+/* Pulse with Color Shift */
+@keyframes iconPulseColor {
+  0%, 100% {
+    transform: scale(1);
+    color: var(--accent-500);
+  }
+  50% {
+    transform: scale(1.1);
+    color: #00ff88;
+  }
+}
+
+/* Wave Animation */
+@keyframes iconWave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(15deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+}
+
+/* 3D Flip Animation */
+@keyframes iconFlip3D {
+  0% {
+    transform: perspective(400px) rotateY(0);
+  }
+  50% {
+    transform: perspective(400px) rotateY(180deg);
+  }
+  100% {
+    transform: perspective(400px) rotateY(360deg);
+  }
+}
+
+/* Gradient Shift Animation */
+@keyframes iconGradientShift {
+  0% {
+    background: linear-gradient(135deg, var(--accent-500), #0099cc);
+  }
+  50% {
+    background: linear-gradient(135deg, #00ff88, var(--accent-500));
+  }
+  100% {
+    background: linear-gradient(135deg, var(--accent-500), #0099cc);
+  }
+}
+
+/* Hover Effects */
+@keyframes iconHover {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* ===== ICON ANIMATION CLASSES ===== */
+
+/* Social Media Icons */
+.social-icon {
+  animation: iconFloat 6s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  animation: iconRotateGlow 2s ease-in-out infinite, iconBounce 2s ease-in-out;
+  transform: scale(1.2);
+}
+
+/* Navigation Icons */
+.nav-icon {
+  animation: iconWave 4s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.nav-icon:hover {
+  animation: iconPulseColor 1.5s ease-in-out infinite;
+  transform: scale(1.1);
+}
+
+/* Skill Icons */
+.skill-icon {
+  animation: iconFloat 5s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.skill-icon:hover {
+  animation: iconRotateGlow 1.8s ease-in-out infinite;
+  transform: scale(1.15);
+}
+
+/* Tech Stack Icons */
+.tech-icon {
+  animation: iconHover 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.tech-icon:hover {
+  animation: iconBounce 1s ease-in-out, iconPulseColor 2s ease-in-out infinite;
+  transform: scale(1.1);
+}
+
+/* Project Icons */
+.project-icon {
+  animation: iconWave 6s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.project-icon:hover {
+  animation: iconFlip3D 2s ease-in-out forwards;
+  transform: scale(1.1);
+}
+
+/* Decorative Icons */
+.decorative-icon {
+  animation: iconFloat 8s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.decorative-icon:hover {
+  animation: iconRotateGlow 3s ease-in-out infinite, iconBounce 1s ease-in-out;
+  transform: scale(1.25);
+}
+
+/* Special Effects for Specific Icons */
+.icon-react {
+  animation: iconRotateGlow 8s linear infinite;
+}
+
+.icon-database {
+  animation: iconPulseColor 4s ease-in-out infinite;
+}
+
+.icon-shield {
+  animation: iconBounce 3s ease-in-out infinite;
+}
+
+.icon-code {
+  animation: iconWave 5s ease-in-out infinite;
+}
+
+.icon-cloud {
+  animation: iconFloat 7s ease-in-out infinite;
+}
+
+/* Performance Optimized Animations */
+@media (prefers-reduced-motion: reduce) {
+  .social-icon,
+  .nav-icon,
+  .skill-icon,
+  .tech-icon,
+  .project-icon,
+  .decorative-icon {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Responsive Animation Adjustments */
+@media (max-width: 768px) {
+  .social-icon,
+  .nav-icon,
+  .skill-icon,
+  .tech-icon,
+  .project-icon,
+  .decorative-icon {
+    animation-duration: 1.5s !important;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Loading States */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.loading-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid var(--accent-500);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* ===== ADVANCED ROTATING IMAGE COMPONENT ===== */
+
+/* Rotating Image Container */
+.rotating-image-container {
+  position: relative;
+  width: clamp(220px, 24vw, 360px);
+  height: clamp(220px, 24vw, 360px);
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+/* Circular Mask for Image */
+.rotating-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 60px rgba(0, 212, 255, 0.2) inset;
+}
+
+/* Rotating Image */
+.rotating-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  animation: smoothRotate 20s linear infinite;
+  transition: animation-duration 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth Rotation Animation */
+@keyframes smoothRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Paused State */
+.rotating-image.paused {
+  animation-play-state: paused;
+}
+
+/* Control Panel */
+.rotation-controls {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 12px 20px;
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 10;
+}
+
+/* Control Buttons */
+.control-btn {
+  background: var(--accent-500);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  will-change: transform;
+}
+
+.control-btn:hover {
+  background: var(--accent-400);
+  transform: scale(1.1);
+}
+
+.control-btn:active {
+  transform: scale(0.95);
+}
+
+/* Speed Control */
+.speed-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  font-size: 12px;
+}
+
+.speed-slider {
+  width: 80px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.speed-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent-500);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.speed-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent-500);
+  cursor: pointer;
+  border: none;
+}
+
+/* Performance Optimizations */
+.rotating-image-container {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.rotating-image {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .rotating-image {
+    animation: none !important;
+  }
+  
+  .rotation-controls {
+    display: none !important;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .rotating-image-container {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .rotation-controls {
+    bottom: -50px;
+    padding: 10px 16px;
+  }
+  
+  .control-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+  
+  .speed-control {
+    font-size: 11px;
+  }
+  
+  .speed-slider {
+    width: 60px;
+  }
+}
+
+/* Button Animations */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-primary {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+}
+
+.btn-secondary:hover {
+  background: var(--accent-500);
+  color: var(--primary-900);
+  transform: translateY(-2px);
+}
+
+/* Image Animations - Automatic Continuous */
+.hero-image-frame img,
+.about-image {
+  transform-origin: center;
+  will-change: transform, filter, box-shadow;
+  backface-visibility: hidden;
+}
+
+/* Floating Animation */
+@keyframes gentleFloat {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  33% { 
+    transform: translateY(-6px) rotate(1deg); 
+  }
+  66% { 
+    transform: translateY(4px) rotate(-1deg); 
+  }
+}
+
+/* Glow Pulse Animation */
+@keyframes subtleGlow {
+  0%, 100% { 
+    box-shadow: 
+      0 10px 30px rgba(0, 212, 255, 0.2),
+      0 0 60px rgba(102, 126, 234, 0.15);
+  }
+  50% { 
+    box-shadow: 
+      0 15px 45px rgba(0, 212, 255, 0.35),
+      0 0 90px rgba(102, 126, 234, 0.25);
+  }
+}
+
+/* Apply Continuous Animations */
+.hero-image-frame img {
+  animation: 
+    gentleFloat 8s ease-in-out infinite,
+    subtleGlow 4s ease-in-out infinite;
+}
+
+.about-image {
+  animation: gentleFloat 10s ease-in-out infinite;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .hero-image-frame img,
+  .about-image {
+    animation: none;
+  }
+}
+
+/* Card Animations */
+.service-card,
+.project-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+.service-card:hover,
+.project-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.service-card::after,
+.project-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-card:hover::after,
+.project-card:hover::after {
+  opacity: 1;
+}
+
+/* Navigation Animations */
+.nav-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-500);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Hero Section Animations */
+.hero-title {
+  animation: slideInFromBottom 1s ease-out;
+}
+
+.hero-subtitle {
+  animation: slideInFromBottom 1s ease-out 0.2s both;
+}
+
+.hero-description {
+  animation: slideInFromBottom 1s ease-out 0.4s both;
+}
+
+.hero-actions {
+  animation: slideInFromBottom 1s ease-out 0.6s both;
+}
+
+.hero-tech-showcase {
+  animation: slideInFromBottom 1s ease-out 0.8s both;
+}
+
+/* Typing Animation */
+.typing-text {
+  overflow: hidden;
+  border-right: 2px solid var(--accent-500);
+  white-space: nowrap;
+  animation: typewriter 3s steps(40) 1s both, blink 0.75s step-end infinite;
+}
+
+/* Section Reveal Animations */
+.section-header {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.section-header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card,
+.project-card {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease;
+}
+
+.service-card.visible,
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover Effects for Tech Icons */
+.tech-icon-item {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.tech-icon-item:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+}
+
+.tech-icon-item i {
+  transition: transform 0.3s ease;
+}
+
+.tech-icon-item:hover i {
+  transform: scale(1.2);
+}
+
+/* Progress Bar Animation */
+.progress-bar {
+  transition: width 0.1s ease;
+}
+
+/* Image Loading Animation */
+img {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+img.loaded {
+  opacity: 1;
+}
+
+/* Form Input Animations */
+input,
+textarea {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--accent-500);
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+/* Social Media Icons */
+.social-link {
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-3px) rotate(5deg);
+  filter: drop-shadow(0 5px 15px rgba(0, 212, 255, 0.4));
+}
+
+/* Back to Top Button */
+.back-to-top {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+  animation: pulse 1s infinite;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .typing-text {
+    animation: none;
+    border-right: none;
+    white-space: normal;
+  }
+}
+
+/* Performance Optimized Animations */
+.optimized-animate {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Touch Device Optimizations */
+.touch-device .btn:hover,
+.touch-device .service-card:hover,
+.touch-device .project-card:hover {
+  transform: none;
+}
+
+.touch-device .btn:active,
+.touch-device .service-card:active,
+.touch-device .project-card:active {
+  transform: scale(0.98);
+}
+
+/* Loading States for Async Content */
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  100% {
+    left: 100%;
+  }
+}
+
+/* Success/Error States */
+.success {
+  animation: successPulse 0.6s ease;
+}
+
+@keyframes successPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.error {
+  animation: errorShake 0.5s ease;
+}
+
+@keyframes errorShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
