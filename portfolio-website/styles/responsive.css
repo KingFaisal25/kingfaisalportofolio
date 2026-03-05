@@ -7,6 +7,197 @@
   padding: 0 1rem;
 }
 
+/* ===== KEYCHAIN SECTION MOBILE RESPONSIVENESS ===== */
+
+/* Mobile: 320px - 480px */
+@media (max-width: 480px) {
+  .skills-section-keychain {
+    min-height: clamp(80px, 65vh, 500px) !important;
+    padding: var(--spacing-xl) 0 var(--spacing-3xl) !important;
+  }
+  
+  .skills-section-keychain .scene {
+    padding: 0 8px !important;
+  }
+  
+  .skills-section-keychain .keychain-card {
+    width: 94vw !important;
+    min-height: 380px !important;
+    padding: 0 0 clamp(12px, 2vw, 16px) 0 !important;
+    border-radius: clamp(16px, 2.5vw, 20px) !important;
+  }
+  
+  .skills-section-keychain .skills-body {
+    grid-template-columns: 1fr !important;
+    gap: clamp(12px, 2vw, 16px) !important;
+    padding: 0 clamp(12px, 3vw, 16px) clamp(14px, 3vw, 20px) !important;
+  }
+  
+  .skills-section-keychain .skill-category {
+    padding: clamp(10px, 2vw, 14px) !important;
+    border-radius: 16px !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .skills-section-keychain .skills-list {
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)) !important;
+    gap: 8px !important;
+  }
+  
+  .skills-section-keychain .skill-item {
+    gap: 6px !important;
+  }
+  
+  .skills-section-keychain .skill-icon-box {
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 16px !important;
+    border-radius: 12px !important;
+  }
+  
+  .skills-section-keychain .skill-name {
+    font-size: 10px !important;
+  }
+  
+  .skills-section-keychain .category-label {
+    font-size: 10px !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .skills-section-keychain .skills-title {
+    font-size: 16px !important;
+    margin: var(--spacing-sm) 0 var(--spacing-xl) !important;
+    letter-spacing: 0.1em !important;
+  }
+  
+  .skills-section-keychain .card-top {
+    padding-top: clamp(12px, 2vw, 16px) !important;
+  }
+  
+  .skills-section-keychain .card-hole {
+    width: 18px !important;
+    height: 18px !important;
+    border-width: 2px !important;
+  }
+  
+  .skills-section-keychain .carabiner {
+    width: clamp(200px, 35vw, 280px) !important;
+    height: clamp(32px, 5vw, 42px) !important;
+  }
+  
+  .skills-section-keychain .wire {
+    height: clamp(18px, 3vw, 24px) !important;
+  }
+  
+  .skills-section-keychain .ceiling-mount {
+    width: 48px !important;
+    height: 18px !important;
+  }
+  
+  /* Hide some particles on mobile to improve performance */
+  .skills-section-keychain .particle:nth-child(n+7) {
+    display: none !important;
+  }
+}
+
+/* Tablet: 481px - 768px */
+@media (min-width: 481px) and (max-width: 768px) {
+  .skills-section-keychain {
+    min-height: clamp(100px, 72vh, 600px) !important;
+    padding: var(--spacing-2xl) 0 var(--spacing-4xl) !important;
+  }
+  
+  .skills-section-keychain .keychain-card {
+    width: 92vw !important;
+    min-height: 450px !important;
+    border-radius: clamp(18px, 2.5vw, 24px) !important;
+  }
+  
+  .skills-section-keychain .skills-body {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+    gap: clamp(14px, 2vw, 20px) !important;
+    padding: 0 clamp(16px, 3vw, 24px) clamp(16px, 3vw, 28px) !important;
+  }
+  
+  .skills-section-keychain .skill-category {
+    padding: clamp(12px, 2vw, 16px) !important;
+    border-radius: 18px !important;
+  }
+  
+  .skills-section-keychain .skills-list {
+    grid-template-columns: repeat(auto-fit, minmax(55px, 1fr)) !important;
+    gap: 10px !important;
+  }
+  
+  .skills-section-keychain .skill-icon-box {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 18px !important;
+  }
+  
+  .skills-section-keychain .skill-name {
+    font-size: 11px !important;
+  }
+  
+  .skills-section-keychain .category-label {
+    font-size: 11px !important;
+  }
+  
+  .skills-section-keychain .skills-title {
+    font-size: 18px !important;
+    margin: var(--spacing-md) 0 var(--spacing-2xl) !important;
+  }
+  
+  .skills-section-keychain .carabiner {
+    width: clamp(240px, 38vw, 320px) !important;
+    height: clamp(36px, 5.5vw, 48px) !important;
+  }
+  
+  .skills-section-keychain .wire {
+    height: clamp(20px, 3.5vw, 28px) !important;
+  }
+}
+
+/* Small Mobile: 320px - 375px */
+@media (max-width: 375px) {
+  .skills-section-keychain .skills-body {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    padding: 0 8px clamp(12px, 2vw, 16px) !important;
+  }
+  
+  .skills-section-keychain .skills-list {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px !important;
+  }
+  
+  .skills-section-keychain .skill-icon-box {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 15px !important;
+  }
+  
+  .skills-section-keychain .skill-name {
+    font-size: 9px !important;
+    line-height: 1.2 !important;
+  }
+  
+  .skills-section-keychain .category-label {
+    font-size: 9px !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .skills-section-keychain .skills-title {
+    font-size: 15px !important;
+    margin: var(--spacing-xs) 0 var(--spacing-lg) !important;
+  }
+  
+  .skills-section-keychain .keychain-card {
+    width: 96vw !important;
+    min-height: 360px !important;
+  }
+}
+
 /* Navigation - Mobile First */
 .navbar-clean {
   position: fixed;
