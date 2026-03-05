@@ -1,100 +1,110 @@
 <!DOCTYPE html>
 <html lang="id" dir="ltr">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     <title>Portofolio King Faisal</title>
-    <meta name="description" content="Portofolio profesional King Faisal – pengalaman, project, skill, layanan, dan kontak." />
+    <meta name="description"
+        content="Portofolio profesional King Faisal – pengalaman, project, skill, layanan, dan kontak." />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="King Faisal" />
-    <meta name="keywords" content="Senior IT Engineer, Cybersecurity Specialist, Database Architect, Cloud Infrastructure, Full Stack Developer, DevOps Engineer, IT Consultant, Enterprise Architecture, Digital Transformation" />
+    <meta name="keywords"
+        content="Senior IT Engineer, Cybersecurity Specialist, Database Architect, Cloud Infrastructure, Full Stack Developer, DevOps Engineer, IT Consultant, Enterprise Architecture, Digital Transformation" />
     <meta name="author" content="King Faisal - IT Engineer" />
-    
+
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Portofolio King Faisal" />
-    <meta property="og:description" content="Portofolio profesional King Faisal – pengalaman, project, skill, layanan, dan kontak." />
+    <meta property="og:description"
+        content="Portofolio profesional King Faisal – pengalaman, project, skill, layanan, dan kontak." />
     <meta property="og:url" content="https://portofolio-kingfaisal.vercel.app/portfolio-website/index.html" />
     <meta property="og:image" content="https://kingfaisal.dev/portfolio-website/src/foto/faisal.jpg" />
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Portofolio King Faisal" />
-    <meta name="twitter:description" content="Portofolio profesional King Faisal – pengalaman, project, skill, layanan, dan kontak." />
+    <meta name="twitter:description"
+        content="Portofolio profesional King Faisal – pengalaman, project, skill, layanan, dan kontak." />
     <meta name="twitter:image" content="https://kingfaisal.dev/portfolio-website/src/foto/faisal.jpg" />
-    
+
     <!-- Theme & Icons -->
     <meta name="theme-color" content="#0a0a0a" />
     <meta name="msapplication-TileColor" content="#0a0a0a" />
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+        rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
-    
+
     <!-- Icons & Animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
+        rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-    
+
     <!-- Modern Design System (disabled: files not present) -->
-    
+
     <!-- Responsive Design -->
     <link rel="stylesheet" href="styles/responsive.css" />
-    
+
     <!-- Animations & Micro-interactions -->
     <link rel="stylesheet" href="styles/animations.css" />
-    
+
     <!-- Hero Section Redesign -->
     <link rel="stylesheet" href="styles/hero-redesign.css" />
-    
+
     <!-- Legacy Styles (backup) -->
     <link rel="stylesheet" href="styles/main-optimized.css" />
-    
+
     <!-- Testimonial Animations -->
     <link rel="stylesheet" href="styles/testimonial-animations.css" />
-    
+
     <!-- Modern Testimonials Styles -->
     <link rel="stylesheet" href="styles/testimonials-modern.css" />
-    
+
     <!-- Modern Testimonial Card Design -->
     <link rel="stylesheet" href="styles/testimonial-modern.css" />
-    
+
     <!-- Testimonial Marquee Styles -->
     <link rel="stylesheet" href="styles/testimonial-marquee.css" />
-    
+
     <!-- Modern Footer Styles -->
     <link rel="stylesheet" href="styles/footer-modern.css" />
-    
+
     <!-- Modern Contact Form Styles -->
     <link rel="stylesheet" href="styles/contact-form-modern.css" />
     <link rel="stylesheet" href="styles/contact-form-additions.css" />
-    
+
     <!-- Modern Tech Showcase Styles -->
     <link rel="stylesheet" href="styles/tech-showcase-modern.css" />
-    
+
     <!-- Modern Skills Card Styles -->
     <link rel="stylesheet" href="styles/modern-skills-card.css" />
-    
+
     <!-- Audio Controls Styles -->
     <link rel="stylesheet" href="styles/audio-controls.css" />
-    
+
     <!-- Security & Performance -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data:; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https:; script-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; connect-src 'self' https:; font-src 'self' https: data:;" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' https: data:; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https:; script-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; connect-src 'self' https:; font-src 'self' https: data:;" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
     <meta http-equiv="X-Frame-Options" content="DENY" />
     <meta name="referrer" content="no-referrer" />
-    
+
     <!-- Preload Critical Resources -->
     <link rel="preload" as="image" href="src/foto/faisal.jpg" />
     <link rel="preload" as="script" href="scripts/responsive.js" />
     <link rel="canonical" href="https://portofolio-kingfaisal.vercel.app/portfolio-website/index.html" />
-    <script type="application/ld+json"> 
+    <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
@@ -135,6 +145,7 @@
     }
     </script>
 </head>
+
 <body>
     <a href="#home" class="skip-link">Lewati ke konten utama</a>
     <div id="page-loader" aria-hidden="true">
@@ -159,8 +170,8 @@
                     </div>
                     <span class="logo-name">King Faisal</span>
                 </div>
-                </div>
-            
+            </div>
+
             <div class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
                 <a href="#home" class="nav-link active" data-section="home" aria-current="page">
                     <span class="nav-icon mi">home</span>
@@ -183,20 +194,21 @@
                     <span>Kontak</span>
                 </a>
             </div>
-            
+
             <div class="nav-actions">
                 <div class="lang-switch">
                     <button id="langToggle" class="lang-toggle" aria-label="Ganti bahasa">EN</button>
                 </div>
-                <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Buka/Tutup menu" aria-expanded="f" aria-controls="navMenu">
+                <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Buka/Tutup menu" aria-expanded="f"
+                    aria-controls="navMenu">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
             </div>
-            </div>
         </div>
-        
+        </div>
+
         <!-- Progress Bar -->
         <div class="nav-progress">
             <div class="progress-bar" id="progressBar" role="progressbar" aria-valuemax="100" aria-valuenow="0"></div>
@@ -211,110 +223,120 @@
             <div class="hero-particles"></div>
             <div class="hero-code-bg">
                 <div class="code-lines">
-                    <span>// King Faisal -  IT Engineer</span>
+                    <span>// King Faisal - IT Engineer</span>
                     <span>const expertise = ['Enterprise Architecture', 'Cybersecurity', 'Cloud Solutions'];</span>
                     <span>const techStack = ['React', 'Node.js', 'AWS', 'Docker', 'Kubernetes'];</span>
                     <span>function buildSecureEnterpriseApps() { /**/ }</span>
                 </div>
             </div>
         </div>
-        
+
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-badge" data-aos="zoom-in" data-aos-delay="100">
                     <i class="fas fa-circle decorative-icon"></i>
                     <span>🚀 Tersedia untuk proyek baru</span>
                 </div>
-                
+
                 <h1 class="hero-title" data-aos="zoom-in" data-aos-delay="100" id="heroTitle">
                     <span class="gradient-text">King Faisal</span> <span class="title-accent">IT Engineer</span>
                 </h1>
-                
+
                 <div class="hero-subtitle" data-aos="zoom-in" data-aos-delay="200">
                     <span class="typing-text" id="typingText"></span>
                     <span class="typing-cursor">|</span>
                 </div>
-                
+
                 <p class="hero-description" data-aos="zoom-in" data-aos-delay="400" id="heroDescription">
-                    🚀 Profesional di bidang <strong>IT Engineering</strong> dan <strong>Enterprise Architecture</strong> yang fokus pada
-                    <span class="highlight-tech">Keamanan Siber</span>, <span class="highlight-tech">Arsitektur Database</span>, dan
-                    <span class="highlight-tech">Infrastruktur Cloud</span>. Saya merancang solusi yang <strong>scalable</strong>,
-                    <strong>aman</strong>, dan <strong>berkinerja tinggi</strong> untuk mempercepat transformasi digital Anda.
+                    🚀 Profesional di bidang <strong>IT Engineering</strong> dan <strong>Enterprise
+                        Architecture</strong> yang fokus pada
+                    <span class="highlight-tech">Keamanan Siber</span>, <span class="highlight-tech">Arsitektur
+                        Database</span>, dan
+                    <span class="highlight-tech">Infrastruktur Cloud</span>. Saya merancang solusi yang
+                    <strong>scalable</strong>,
+                    <strong>aman</strong>, dan <strong>berkinerja tinggi</strong> untuk mempercepat transformasi digital
+                    Anda.
                     <br><br>
                     menerima<strong>Pembuatan Website</strong> dan <strong>Aplikasi (Android/iOS)</strong> modern yang
                     responsif, cepat, dan berorientasi hasil — siap membantu brand dan bisnis Anda tumbuh.
                 </p>
-                
+
                 <div class="hero-actions" data-aos="zoom-in" data-aos-delay="400">
                     <a href="#services" class="btn-primary">
                         <i class="fas fa-globe skill-icon"></i>
-                        🌐 Pesan Jasa Website  & Aplikasi
+                        🌐 Pesan Jasa Website & Aplikasi
                     </a>
                     <a href="#contact" class="btn-secondary">
                         <i class="fas fa-comments skill-icon"></i>
                         💬 Konsultasi Gratis
                     </a>
                 </div>
-                
+
             </div>
-            
-    <div class="hero-visual" data-aos="zoom-in-up" data-aos-delay="900">
-                    <div class="hero-image-container-modern">
-                        <div class="hero-image-frame">
-                            <img src="src/foto/faisal.jpg" alt="King Faisal - IT Engineer Professional" decoding="async" loading="eager" fetchpriority="high" sizes="(max-width: 800px) 90vw, (max-width: 1024px) 50vw, 500px" />
-                            <div class="hero-orbit" aria-hidden="true">
-                                <span class="orbit-dot o1"><i class="fab fa-react tech-icon icon-react" aria-hidden="true"></i></span>
-                                <span class="orbit-dot o2"><i class="fas fa-shield-alt tech-icon icon-shield" aria-hidden="true"></i></span>
-                                <span class="orbit-dot o3"><i class="fab fa-node-js tech-icon" aria-hidden="true"></i></span>
-                                <span class="orbit-dot o4"><i class="fas fa-database tech-icon icon-database" aria-hidden="true"></i></span>
-                                <span class="orbit-dot o5"><i class="fab fa-python tech-icon" aria-hidden="true"></i></span>
-                            </div>
+
+            <div class="hero-visual" data-aos="zoom-in-up" data-aos-delay="900">
+                <div class="hero-image-container-modern">
+                    <div class="hero-image-frame">
+                        <img src="src/foto/faisal.jpg" alt="King Faisal - IT Engineer Professional" decoding="async"
+                            loading="eager" fetchpriority="high"
+                            sizes="(max-width: 800px) 90vw, (max-width: 1024px) 50vw, 500px" />
+                        <div class="hero-orbit" aria-hidden="true">
+                            <span class="orbit-dot o1"><i class="fab fa-react tech-icon icon-react"
+                                    aria-hidden="true"></i></span>
+                            <span class="orbit-dot o2"><i class="fas fa-shield-alt tech-icon icon-shield"
+                                    aria-hidden="true"></i></span>
+                            <span class="orbit-dot o3"><i class="fab fa-node-js tech-icon"
+                                    aria-hidden="true"></i></span>
+                            <span class="orbit-dot o4"><i class="fas fa-database tech-icon icon-database"
+                                    aria-hidden="true"></i></span>
+                            <span class="orbit-dot o5"><i class="fab fa-python tech-icon" aria-hidden="true"></i></span>
                         </div>
-                        <div class="hero-status-indicator">
-                            <span data-i18n="hero.status">🟢 Tersedia untuk Proyek Baru</span>
-                        </div>
+                    </div>
+                    <div class="hero-status-indicator">
+                        <span data-i18n="hero.status">🟢 Tersedia untuk Proyek Baru</span>
                     </div>
                 </div>
             </div>
         </div>
-        
+        </div>
+
     </section>
-    
-                <div class="hero-tech-showcase" data-aos="fade-up" data-aos-delay="500">
-                    <div class="tech-showcase-title">Tech Stack Utama:</div>
-                    <div class="tech-showcase-icons">
-                        <div class="tech-icon-item" data-tech="React">
-                            <i class="fab fa-react tech-icon icon-react"></i>
-                            <span>React</span>
-                        </div>
-                        <div class="tech-icon-item" data-tech="Node.js">
-                            <i class="fab fa-node-js tech-icon"></i>
-                            <span>Node.js</span>
-                        </div>
-                        <div class="tech-icon-item" data-tech="Database">
-                            <i class="fas fa-database tech-icon icon-database"></i>
-                            <span>Database</span>
-                        </div>
-                        <div class="tech-icon-item" data-tech="Security">
-                            <i class="fas fa-shield-alt tech-icon icon-shield"></i>
-                            <span>Security</span>
-                        </div>
-                        <div class="tech-icon-item" data-tech="Python">
-                            <i class="fab fa-python tech-icon"></i>
-                            <span>Python</span>
-                        </div>
-                        <div class="tech-icon-item" data-tech="AWS">
-                            <i class="fab fa-aws tech-icon icon-cloud"></i>
-                            <span>AWS</span>
-                        </div>
-                    </div>
-                </div>
-                
+
+    <div class="hero-tech-showcase" data-aos="fade-up" data-aos-delay="500">
+        <div class="tech-showcase-title">Tech Stack Utama:</div>
+        <div class="tech-showcase-icons">
+            <div class="tech-icon-item" data-tech="React">
+                <i class="fab fa-react tech-icon icon-react"></i>
+                <span>React</span>
+            </div>
+            <div class="tech-icon-item" data-tech="Node.js">
+                <i class="fab fa-node-js tech-icon"></i>
+                <span>Node.js</span>
+            </div>
+            <div class="tech-icon-item" data-tech="Database">
+                <i class="fas fa-database tech-icon icon-database"></i>
+                <span>Database</span>
+            </div>
+            <div class="tech-icon-item" data-tech="Security">
+                <i class="fas fa-shield-alt tech-icon icon-shield"></i>
+                <span>Security</span>
+            </div>
+            <div class="tech-icon-item" data-tech="Python">
+                <i class="fab fa-python tech-icon"></i>
+                <span>Python</span>
+            </div>
+            <div class="tech-icon-item" data-tech="AWS">
+                <i class="fab fa-aws tech-icon icon-cloud"></i>
+                <span>AWS</span>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Services Section -->
     <section id="services" class="services-section">
         <div class="container">
-                <div class="section-header" data-aos="fade-up">
+            <div class="section-header" data-aos="fade-up">
                 <div class="section-badge">
                     <i class="fas fa-toolbox decorative-icon"></i>
                     <span data-i18n="services.badge">Layanan</span>
@@ -322,10 +344,11 @@
                 <h2 class="section-title" data-i18n="services.title">Solusi Digital End‑to‑End</h2>
                 <p class="section-description" data-i18n="services.desc">
                     Layanan terintegrasi untuk <span class="gradient-text">website modern</span>,
-                    <span class="gradient-text">aplikasi mobile</span>, dan <span class="gradient-text">keamanan & operasi</span>
+                    <span class="gradient-text">aplikasi mobile</span>, dan <span class="gradient-text">keamanan &
+                        operasi</span>
                     dengan performa tinggi serta hasil yang terukur.
                 </p>
-                </div>
+            </div>
 
             <div class="services-content">
                 <div class="services-grid">
@@ -405,19 +428,23 @@
                     <i class="fas fa-user-astronaut decorative-icon"></i>
                     <span data-i18n="about.badge">Tentang Saya</span>
                 </div>
-                <h2 class="section-title" data-i18n="about.title">IT Engineer | Cybersecurity Specialist | Full Stack Developer</h2>
+                <h2 class="section-title" data-i18n="about.title">IT Engineer | Cybersecurity Specialist | Full Stack
+                    Developer</h2>
                 <p class="section-description" data-i18n="about.desc">
                     Mengubah sistem kompleks menjadi solusi yang <span class="gradient-text">aman</span>,
-                    <span class="gradient-text">scalable</span>, dan <span class="gradient-text">berkinerja tinggi</span>.
+                    <span class="gradient-text">scalable</span>, dan <span class="gradient-text">berkinerja
+                        tinggi</span>.
                 </p>
             </div>
-            
+
             <div class="about-content">
                 <div class="about-hero" data-aos="fade-up" data-aos-delay="100">
                     <div class="tech-particles"></div>
                     <div class="about-image-wrapper">
                         <div class="about-image-glow"></div>
-                        <img src="src/foto/faisal.jpg" alt="King Faisal – IT Engineer & Security Specialist" class="about-image" loading="lazy" decoding="async" sizes="(max-width: 767px) 90vw, 400px" />
+                        <img src="src/foto/faisal.jpg" alt="King Faisal – IT Engineer & Security Specialist"
+                            class="about-image" loading="lazy" decoding="async"
+                            sizes="(max-width: 767px) 90vw, 400px" />
                     </div>
                     <div class="about-personal-info">
                         <div class="personal-card">
@@ -449,7 +476,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="about-main" data-aos="fade-up" data-aos-delay="300">
                     <div class="about-intro">
                         <div class="about-badge">
@@ -467,7 +494,8 @@
                             skalabel, dan berorientasi hasil.
                             Keahlian meliputi: Security Risk Assessment, Database Optimization, Cloud Infrastructure,
                             dan DevOps Implementation.<br><br>
-                           <br><br> Saya juga menerima <strong>Website</strong> dan <strong>Aplikasi (Android/iOS)</strong> dengan desain modern,
+                            <br><br> Saya juga menerima <strong>Website</strong> dan <strong>Aplikasi
+                                (Android/iOS)</strong> dengan desain modern,
                             performa tinggi, dan keamanan terbaik untuk kebutuhan bisnis maupun personal.
                         </p>
                         <div class="about-actions">
@@ -478,7 +506,7 @@
                                 <i class="fas fa-paper-plane"></i> Minta Penawaran
                             </a>
                         </div>
-                    <!-- <div class="about-highlights">
+                        <!-- <div class="about-highlights">
                             <div class="highlight-item">
                                 <i class="fas fa-shield-alt"></i>
                                 <span>Cybersecurity & Risk Assessment</span>
@@ -505,148 +533,163 @@
                             </div>
                         </div>
                     </div> -->
-                    
-                    <section class="skills-section-keychain">
-                        <div class="particles" aria-hidden="true">
-                            <span class="particle" style="width:6px;height:6px;left:10%;animation-duration:7s;animation-delay:0s;"></span>
-                            <span class="particle" style="width:8px;height:8px;left:25%;animation-duration:9s;animation-delay:1s;"></span>
-                            <span class="particle" style="width:5px;height:5px;left:40%;animation-duration:6.5s;animation-delay:2s;"></span>
-                            <span class="particle" style="width:7px;height:7px;left:55%;animation-duration:8s;animation-delay:0.5s;"></span>
-                            <span class="particle" style="width:9px;height:9px;left:70%;animation-duration:10s;animation-delay:1.5s;"></span>
-                            <span class="particle" style="width:6px;height:6px;left:85%;animation-duration:7.5s;animation-delay:2.5s;"></span>
-                            <span class="particle" style="width:4px;height:4px;left:15%;animation-duration:6s;animation-delay:1.2s;"></span>
-                            <span class="particle" style="width:10px;height:10px;left:32%;animation-duration:11s;animation-delay:2.2s;"></span>
-                            <span class="particle" style="width:6px;height:6px;left:48%;animation-duration:8.5s;animation-delay:0.8s;"></span>
-                            <span class="particle" style="width:7px;height:7px;left:62%;animation-duration:9.5s;animation-delay:1.8s;"></span>
-                            <span class="particle" style="width:5px;height:5px;left:76%;animation-duration:7.2s;animation-delay:2.8s;"></span>
-                            <span class="particle" style="width:8px;height:8px;left:92%;animation-duration:10.5s;animation-delay:3s;"></span>
-                        </div>
-                        <div class="scene">
-                            <div class="ceiling-mount"></div>
-                            <div class="carabiner" aria-hidden="true">
-                                <svg viewBox="0 0 60 80" focusable="false" aria-hidden="true">
-                                    <path d="M30 6c-9 0-16 7-16 16v24c0 9 7 16 16 16s16-7 16-16v-6h-8v6c0 4.4-3.6 8-8 8s-8-3.6-8-8V22c0-4.4 3.6-8 8-8s8 3.6 8 8v2h8v-2c0-9-7-16-16-16z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
+
+                        <section class="skills-section-keychain">
+                            <div class="particles" aria-hidden="true">
+                                <span class="particle"
+                                    style="width:6px;height:6px;left:10%;animation-duration:7s;animation-delay:0s;"></span>
+                                <span class="particle"
+                                    style="width:8px;height:8px;left:25%;animation-duration:9s;animation-delay:1s;"></span>
+                                <span class="particle"
+                                    style="width:5px;height:5px;left:40%;animation-duration:6.5s;animation-delay:2s;"></span>
+                                <span class="particle"
+                                    style="width:7px;height:7px;left:55%;animation-duration:8s;animation-delay:0.5s;"></span>
+                                <span class="particle"
+                                    style="width:9px;height:9px;left:70%;animation-duration:10s;animation-delay:1.5s;"></span>
+                                <span class="particle"
+                                    style="width:6px;height:6px;left:85%;animation-duration:7.5s;animation-delay:2.5s;"></span>
+                                <span class="particle"
+                                    style="width:4px;height:4px;left:15%;animation-duration:6s;animation-delay:1.2s;"></span>
+                                <span class="particle"
+                                    style="width:10px;height:10px;left:32%;animation-duration:11s;animation-delay:2.2s;"></span>
+                                <span class="particle"
+                                    style="width:6px;height:6px;left:48%;animation-duration:8.5s;animation-delay:0.8s;"></span>
+                                <span class="particle"
+                                    style="width:7px;height:7px;left:62%;animation-duration:9.5s;animation-delay:1.8s;"></span>
+                                <span class="particle"
+                                    style="width:5px;height:5px;left:76%;animation-duration:7.2s;animation-delay:2.8s;"></span>
+                                <span class="particle"
+                                    style="width:8px;height:8px;left:92%;animation-duration:10.5s;animation-delay:3s;"></span>
                             </div>
-                            <div class="wire"></div>
-                            <div class="keychain-wrapper">
-                                <div class="keychain-card">
-                                    <div class="card-top">
-                                        <div class="card-hole"></div>
-                                    </div>
-                                    <h2 class="skills-title">SKILLS</h2>
-                                    <div class="skills-body">
-                                        <div class="skill-category">
-                                            <div class="category-label">Front-End</div>
-                                            <div class="skills-list">
-                                                <div class="skill-item" tabindex="0">
-                                                    <div class="skill-icon-box html">
-                                                        <i class="fab fa-html5"></i>
-                                                    </div>
-                                                    <span class="skill-name">HTML</span>
-                                                </div>
-                                                <div class="skill-item" tabindex="0">
-                                                    <div class="skill-icon-box css">
-                                                        <i class="fab fa-css3-alt"></i>
-                                                    </div>
-                                                    <span class="skill-name">CSS</span>
-                                                </div>
-                                                <div class="skill-item" tabindex="0">
-                                                    <div class="skill-icon-box js">
-                                                        <i class="fab fa-js-square"></i>
-                                                    </div>
-                                                    <span class="skill-name">JavaScript</span>
-                                                </div>
-                                                <div class="skill-item" tabindex="0">
-                                                    <div class="skill-icon-box python">
-                                                        <i class="fab fa-python"></i>
-                                                    </div>
-                                                    <span class="skill-name">Python</span>
-                                            </div>
+                            <div class="scene">
+                                <div class="ceiling-mount"></div>
+                                <div class="carabiner" aria-hidden="true">
+                                    <svg viewBox="0 0 60 80" focusable="false" aria-hidden="true">
+                                        <path
+                                            d="M30 6c-9 0-16 7-16 16v24c0 9 7 16 16 16s16-7 16-16v-6h-8v6c0 4.4-3.6 8-8 8s-8-3.6-8-8V22c0-4.4 3.6-8 8-8s8 3.6 8 8v2h8v-2c0-9-7-16-16-16z"
+                                            fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="wire"></div>
+                                <div class="keychain-wrapper">
+                                    <div class="keychain-card">
+                                        <div class="card-top">
+                                            <div class="card-hole"></div>
                                         </div>
-                                         </div>
-                                        <div class="divider"></div>
-                                        <div class="skill-category">
-                                            <div class="category-label">Framework</div>
-                                            <div class="skills-list">
-                                                <div class="skill-item" tabindex="0">
-                                                    <div class="skill-icon-box laravel">
-                                                        <i class="fab fa-laravel"></i>
+                                        <h2 class="skills-title">SKILLS</h2>
+                                        <div class="skills-body">
+                                            <div class="skill-category">
+                                                <div class="category-label">Front-End</div>
+                                                <div class="skills-list">
+                                                    <div class="skill-item" tabindex="0">
+                                                        <div class="skill-icon-box html">
+                                                            <i class="fab fa-html5"></i>
+                                                        </div>
+                                                        <span class="skill-name">HTML</span>
                                                     </div>
-                                                    <span class="skill-name">Laravel</span>
-                                                </div>
-                                                <div class="skill-item" tabindex="0">
-                                                    <div class="skill-icon-box flutter">
-                                                        <i class="fab fa-flutter"></i>
+                                                    <div class="skill-item" tabindex="0">
+                                                        <div class="skill-icon-box css">
+                                                            <i class="fab fa-css3-alt"></i>
+                                                        </div>
+                                                        <span class="skill-name">CSS</span>
                                                     </div>
-                                                    <span class="skill-name">Flutter</span>
-                                                </div>
-                                                <div class="skill-item" tabindex="0">
-                                                    <div class="skill-icon-box ci">
-                                                        <i class="fas fa-code"></i>
+                                                    <div class="skill-item" tabindex="0">
+                                                        <div class="skill-icon-box js">
+                                                            <i class="fab fa-js-square"></i>
+                                                        </div>
+                                                        <span class="skill-name">JavaScript</span>
                                                     </div>
-                                                    <span class="skill-name">CodeIgniter</span>
+                                                    <div class="skill-item" tabindex="0">
+                                                        <div class="skill-icon-box python">
+                                                            <i class="fab fa-python"></i>
+                                                        </div>
+                                                        <span class="skill-name">Python</span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="divider"></div>
-                                        <div class="skill-category">
-                                            <div class="category-label">Back-End</div>
-                                            <div class="skills-list">
-                                                <div class="skill-item" tabindex="0">
-                                                    <div class="skill-icon-box mysql">
-                                                        <i class="fas fa-database"></i>
+                                            <div class="divider"></div>
+                                            <div class="skill-category">
+                                                <div class="category-label">Framework</div>
+                                                <div class="skills-list">
+                                                    <div class="skill-item" tabindex="0">
+                                                        <div class="skill-icon-box laravel">
+                                                            <i class="fab fa-laravel"></i>
+                                                        </div>
+                                                        <span class="skill-name">Laravel</span>
                                                     </div>
-                                                    <span class="skill-name">MySQL</span>
-                                                </div>
-                                                <div class="skill-item" tabindex="0">
-                                                    <div class="skill-icon-box php">
-                                                        <i class="fab fa-php"></i>
+                                                    <div class="skill-item" tabindex="0">
+                                                        <div class="skill-icon-box flutter">
+                                                            <i class="fab fa-flutter"></i>
+                                                        </div>
+                                                        <span class="skill-name">Flutter</span>
                                                     </div>
-                                                    <span class="skill-name">PHP</span>
-                                                </div>
-                                                <div class="skill-item" tabindex="0">
-                                                    <div class="skill-icon-box postgres">
-                                                        <i class="fas fa-database"></i>
+                                                    <div class="skill-item" tabindex="0">
+                                                        <div class="skill-icon-box ci">
+                                                            <i class="fas fa-code"></i>
+                                                        </div>
+                                                        <span class="skill-name">CodeIgniter</span>
                                                     </div>
-                                                    <span class="skill-name">PostgreSQL</span>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="divider"></div>
-                                        <div class="skill-category">
-                                            <div class="category-label">Tools & Design</div>
-                                            <div class="skills-list">
-                                                <div class="skill-item" tabindex="0">
-                                                    <div class="skill-icon-box figma">
-                                                        <i class="fab fa-figma"></i>
+                                            <div class="divider"></div>
+                                            <div class="skill-category">
+                                                <div class="category-label">Back-End</div>
+                                                <div class="skills-list">
+                                                    <div class="skill-item" tabindex="0">
+                                                        <div class="skill-icon-box mysql">
+                                                            <i class="fas fa-database"></i>
+                                                        </div>
+                                                        <span class="skill-name">MySQL</span>
                                                     </div>
-                                                    <span class="skill-name">Figma</span>
+                                                    <div class="skill-item" tabindex="0">
+                                                        <div class="skill-icon-box php">
+                                                            <i class="fab fa-php"></i>
+                                                        </div>
+                                                        <span class="skill-name">PHP</span>
+                                                    </div>
+                                                    <div class="skill-item" tabindex="0">
+                                                        <div class="skill-icon-box postgres">
+                                                            <i class="fas fa-database"></i>
+                                                        </div>
+                                                        <span class="skill-name">PostgreSQL</span>
+                                                    </div>
                                                 </div>
-                                                <div class="skill-item" tabindex="0">
-                                                    <div class="skill-icon-box vscode">
-                                                        <i class="fas fa-code"></i>
+                                            </div>
+                                            <div class="divider"></div>
+                                            <div class="skill-category">
+                                                <div class="category-label">Tools & Design</div>
+                                                <div class="skills-list">
+                                                    <div class="skill-item" tabindex="0">
+                                                        <div class="skill-icon-box figma">
+                                                            <i class="fab fa-figma"></i>
+                                                        </div>
+                                                        <span class="skill-name">Figma</span>
                                                     </div>
-                                                    <span class="skill-name">VS Code</span>
-                                                </div>
-                                                <div class="skill-item" tabindex="0">
-                                                    <div class="skill-icon-box canva">
-                                                        <i class="fas fa-paint-brush"></i>
+                                                    <div class="skill-item" tabindex="0">
+                                                        <div class="skill-icon-box vscode">
+                                                            <i class="fas fa-code"></i>
+                                                        </div>
+                                                        <span class="skill-name">VS Code</span>
                                                     </div>
-                                                    <span class="skill-name">Canva</span>
+                                                    <div class="skill-item" tabindex="0">
+                                                        <div class="skill-icon-box canva">
+                                                            <i class="fas fa-paint-brush"></i>
+                                                        </div>
+                                                        <span class="skill-name">Canva</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="glow-orb orb-1" aria-hidden="true"></div>
-                        <div class="glow-orb orb-2" aria-hidden="true"></div>
-                    </section>
+                            <div class="glow-orb orb-1" aria-hidden="true"></div>
+                            <div class="glow-orb orb-2" aria-hidden="true"></div>
+                        </section>
+                    </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- Projects Section -->
@@ -663,7 +706,7 @@
                     <span class="gradient-text">keunggulan teknis</span> dalam implementasi nyata.
                 </p>
             </div>
-            
+
             <div class="projects-content">
                 <div class="projects-grid">
                     <!-- Project 1: Pesantren Salafi Al Aulia -->
@@ -683,9 +726,11 @@
                                 </div>
                             </div>
                             <h3 class="project-title">Pesantren Salafi Al Aulia</h3>
-                            <p class="project-description">Website resmi pondok pesantren salafi modern dengan fitur lengkap untuk informasi akademik, kegiatan santri, dan komunikasi dengan orang tua/wali.</p>
-                            
-                            
+                            <p class="project-description">Website resmi pondok pesantren salafi modern dengan fitur
+                                lengkap untuk informasi akademik, kegiatan santri, dan komunikasi dengan orang tua/wali.
+                            </p>
+
+
                             <div class="project-meta">
                                 <div class="project-date">
                                     <i class="fas fa-calendar"></i>
@@ -697,7 +742,7 @@
                                     <span class="tech-tag">MySQL</span>
                                 </div>
                             </div>
-                            
+
                             <div class="project-actions">
                                 <a href="#" class="btn btn-outline btn-sm">
                                     <i class="fas fa-eye"></i>
@@ -712,7 +757,7 @@
                     </div>
 
                     <!-- Project 2: TK As Salam Buninagara -->
-                   <!--<div class="project-card" data-category="education" data-aos="fade-up" data-aos-delay="150">
+                    <!--<div class="project-card" data-category="education" data-aos="fade-up" data-aos-delay="150">
                         <div class="project-image-container">
                             <img src="assets/images/projects/tk-as-salam.jpg" alt="Website TK As Salam Buninagara" loading="lazy">
                             <div class="project-badge">
@@ -782,8 +827,10 @@
                                 </div>
                             </div>
                             <h3 class="project-title">Web Wo Cigar</h3>
-                            <p class="project-description">Website premium untuk bisnis cerutu dengan tampilan elegan yang menampilkan katalog produk, artikel edukasi, dan sistem pemesanan yang terintegrasi.</p>
-                            
+                            <p class="project-description">Website premium untuk bisnis cerutu dengan tampilan elegan
+                                yang menampilkan katalog produk, artikel edukasi, dan sistem pemesanan yang
+                                terintegrasi.</p>
+
                             <div class="project-meta">
                                 <div class="project-date">
                                     <i class="fas fa-calendar"></i>
@@ -795,7 +842,7 @@
                                     <span class="tech-tag">MySQL</span>
                                 </div>
                             </div>
-                            
+
                             <div class="project-actions">
                                 <a href="#" class="btn btn-outline btn-sm">
                                     <i class="fas fa-eye"></i>
@@ -823,10 +870,12 @@
                                     <img src="src/foto/knives2.png" alt="Detail Website Golok" loading="lazy">
                                 </div>
                             </div>
-                           
+
                             <h3 class="project-title">SDL KNIVES Web</h3>
-                            <p class="project-description">Website komprehensif untuk web market golok katana dengan fitur lengkap mulai dari profil perusaaan, katalog, hingga pemesanan, dan portal contact .</p>
-                            
+                            <p class="project-description">Website komprehensif untuk web market golok katana dengan
+                                fitur lengkap mulai dari profil perusaaan, katalog, hingga pemesanan, dan portal contact
+                                .</p>
+
                             <div class="project-meta">
                                 <div class="project-date">
                                     <i class="fas fa-calendar"></i>
@@ -838,7 +887,7 @@
                                     <span class="tech-tag">PHP</span>
                                 </div>
                             </div>
-                            
+
                             <div class="project-actions">
                                 <a href="#" class="btn btn-outline btn-sm">
                                     <i class="fas fa-eye"></i>
@@ -856,14 +905,17 @@
                     <div class="project-card" data-category="tourism" data-aos="fade-up" data-aos-delay="300">
                         <div class="project-image-container">
                             <div class="project-image">
-                                <img src="assets/images/projects/desa-tenjolaya.jpg" alt="Website Desa Wisata Tenjolaya" loading="lazy">
+                                <img src="assets/images/projects/desa-tenjolaya.jpg" alt="Website Desa Wisata Tenjolaya"
+                                    loading="lazy">
                                 <div class="project-image-placeholder">
-                                    <img src="assets/images/projects/tourism-preview.jpg" alt="Preview Desa Wisata" loading="lazy">
+                                    <img src="assets/images/projects/tourism-preview.jpg" alt="Preview Desa Wisata"
+                                        loading="lazy">
                                 </div>
                             </div>
                             <div class="project-overlay">
                                 <div class="photo-container">
-                                    <img src="assets/images/projects/tourism-detail.jpg" alt="Detail Website Wisata" loading="lazy">
+                                    <img src="assets/images/projects/tourism-detail.jpg" alt="Detail Website Wisata"
+                                        loading="lazy">
                                 </div>
                             </div>
                             <div class="project-badge">
@@ -879,8 +931,9 @@
                                 </div>
                             </div>
                             <h3 class="project-title">Desa Wisata Tenjolaya</h3>
-                            <p class="project-description">Website promosi desa wisata yang menampilkan keindahan alam, budaya lokal, akomodasi, kuliner khas, dan agenda kegiatan pariwisata yang menarik.</p>
-                            
+                            <p class="project-description">Website promosi desa wisata yang menampilkan keindahan alam,
+                                budaya lokal, akomodasi, kuliner khas, dan agenda kegiatan pariwisata yang menarik.</p>
+
                             <div class="project-meta">
                                 <div class="project-date">
                                     <i class="fas fa-calendar"></i>
@@ -892,7 +945,7 @@
                                     <span class="tech-tag">Node.js</span>
                                 </div>
                             </div>
-                            
+
                             <div class="project-actions">
                                 <a href="#" class="btn btn-outline btn-sm">
                                     <i class="fas fa-eye"></i>
@@ -910,14 +963,17 @@
                     <div class="project-card" data-category="ecommerce" data-aos="fade-up" data-aos-delay="350">
                         <div class="project-image-container">
                             <div class="project-image">
-                                <img src="assets/images/projects/ecommerce-platform.jpg" alt="Platform E-Commerce Enterprise" loading="lazy">
+                                <img src="assets/images/projects/ecommerce-platform.jpg"
+                                    alt="Platform E-Commerce Enterprise" loading="lazy">
                                 <div class="project-image-placeholder">
-                                    <img src="assets/images/projects/ecommerce-preview.jpg" alt="Preview E-commerce" loading="lazy">
+                                    <img src="assets/images/projects/ecommerce-preview.jpg" alt="Preview E-commerce"
+                                        loading="lazy">
                                 </div>
                             </div>
                             <div class="project-overlay">
                                 <div class="photo-container">
-                                    <img src="assets/images/projects/ecommerce-detail.jpg" alt="Detail Platform E-commerce" loading="lazy">
+                                    <img src="assets/images/projects/ecommerce-detail.jpg"
+                                        alt="Detail Platform E-commerce" loading="lazy">
                                 </div>
                             </div>
                             <div class="project-badge">
@@ -933,8 +989,11 @@
                                 </div>
                             </div>
                             <h3 class="project-title">Platform E-commerce Enterprise</h3>
-                            <p class="project-description">Solusi e-commerce enterprise dengan arsitektur microservices, database terdistribusi, dan sistem keamanan berlapis. Dioptimalkan untuk performa tinggi, skalabilitas horizontal, dan keamanan data enterprise dengan standar industri.</p>
-                            
+                            <p class="project-description">Solusi e-commerce enterprise dengan arsitektur microservices,
+                                database terdistribusi, dan sistem keamanan berlapis. Dioptimalkan untuk performa
+                                tinggi, skalabilitas horizontal, dan keamanan data enterprise dengan standar industri.
+                            </p>
+
                             <div class="project-meta">
                                 <div class="project-date">
                                     <i class="fas fa-calendar"></i>
@@ -946,7 +1005,7 @@
                                     <span class="tech-tag">PostgreSQL</span>
                                 </div>
                             </div>
-                            
+
                             <div class="project-actions">
                                 <a href="#" class="btn btn-outline btn-sm">
                                     <i class="fas fa-eye"></i>
@@ -959,7 +1018,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="project-card" data-category="database" data-aos="flip-right" data-aos-delay="200">
                         <div class="project-image">
                             <div class="project-image-placeholder">
@@ -973,11 +1032,11 @@
                                     <a href="#" class="project-link" title="Lihat Kode">
                                         <i class="fab fa-github social-icon"></i>
                                     </a>
+                                </div>
                             </div>
-                        </div>
     </section>
 
-    
+
 
     <!-- Testimonial Marquee Section -->
     <section class="testimonial-marquee-section">
@@ -988,16 +1047,18 @@
                     <span>Testimoni </span>
                 </div>
                 <h2 class="section-title">Kata Mereka</h2>
-                <p class="section-description">Dengarkan apa yang dikatakan klien kami yang puas dengan layanan kami.</p>
+                <p class="section-description">Dengarkan apa yang dikatakan klien kami yang puas dengan layanan kami.
+                </p>
             </div>
-            
+
             <div class="testimonial-marquee-container">
                 <div class="testimonial-marquee-track">
                     <!-- Testimonial 1 -->
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Budi Santoso" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+                                    alt="Budi Santoso" loading="lazy">
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Budi Santoso</div>
@@ -1018,7 +1079,8 @@
                             <div class="marquee-testimonial-quote">
                                 <i class="fas fa-quote-left"></i>
                             </div>
-                            <p class="marquee-testimonial-text">Luar biasa! Website kami kini lebih cepat dan user-friendly. Peningkatan traffic 300% dalam 3 bulan.</p>
+                            <p class="marquee-testimonial-text">Luar biasa! Website kami kini lebih cepat dan
+                                user-friendly. Peningkatan traffic 300% dalam 3 bulan.</p>
                         </div>
                         <div class="marquee-testimonial-footer">
                             <div class="marquee-testimonial-date">
@@ -1036,7 +1098,8 @@
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=100&h=100&fit=crop&crop=face" alt="Siti Nurhaliza" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=100&h=100&fit=crop&crop=face"
+                                    alt="Siti Nurhaliza" loading="lazy">
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Siti Nurhaliza</div>
@@ -1057,7 +1120,8 @@
                             <div class="marquee-testimonial-quote">
                                 <i class="fas fa-quote-left"></i>
                             </div>
-                            <p class="marquee-testimonial-text">Desain yang elegan dan fungsionalitas yang sempurna. Tim sangat profesional dan responsif.</p>
+                            <p class="marquee-testimonial-text">Desain yang elegan dan fungsionalitas yang sempurna. Tim
+                                sangat profesional dan responsif.</p>
                         </div>
                         <div class="marquee-testimonial-footer">
                             <div class="marquee-testimonial-date">
@@ -1075,7 +1139,8 @@
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Ahmad Rahman" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+                                    alt="Ahmad Rahman" loading="lazy">
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Ahmad Rahman</div>
@@ -1096,7 +1161,8 @@
                             <div class="marquee-testimonial-quote">
                                 <i class="fas fa-quote-left"></i>
                             </div>
-                            <p class="marquee-testimonial-text">Implementasi API yang solid dan dokumentasi yang lengkap. Sangat direkomendasikan!</p>
+                            <p class="marquee-testimonial-text">Implementasi API yang solid dan dokumentasi yang
+                                lengkap. Sangat direkomendasikan!</p>
                         </div>
                         <div class="marquee-testimonial-footer">
                             <div class="marquee-testimonial-date">
@@ -1114,7 +1180,8 @@
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Maya Sari" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
+                                    alt="Maya Sari" loading="lazy">
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Maya Sari</div>
@@ -1135,7 +1202,8 @@
                             <div class="marquee-testimonial-quote">
                                 <i class="fas fa-quote-left"></i>
                             </div>
-                            <p class="marquee-testimonial-text">Sistem HRIS yang dibuat sangat efisien dan mudah digunakan. Membantu sekali!</p>
+                            <p class="marquee-testimonial-text">Sistem HRIS yang dibuat sangat efisien dan mudah
+                                digunakan. Membantu sekali!</p>
                         </div>
                         <div class="marquee-testimonial-footer">
                             <div class="marquee-testimonial-date">
@@ -1153,7 +1221,8 @@
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face" alt="Rizki Pratama" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face"
+                                    alt="Rizki Pratama" loading="lazy">
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Rizki Pratama</div>
@@ -1174,7 +1243,8 @@
                             <div class="marquee-testimonial-quote">
                                 <i class="fas fa-quote-left"></i>
                             </div>
-                            <p class="marquee-testimonial-text">Aplikasi POS yang simpel tapi powerful. Harga terjangkau kualitas premium.</p>
+                            <p class="marquee-testimonial-text">Aplikasi POS yang simpel tapi powerful. Harga terjangkau
+                                kualitas premium.</p>
                         </div>
                         <div class="marquee-testimonial-footer">
                             <div class="marquee-testimonial-date">
@@ -1192,7 +1262,8 @@
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face" alt="Dewi Lestari" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face"
+                                    alt="Dewi Lestari" loading="lazy">
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Dewi Lestari</div>
@@ -1213,7 +1284,8 @@
                             <div class="marquee-testimonial-quote">
                                 <i class="fas fa-quote-left"></i>
                             </div>
-                            <p class="marquee-testimonial-text">Portfolio website yang artistik dan responsive. Karya kami tampil sempurna!</p>
+                            <p class="marquee-testimonial-text">Portfolio website yang artistik dan responsive. Karya
+                                kami tampil sempurna!</p>
                         </div>
                         <div class="marquee-testimonial-footer">
                             <div class="marquee-testimonial-date">
@@ -1231,7 +1303,8 @@
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face" alt="Hendra Wijaya" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face"
+                                    alt="Hendra Wijaya" loading="lazy">
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Hendra Wijaya</div>
@@ -1252,7 +1325,8 @@
                             <div class="marquee-testimonial-quote">
                                 <i class="fas fa-quote-left"></i>
                             </div>
-                            <p class="marquee-testimonial-text">Sistem tracking yang akurat dan real-time. Efisiensi operasional meningkat 40%.</p>
+                            <p class="marquee-testimonial-text">Sistem tracking yang akurat dan real-time. Efisiensi
+                                operasional meningkat 40%.</p>
                         </div>
                         <div class="marquee-testimonial-footer">
                             <div class="marquee-testimonial-date">
@@ -1270,7 +1344,8 @@
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face" alt="Ratna Kusuma" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face"
+                                    alt="Ratna Kusuma" loading="lazy">
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Ratna Kusuma</div>
@@ -1291,7 +1366,8 @@
                             <div class="marquee-testimonial-quote">
                                 <i class="fas fa-quote-left"></i>
                             </div>
-                            <p class="marquee-testimonial-text">Sistem informasi sekolah yang komprehensif. Memudahkan komunikasi guru-murid-ortu.</p>
+                            <p class="marquee-testimonial-text">Sistem informasi sekolah yang komprehensif. Memudahkan
+                                komunikasi guru-murid-ortu.</p>
                         </div>
                         <div class="marquee-testimonial-footer">
                             <div class="marquee-testimonial-date">
@@ -1309,7 +1385,8 @@
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face" alt="Lestari Putri" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face"
+                                    alt="Lestari Putri" loading="lazy">
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Lestari Putri</div>
@@ -1330,7 +1407,8 @@
                             <div class="marquee-testimonial-quote">
                                 <i class="fas fa-quote-left"></i>
                             </div>
-                            <p class="marquee-testimonial-text">Sistem antrian dan rekam medis digital yang praktis. Pasien sangat puas!</p>
+                            <p class="marquee-testimonial-text">Sistem antrian dan rekam medis digital yang praktis.
+                                Pasien sangat puas!</p>
                         </div>
                         <div class="marquee-testimonial-footer">
                             <div class="marquee-testimonial-date">
@@ -1348,7 +1426,8 @@
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=100&h=100&fit=crop&crop=face" alt="Joko Susilo" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=100&h=100&fit=crop&crop=face"
+                                    alt="Joko Susilo" loading="lazy">
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Joko Susilo</div>
@@ -1369,7 +1448,8 @@
                             <div class="marquee-testimonial-quote">
                                 <i class="fas fa-quote-left"></i>
                             </div>
-                            <p class="marquee-testimonial-text">Platform properti interaktif dengan virtual tour. Penjualan meningkat 50%!</p>
+                            <p class="marquee-testimonial-text">Platform properti interaktif dengan virtual tour.
+                                Penjualan meningkat 50%!</p>
                         </div>
                         <div class="marquee-testimonial-footer">
                             <div class="marquee-testimonial-date">
@@ -1387,7 +1467,8 @@
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Putri Anggraeni" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+                                    alt="Putri Anggraeni" loading="lazy">
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Putri Anggraeni</div>
@@ -1408,7 +1489,8 @@
                             <div class="marquee-testimonial-quote">
                                 <i class="fas fa-quote-left"></i>
                             </div>
-                            <p class="marquee-testimonial-text">E-commerce kosmetik yang cantik dan konversi tinggi. Brand awareness meningkat pesat!</p>
+                            <p class="marquee-testimonial-text">E-commerce kosmetik yang cantik dan konversi tinggi.
+                                Brand awareness meningkat pesat!</p>
                         </div>
                         <div class="marquee-testimonial-footer">
                             <div class="marquee-testimonial-date">
@@ -1436,24 +1518,28 @@
                 </div>
                 <h2 class="section-title" data-i18n="contact.title">Mari Bekerja Sama</h2>
                 <p class="section-description" data-i18n="contact.desc">
-                    Siap mengubah ide Anda menjadi <span class="gradient-text">solusi digital</span> yang berdampak? Ayo mulai.
+                    Siap mengubah ide Anda menjadi <span class="gradient-text">solusi digital</span> yang berdampak? Ayo
+                    mulai.
                 </p>
             </div>
-            
+
             <div class="contact-content">
                 <div class="contact-info" data-aos="fade-up" data-aos-delay="100">
                     <div class="contact-intro">
                         <h3>Wujudkan Solusi IT Anda</h3>
-                        <p>Saya membantu Anda membangun solusi digital yang handal: website profesional, aplikasi bisnis,
-                        optimasi database, dan audit keamanan sistem. Mari wujudkan visi Anda bersama‑sama.</p>
-                        <p>Pengalaman industri dan praktik terbaik akan memastikan hasil yang berkualitas dan berkelanjutan.</p>
-                            <div class="contact-cta-buttons" style="margin-top:1rem;display:flex;gap:1rem;flex-wrap:wrap;">
+                        <p>Saya membantu Anda membangun solusi digital yang handal: website profesional, aplikasi
+                            bisnis,
+                            optimasi database, dan audit keamanan sistem. Mari wujudkan visi Anda bersama‑sama.</p>
+                        <p>Pengalaman industri dan praktik terbaik akan memastikan hasil yang berkualitas dan
+                            berkelanjutan.</p>
+                        <div class="contact-cta-buttons" style="margin-top:1rem;display:flex;gap:1rem;flex-wrap:wrap;">
                             <a href="#contact-form" class="btn-primary" data-i18n="contact.cta.form">
                                 <i class="fas fa-edit"></i> Isi Form Proyek
                             </a>
                         </div>
                         <div class="legal-badge" data-aos="fade-up" data-aos-delay="150">
-                            <a href="#privacy" class="badge badge-dark   "><i class=""badge rounded-pill bg-primary"></i> Kebijakan Privasi</a>
+                            <a href="#privacy" class="badge badge-dark   "><i class="" badge rounded-pill
+                                    bg-primary"></i> Kebijakan Privasi</a>
                             <a href="#terms" class="badge-pill"><i class="fas fa-file-contract"></i> Legal & Terms</a>
                         </div>
                         <div class="section-badge" style="margin-top:40px;width:fit-content;">
@@ -1461,18 +1547,20 @@
                             <span class="span-animate">AI Assistant Ready</span>
                         </div>
                     </div>
-                    
-                    
-                    
-                    
+
+
+
+
                 </div>
-                
+
             </div>
             <div class="contact-form-container" id="contact-form" data-aos="fade-up" data-aos-delay="800">
                 <div class="form-header">
                     <h4>Mulai Proyek IT Anda</h4>
-                    <p>Isi formulir di bawah ini untuk pembuatan website, aplikasi enterprise, atau layanan database. Saya akan menghubungi Anda dalam 24 jam untuk diskusi detail proyek Anda.</p>
-                    <p><strong>Garansi</strong>: Konsultasi gratis untuk 30 menit pertama dan proposal teknis detail.</p>
+                    <p>Isi formulir di bawah ini untuk pembuatan website, aplikasi enterprise, atau layanan database.
+                        Saya akan menghubungi Anda dalam 24 jam untuk diskusi detail proyek Anda.</p>
+                    <p><strong>Garansi</strong>: Konsultasi gratis untuk 30 menit pertama dan proposal teknis detail.
+                    </p>
                     <div class="form-steps">
                         <div class="form-step active">1. Kontak</div>
                         <div class="form-step">2. Layanan</div>
@@ -1494,90 +1582,58 @@
                         </div>
                         <div class="progress-text">0% lengkap</div>
                     </div>
-                    
+
                     <!-- Form Fields -->
                     <div class="form-row">
                         <div class="form-group floating-label" data-aos="fade-up" data-aos-delay="900">
-                            <input type="text" 
-                                   id="name" 
-                                   name="name" 
-                                   class="form-control" 
-                                   placeholder=" " 
-                                   autocomplete="name" 
-                                   data-validate="text"
-                                   data-required-message="Nama lengkap wajib diisi"
-                                   data-min-length="2"
-                                   data-min-length-message="Nama minimal 2 karakter"
-                                   data-max-length="50"
-                                   data-max-length-message="Nama maksimal 50 karakter"
-                                   required>
+                            <input type="text" id="name" name="name" class="form-control" placeholder=" "
+                                autocomplete="name" data-validate="text"
+                                data-required-message="Nama lengkap wajib diisi" data-min-length="2"
+                                data-min-length-message="Nama minimal 2 karakter" data-max-length="50"
+                                data-max-length-message="Nama maksimal 50 karakter" required>
                             <label for="name" class="form-label">Nama Lengkap</label>
                             <div class="input-group-prepend">
                                 <i class="fas fa-user input-icon"></i>
                             </div>
                         </div>
-                        
+
                         <div class="form-group floating-label" data-aos="fade-up" data-aos-delay="1000">
-                            <input type="email" 
-                                   id="email" 
-                                   name="email" 
-                                   class="form-control" 
-                                   placeholder=" " 
-                                   autocomplete="email" 
-                                   data-validate="email"
-                                   data-required-message="Email wajib diisi"
-                                   data-email-message="Format email tidak valid"
-                                   required>
+                            <input type="email" id="email" name="email" class="form-control" placeholder=" "
+                                autocomplete="email" data-validate="email" data-required-message="Email wajib diisi"
+                                data-email-message="Format email tidak valid" required>
                             <label for="email" class="form-label">Alamat Email</label>
                             <div class="input-group-prepend">
                                 <i class="fas fa-envelope input-icon"></i>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="form-group floating-label" data-aos="fade-up" data-aos-delay="1100">
-                        <input type="tel" 
-                               id="phone" 
-                               name="phone" 
-                               class="form-control" 
-                               placeholder=" " 
-                               autocomplete="tel" 
-                               data-validate="phone"
-                               data-phone-message="Format nomor telepon tidak valid"
-                               data-required-message="Nomor telepon wajib diisi">
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder=" "
+                            autocomplete="tel" data-validate="phone"
+                            data-phone-message="Format nomor telepon tidak valid"
+                            data-required-message="Nomor telepon wajib diisi">
                         <label for="phone" class="form-label">Nomor Telepon</label>
                         <div class="input-group-prepend">
                             <i class="fas fa-phone input-icon"></i>
                         </div>
                     </div>
-                    
+
                     <div class="form-group floating-label" data-aos="fade-up" data-aos-delay="1200">
-                        <input type="text" 
-                               id="subject" 
-                               name="subject" 
-                               class="form-control" 
-                               placeholder=" " 
-                               data-validate="text"
-                               data-required-message="Judul proyek wajib diisi"
-                               data-min-length="5"
-                               data-min-length-message="Judul minimal 5 karakter"
-                               data-max-length="100"
-                               data-max-length-message="Judul maksimal 100 karakter"
-                               required>
+                        <input type="text" id="subject" name="subject" class="form-control" placeholder=" "
+                            data-validate="text" data-required-message="Judul proyek wajib diisi" data-min-length="5"
+                            data-min-length-message="Judul minimal 5 karakter" data-max-length="100"
+                            data-max-length-message="Judul maksimal 100 karakter" required>
                         <label for="subject" class="form-label">Judul Proyek</label>
                         <div class="input-group-prepend">
                             <i class="fas fa-tag input-icon"></i>
                         </div>
                     </div>
-                    
+
                     <div class="form-group" data-aos="fade-up" data-aos-delay="1300">
                         <label for="service" class="form-label">Jenis Layanan</label>
-                        <select id="service" 
-                                name="service" 
-                                class="form-control" 
-                                data-validate="select"
-                                data-required-message="Jenis layanan wajib dipilih"
-                                required>
+                        <select id="service" name="service" class="form-control" data-validate="select"
+                            data-required-message="Jenis layanan wajib dipilih" required>
                             <option value="">Pilih Layanan</option>
                             <option value="web-development">Pembuatan Website</option>
                             <option value="app-development">Pembuatan Aplikasi</option>
@@ -1592,31 +1648,24 @@
                             <i class="fas fa-cog input-icon"></i>
                         </div>
                     </div>
-                    
+
                     <div class="form-group floating-label" data-aos="fade-up" data-aos-delay="1400">
-                        <textarea id="message" 
-                                  name="message" 
-                                  class="form-control" 
-                                  placeholder=" " 
-                                  rows="5" 
-                                  data-validate="text"
-                                  data-required-message="Pesan wajib diisi"
-                                  data-min-length="20"
-                                  data-min-length-message="Pesan minimal 20 karakter"
-                                  data-max-length="1000"
-                                  data-max-length-message="Pesan maksimal 1000 karakter"
-                                  required></textarea>
+                        <textarea id="message" name="message" class="form-control" placeholder=" " rows="5"
+                            data-validate="text" data-required-message="Pesan wajib diisi" data-min-length="20"
+                            data-min-length-message="Pesan minimal 20 karakter" data-max-length="1000"
+                            data-max-length-message="Pesan maksimal 1000 karakter" required></textarea>
                         <label for="message" class="form-label">Pesan Anda</label>
                         <div class="input-group-prepend">
                             <i class="fas fa-comment input-icon"></i>
                         </div>
                     </div>
-                    
+
                     <!-- Honeypot field for spam prevention -->
-                    <div class="form-group" style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;">
+                    <div class="form-group"
+                        style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;">
                         <input type="text" id="company" name="company" autocomplete="off" tabindex="-1">
                     </div>
-                    
+
                     <!-- Submit Button -->
                     <div class="form-group" data-aos="fade-up" data-aos-delay="1500">
                         <button type="submit" class="btn-submit" aria-label="Kirim pesan proyek">
@@ -1630,7 +1679,14 @@
     </section>
 
     <!-- Footer -->
+     
+     
     <footer class="footer-modern">
+        <img 
+  src="https://uiverse.io/astronaut.png" 
+  alt="Astronaut"
+  class="footer-astronaut"
+>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-main">
@@ -1662,38 +1718,47 @@
                         </div>
                     </div>
                 </div>
-                
-                
+
+
             </div>
             <div class="contact-social" data-aos="fade-up" data-aos-delay="700">
-                        <a href="https://www.linkedin.com/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn" data-social="linkedin">
-                            <i class="fab fa-linkedin social-icon"></i>
-                        </a>
-                        <a href="https://github.com/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub" data-social="github">
-                            <i class="fab fa-github social-icon"></i>
-                        </a>
-                        <a href="https://twitter.com/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter" title="Twitter" data-social="twitter">
-                            <i class="fab fa-twitter social-icon"></i>
-                        </a>
-                        <a href="https://instagram.com/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram" data-social="instagram">
-                            <i class="fab fa-instagram social-icon"></i>
-                        </a>
-                        <a href="https://facebook.com/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook" data-social="facebook">
-                            <i class="fab fa-facebook social-icon"></i>
-                        </a>
-                        <a href="https://youtube.com/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube" data-social="youtube">
-                            <i class="fab fa-youtube social-icon"></i>
-                        </a>
-                        <a href="https://wa.me/6285798137527" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp" data-social="whatsapp">
-                            <i class="fab fa-whatsapp social-icon"></i>
-                        </a>
-                        <a href="https://t.me/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram" data-social="telegram">
-                            <i class="fab fa-telegram social-icon"></i>
-                        </a>
-                        <a href="https://www.tiktok.com/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok" data-social="tiktok">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
-                    </div>
+                <a href="https://www.linkedin.com/" class="social-link" target="_blank" rel="noopener noreferrer"
+                    aria-label="LinkedIn" title="LinkedIn" data-social="linkedin">
+                    <i class="fab fa-linkedin social-icon"></i>
+                </a>
+                <a href="https://github.com/" class="social-link" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub" title="GitHub" data-social="github">
+                    <i class="fab fa-github social-icon"></i>
+                </a>
+                <a href="https://twitter.com/" class="social-link" target="_blank" rel="noopener noreferrer"
+                    aria-label="Twitter" title="Twitter" data-social="twitter">
+                    <i class="fab fa-twitter social-icon"></i>
+                </a>
+                <a href="https://instagram.com/" class="social-link" target="_blank" rel="noopener noreferrer"
+                    aria-label="Instagram" title="Instagram" data-social="instagram">
+                    <i class="fab fa-instagram social-icon"></i>
+                </a>
+                <a href="https://facebook.com/" class="social-link" target="_blank" rel="noopener noreferrer"
+                    aria-label="Facebook" title="Facebook" data-social="facebook">
+                    <i class="fab fa-facebook social-icon"></i>
+                </a>
+                <a href="https://youtube.com/" class="social-link" target="_blank" rel="noopener noreferrer"
+                    aria-label="YouTube" title="YouTube" data-social="youtube">
+                    <i class="fab fa-youtube social-icon"></i>
+                </a>
+                <a href="https://wa.me/6285798137527" class="social-link" target="_blank" rel="noopener noreferrer"
+                    aria-label="WhatsApp" title="WhatsApp" data-social="whatsapp">
+                    <i class="fab fa-whatsapp social-icon"></i>
+                </a>
+                <a href="https://t.me/" class="social-link" target="_blank" rel="noopener noreferrer"
+                    aria-label="Telegram" title="Telegram" data-social="telegram">
+                    <i class="fab fa-telegram social-icon"></i>
+                </a>
+                <a href="https://www.tiktok.com/" class="social-link" target="_blank" rel="noopener noreferrer"
+                    aria-label="TikTok" title="TikTok" data-social="tiktok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <div class="footer-copyright">
@@ -1725,32 +1790,11 @@
     <script src="scripts/audio-controls.js" defer></script>
     <script type="module" src="scripts/cards/init.js"></script>
     <!-- Audio Controls -->
-    
+
     <!-- Lazy-loaded Audio -->
     <audio id="bgAudio" preload="none" loop playsinline>
         <source src="assets/audio/ambient-ambient-music-412767.mp3" type="audio/mpeg" />
     </audio>
 </body>
-</html>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a href="#home" class="back-to-top" aria-label="Kembali ke atas"><i class="fas fa-arrow-up"></i></a>
-    </footer>
-    <div class="sticky-cta">
-        <a href="#contact" class="sticky-cta-btn"><i class="fas fa-comments"></i> Konsultasi Gratis</a>
-    </div>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="scripts/main-simple.js"></script>
-    <script src="scripts/responsive.js" defer></script>
-    <script src="scripts/testimonials-modern.js" defer></script>
-    <script src="scripts/footer-animations.js" defer></script>
-    <script type="module" src="scripts/cards/init.js"></script>
-    <audio id="bgAudio" preload="none" loop playsinline>
-        <source src="assets/audio/ambient-ambient-music-412767.mp3" type="audio/mpeg" />
-    </audio>
-</body>
 </html>
