@@ -1,0 +1,189 @@
+/*
+ * SECTIONS SHOWCASE — About / Services / Projects atmosphere (v1.0, 2026-11-07)
+ * -------------------------------------------------------------------------------
+ * Ronde "semua harus bagus": lapisan suasana modern untuk tiga section tengah
+ * yang sebelumnya paling datar (tanpa canvas Three.js / parallax):
+ * - Orb gradien (cyan + violet) di tiap section, bergerak parallax saat scroll
+ *   (variabel --orb-x / --orb-y di-set scripts/sections-three.js) + denyut
+ *   halus. Orb dibuat dari ::before/::after section — tidak ada ::before/
+ *   ::after lama di ketiga section ini, jadi aman.
+ * - Canvas partikel Three.js di section Projects (id projects-three-canvas).
+ * - Badge section jadi kaca (border + glow), kartu Services/Projects/About
+ *   dapat glow hover, foto About melayang halus + glow berdenyut.
+ * - Tidak ada library baru: Three.js r128 global yang sudah dimuat dipakai
+ *   ulang; semua animasi vanilla, hormat prefers-reduced-motion.
+ * - File ini dimuat TERAKHIR (setelah nav-showcase.css) agar menang cascade.
+ */
+
+/* ===== SECTION BASE: anchor untuk orb + canvas ===== */
+.about-section,
+.services-section,
+.projects-section {
+    position: relative;
+    isolation: isolate;
+    overflow-x: clip;
+}
+
+/* Konten di atas orb + canvas. */
+.about-section .container,
+.services-section .container,
+.projects-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== ORB GRADIEN (parallax + denyut) ===== */
+.about-section::before,
+.about-section::after,
+.services-section::before,
+.services-section::after,
+.projects-section::before,
+.projects-section::after {
+    content: '';
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(70px);
+    opacity: 0.45;
+    transform: translate3d(var(--orb-x, 0px), var(--orb-y, 0px), 0);
+    animation: orbPulse 8s ease-in-out infinite;
+}
+
+/* ::after bergerak lebih pelan (kedalaman parallax). */
+.about-section::after,
+.services-section::after,
+.projects-section::after {
+    transform: translate3d(
+        calc(var(--orb-x, 0px) * 0.55),
+        calc(var(--orb-y, 0px) * 0.55),
+        0
+    );
+    animation-delay: -4s;
+}
+
+/* About: cyan kanan-atas, violet kiri-bawah. */
+.about-section::before {
+    top: 6%;
+    right: 2%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.55) 0%, transparent 65%);
+}
+.about-section::after {
+    bottom: 8%;
+    left: 2%;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.5) 0%, transparent 65%);
+}
+
+/* Services: violet kiri-atas, cyan kanan-bawah. */
+.services-section::before {
+    top: 10%;
+    left: 2%;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.5) 0%, transparent 65%);
+}
+.services-section::after {
+    bottom: 6%;
+    right: 2%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.55) 0%, transparent 65%);
+}
+
+/* Projects: cyan kanan-atas, violet kiri-bawah (lebih kecil, lebih rapat). */
+.projects-section::before {
+    top: 4%;
+    right: 6%;
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.5) 0%, transparent 65%);
+}
+.projects-section::after {
+    bottom: 10%;
+    left: 6%;
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.45) 0%, transparent 65%);
+}
+
+@keyframes orbPulse {
+    0%, 100% { opacity: 0.32; }
+    50% { opacity: 0.55; }
+}
+
+/* ===== CANVAS PARTIKEL PROJECTS ===== */
+#projects-three-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+/* ===== BADGE SECTION JADI KACA ===== */
+.about-section .section-badge,
+.services-section .section-badge,
+.projects-section .section-badge {
+    border: 1px solid rgba(0, 212, 255, 0.35);
+    box-shadow: 0 0 18px rgba(0, 212, 255, 0.18);
+}
+
+/* ===== KARTU: GLOW HOVER (tilt 3D sudah ada di showcase-motion.js) ===== */
+.service-card:hover,
+.project-card:hover,
+.personal-card:hover {
+    border-color: rgba(0, 212, 255, 0.45);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45), 0 0 32px rgba(0, 212, 255, 0.22);
+}
+
+/* ===== FOTO ABOUT: MELAYANG + GLOW BERNAPAS ===== */
+.about-image-wrapper {
+    animation: aboutFloat 6s ease-in-out infinite;
+}
+
+.about-image-wrapper .about-image-glow {
+    animation: aboutGlowBreathe 4.5s ease-in-out infinite;
+}
+
+@keyframes aboutFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+@keyframes aboutGlowBreathe {
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 0.95; }
+}
+
+/* ===== MOBILE: orb lebih kecil & lebih redup, canvas lebih tipis ===== */
+@media (max-width: 768px) {
+    .about-section::before,
+    .about-section::after,
+    .services-section::before,
+    .services-section::after,
+    .projects-section::before,
+    .projects-section::after {
+        width: 280px;
+        height: 280px;
+        filter: blur(56px);
+        opacity: 0.35;
+    }
+
+    #projects-three-canvas {
+        opacity: 0.4;
+    }
+}
+
+/* ===== REDUCED MOTION: semua gerak baru mati ===== */
+@media (prefers-reduced-motion: reduce) {
+    .about-section::before,
+    .about-section::after,
+    .services-section::before,
+    .services-section::after,
+    .projects-section::before,
+    .projects-section::after,
+    .about-image-wrapper,
+    .about-image-wrapper .about-image-glow {
+        animation: none;
+    }
+}
