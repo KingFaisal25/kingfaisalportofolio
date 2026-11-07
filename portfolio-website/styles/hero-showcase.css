@@ -1,10 +1,12 @@
 /*
  * HERO SHOWCASE — Three.js interactive layer (v1.0, 2026-11-07)
  * ---------------------------------------------------------------
- * Layar pertama adalah etalase skill frontend. File ini hanya
- * MENAMBAH lapisan di atas hero yang sudah ada (tidak menimpa
- * layout hero-redesign.css): canvas jaringan partikel interaktif
- * + glow lembut. Canvas digerakkan scripts/hero-three.js.
+ * Layar pertama adalah etalase skill frontend. File ini MENAMBAH
+ * lapisan di atas hero yang sudah ada: canvas jaringan partikel
+ * interaktif + glow lembut (digerakkan scripts/hero-three.js),
+ * plus satu penyesuaian letak: lencana status "Tersedia untuk
+ * Proyek Baru" dipindah dari atas foto ke bawah foto supaya
+ * tidak menutupi foto dan teksnya tidak terlipat.
  * Palet tetap navy + cyan situs.
  */
 
@@ -41,6 +43,41 @@
 .hero-visual .hero-image-container-modern {
     position: relative;
     z-index: 1;
+}
+
+/* ===== LENCANA STATUS: dari atas foto pindah ke bawah foto =====
+ * Sebelumnya .hero-status-indicator absolute di bawah foto
+ * (bottom -20px / 20px), menutupi foto dan teksnya terlipat
+ * jadi 3 baris di HP. Sekarang wadah foto jadi kolom dengan
+ * tinggi otomatis, frame tetap kotak selebar wadah (aspect-ratio),
+ * dan lencana jadi elemen biasa di bawah foto, satu baris. */
+.hero-visual .hero-image-container-modern {
+    height: auto;
+    flex-direction: column;
+}
+
+.hero-visual .hero-image-container-modern .hero-image-frame {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+}
+
+.hero-visual .hero-image-container-modern .hero-status-indicator {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    width: max-content;
+    max-width: 100%;
+    margin: 18px auto 0;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .hero-visual .hero-image-container-modern .hero-status-indicator {
+        margin-top: 14px;
+    }
 }
 
 /* Badge hero: denyut halus */
