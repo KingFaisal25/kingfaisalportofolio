@@ -1,12 +1,20 @@
 /* ============================================================
-   CONTACT SHOWCASE — Three.js ambient canvas + GSAP micro-motion
+   CONTACT SHOWCASE — Three.js ambient canvas + vanilla motion
    - Three.js: particle field + 2 wireframe shapes behind the
      contact section (same guarded pattern as testimonials-three.js).
-   - GSAP: 3D tilt on the form card (desktop hover), submit-button
-     press, progress-fill glow pulse when the fill width updates.
-   - Fully guarded: no THREE -> no canvas; no gsap -> no motion;
-     prefers-reduced-motion -> one static frame, no tilt.
+   - Motion is VANILLA (no GSAP, no site-wide library): 3D tilt on
+     the form card (desktop hover, direct style.transform like
+     showcase-motion.js), progress-fill glow pulse via
+     MutationObserver + a CSS class.
+   - Fully guarded: no THREE -> no canvas; prefers-reduced-motion
+     -> one static frame, no tilt.
    - Does NOT touch validation/submit logic (contact-form-*.js).
+   - NOTE (2026-11-07): an earlier version loaded GSAP from CDN.
+     That accidentally activated dormant GSAP blocks in
+     main-simple.js (hero/section/contact entrances), which left
+     the hero title, other sections and the form itself invisible
+     on mobile. GSAP was removed again; never re-add a site-wide
+     animation library here — only change what was asked for.
    ============================================================ */
 (function () {
     'use strict';
@@ -113,53 +121,37 @@
         })();
     })();
 
-    /* ---------- GSAP micro-interactions ---------- */
-    if (typeof window.gsap === 'undefined') return;
-    var gsap = window.gsap;
+    /* ---------- Vanilla micro-interactions ---------- */
 
-    // 3D tilt on the form card (desktop, fine pointer only)
+    // 3D tilt on the form card (desktop, fine pointer only).
+    // Direct style.transform, cleared on mouseleave — same pattern
+    // as showcase-motion.js card tilt. Never touches opacity.
     var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     if (finePointer && !reducedMotion) {
-        gsap.set(form, { transformPerspective: 900 });
-        var rotX = gsap.quickTo(form, 'rotationX', { duration: 0.5, ease: 'power3.out' });
-        var rotY = gsap.quickTo(form, 'rotationY', { duration: 0.5, ease: 'power3.out' });
-        var lift = gsap.quickTo(form, 'y', { duration: 0.5, ease: 'power3.out' });
         form.addEventListener('mousemove', function (e) {
             var r = form.getBoundingClientRect();
             var px = (e.clientX - r.left) / r.width - 0.5;
             var py = (e.clientY - r.top) / r.height - 0.5;
-            rotX(py * -4);
-            rotY(px * 5);
-            lift(-4);
+            var rx = (py * -4).toFixed(2);
+            var ry = (px * 5).toFixed(2);
+            form.style.transform = 'perspective(900px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateY(-4px)';
         });
-        form.addEventListener('mouseleave', function () {
-            rotX(0);
-            rotY(0);
-            lift(0);
-        });
-    }
-
-    // Submit button press
-    var btn = form.querySelector('.btn-submit');
-    if (btn) {
-        btn.addEventListener('mousedown', function () {
-            gsap.fromTo(btn, { scale: 0.97 }, {
-                scale: 1,
-                duration: 0.4,
-                ease: 'back.out(2)',
-                onComplete: function () { gsap.set(btn, { clearProps: 'transform' }); }
-            });
-        });
+        var resetTilt = function () { form.style.transform = ''; };
+        form.addEventListener('mouseleave', resetTilt);
+        form.addEventListener('blur', resetTilt);
     }
 
     // Progress bar glow pulse when the fill width updates
-    // (validation JS sets style.width; we only animate the glow)
+    // (validation JS sets style.width; we only toggle a CSS class).
     var fill = form.querySelector('.progress-fill');
     if (fill && window.MutationObserver) {
+        var pulseTimer = null;
         var mo = new MutationObserver(function () {
-            gsap.fromTo(fill,
-                { boxShadow: '0 0 18px rgba(0, 212, 255, 0.9)' },
-                { boxShadow: '0 0 12px rgba(0, 212, 255, 0.5)', duration: 0.7, ease: 'power2.out' });
+            fill.classList.add('progress-glow');
+            if (pulseTimer) clearTimeout(pulseTimer);
+            pulseTimer = setTimeout(function () {
+                fill.classList.remove('progress-glow');
+            }, 700);
         });
         mo.observe(fill, { attributes: true, attributeFilter: ['style'] });
     }
