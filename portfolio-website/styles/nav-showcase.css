@@ -1,12 +1,21 @@
 /* ============================================================
    NAV SHOWCASE — tombol navbar: hamburger + ganti bahasa
-   Override, dimuat paling akhir; hanya menyentuh navbar.
+   Override, dimuat paling akhir; hanya menyentuh navbar
+   (+ fade judul hero saat bahasa diganti dari tombol nav).
    - Panel menu mobile: muncul dengan animasi slide + fade.
    - Ikon hamburger: morph ke X lebih halus + efek tekan.
    - Tombol bahasa: animasi pop tiap kali ditekan.
+   - Kunci scroll body saat menu mobile terbuka (pengganti
+     penguncian lama di responsive.js yang ikut dihapus
+     bersama binding klik gandanya).
    - Lompatan anchor (dari menu / bar bawah) berhenti di bawah
      navbar, tidak ketutup lagi.
    ============================================================ */
+
+/* Kunci scroll saat menu mobile terbuka (main-simple.js setMenu) */
+body.menu-open {
+    overflow: hidden;
+}
 
 /* Lompatan ke section berhenti 88px dari atas (di bawah navbar) */
 section[id],
@@ -63,9 +72,20 @@ footer[id] {
     100% { transform: scale(1); }
 }
 
+/* --- Fade singkat judul hero saat bahasa diganti --- */
+#heroTitle.lang-fade {
+    animation: heroFade 0.35s ease;
+}
+
+@keyframes heroFade {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .nav-menu.active,
-    .lang-toggle.lang-pop {
+    .lang-toggle.lang-pop,
+    #heroTitle.lang-fade {
         animation: none;
     }
 }
