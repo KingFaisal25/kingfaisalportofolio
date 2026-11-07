@@ -1,0 +1,71 @@
+/* ============================================================
+   NAV SHOWCASE — tombol navbar: hamburger + ganti bahasa
+   Override, dimuat paling akhir; hanya menyentuh navbar.
+   - Panel menu mobile: muncul dengan animasi slide + fade.
+   - Ikon hamburger: morph ke X lebih halus + efek tekan.
+   - Tombol bahasa: animasi pop tiap kali ditekan.
+   - Lompatan anchor (dari menu / bar bawah) berhenti di bawah
+     navbar, tidak ketutup lagi.
+   ============================================================ */
+
+/* Lompatan ke section berhenti 88px dari atas (di bawah navbar) */
+section[id],
+footer[id] {
+    scroll-margin-top: 88px;
+}
+
+/* --- Panel menu mobile: animasi masuk --- */
+@media (max-width: 768px) {
+    .nav-menu.active {
+        animation: navDrop 0.32s cubic-bezier(0.4, 0, 0.2, 1) both;
+    }
+}
+
+@keyframes navDrop {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Hamburger: morph ke X lebih halus + efek tekan --- */
+.mobile-menu-toggle {
+    transition: transform 0.18s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.mobile-menu-toggle:active {
+    transform: scale(0.9);
+}
+
+.mobile-menu-toggle span {
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, background 0.25s ease;
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+/* --- Tombol bahasa: pop tiap ganti bahasa --- */
+.lang-toggle {
+    transition: transform 0.18s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.lang-toggle:active {
+    transform: scale(0.9);
+}
+
+.lang-toggle.lang-pop {
+    animation: langPop 0.35s ease;
+}
+
+@keyframes langPop {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.18); }
+    100% { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-menu.active,
+    .lang-toggle.lang-pop {
+        animation: none;
+    }
+}
