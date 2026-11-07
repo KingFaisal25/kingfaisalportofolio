@@ -64,6 +64,7 @@
     .sticky-cta-btn {
         position: relative;
         overflow: hidden;
+        text-decoration: none;
         background: linear-gradient(135deg, #00b4d8, #667eea, #00b4d8);
         background-size: 200% 200%;
         animation: ctaGradient 6s ease infinite, ctaGlow 2.8s ease-in-out infinite;

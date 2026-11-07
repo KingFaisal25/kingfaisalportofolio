@@ -195,6 +195,7 @@ body {
   background: var(--gradient-primary);
   color: white;
   box-shadow: var(--shadow-md);
+  text-decoration: none;
 }
 .btn-primary { animation: gradientShift 6s ease-in-out infinite alternate; }
 
@@ -207,6 +208,7 @@ body {
   background: transparent;
   color: var(--accent-500);
   border: 2px solid var(--accent-500);
+  text-decoration: none;
 }
 .btn-secondary { position: relative; overflow: hidden; }
 .btn-primary { position: relative; overflow: hidden; }
@@ -1193,6 +1195,13 @@ body {
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: var(--space-sm);
+}
+
+.service-price {
+  color: var(--accent-500);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
 }
 .service-card--altA { border: 1px solid rgba(0,212,255,0.25); box-shadow: var(--shadow-md); background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(0,212,255,0.06)); }
 .service-card--altB { border: 1px solid rgba(255,255,255,0.12); box-shadow: none; }
