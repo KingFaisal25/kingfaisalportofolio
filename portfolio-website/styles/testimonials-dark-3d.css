@@ -1,0 +1,212 @@
+/*
+ * TESTIMONIALS — DARK GLASS 3D + THREE.JS (v1.0, 2026-11-07)
+ * ---------------------------------------------------------------
+ * Masalah yang diperbaiki (laporan kingfaisal, screenshot 07 Nov 2026):
+ *  1. Kartu testimoni PUTIH di atas tema gelap — tidak nyambung.
+ *     Penyebab: `.testimonial-marquee-card` di testimonial-marquee.css
+ *     memakai `background: rgba(255,255,255,0.95)`.
+ *  2. Foto avatar Siti rusak (ikon "?") — foto Unsplash-nya gagal dimuat.
+ *     Perbaikan: semua avatar <img> diganti monogram inisial di HTML
+ *     (span.avatar-initials); tidak ada lagi dependensi foto eksternal.
+ *  3. Tampilan datar — diminta modern, rapi, variasi Three.js, layout
+ *     UI/UX yang bagus.
+ *
+ * File ini dimuat SETELAH testimonial-marquee.css, jadi aturannya menang
+ * tanpa !important. Palet tetap navy + cyan situs. Efek 3D digerakkan
+ * scripts/testimonials-three.js (canvas partikel + tilt kartu).
+ */
+
+/* ===== SECTION STAGE ===== */
+.testimonial-marquee-section {
+    isolation: isolate;
+}
+
+#testimonial-three-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.85;
+}
+
+.testimonial-marquee-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== 3D TRACK ===== */
+.testimonial-marquee-track {
+    perspective: 1200px;
+    padding: 0.75rem 0 1.25rem;
+}
+
+/* ===== CARD: dark glass 3D ===== */
+.testimonial-marquee-card {
+    width: 350px;
+    background: linear-gradient(
+        165deg,
+        rgba(30, 41, 59, 0.92) 0%,
+        rgba(15, 23, 42, 0.96) 60%,
+        rgba(2, 10, 22, 0.97) 100%
+    );
+    border: 1px solid rgba(144, 224, 239, 0.20);
+    border-radius: 22px;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.14),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+        0 16px 34px rgba(2, 10, 22, 0.55),
+        0 4px 14px rgba(0, 180, 216, 0.10);
+    transform: perspective(900px)
+        rotateX(var(--rx, 0deg))
+        rotateY(var(--ry, 0deg))
+        translateZ(0);
+    transform-style: preserve-3d;
+    transition:
+        transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+/* Garis cahaya cyan–ungu di tepi atas kartu */
+.testimonial-marquee-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 8%;
+    right: 8%;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, transparent, rgba(144, 224, 239, 0.9), rgba(167, 139, 250, 0.9), transparent);
+    pointer-events: none;
+}
+
+.testimonial-marquee-card:hover {
+    border-color: rgba(144, 224, 239, 0.55);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.20),
+        0 26px 48px rgba(2, 10, 22, 0.60),
+        0 0 32px rgba(0, 180, 216, 0.28);
+    transform: perspective(900px)
+        rotateX(var(--rx, 0deg))
+        rotateY(var(--ry, 0deg))
+        translateY(-6px)
+        scale(1.03);
+}
+
+/* ===== HEADER: avatar + nama ===== */
+.marquee-user-avatar {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(144, 224, 239, 0.55);
+    box-shadow:
+        0 6px 16px rgba(2, 10, 22, 0.50),
+        0 0 18px rgba(0, 180, 216, 0.25);
+    transform: translateZ(24px);
+}
+
+.avatar-initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+    background: linear-gradient(135deg, #0ea5e9, #6366f1);
+}
+
+/* 5 varian gradasi monogram, berulang tiap 5 kartu (termasuk klon marquee) */
+.testimonial-marquee-card:nth-child(5n+1) .avatar-initials { background: linear-gradient(135deg, #0ea5e9, #6366f1); }
+.testimonial-marquee-card:nth-child(5n+2) .avatar-initials { background: linear-gradient(135deg, #ec4899, #8b5cf6); }
+.testimonial-marquee-card:nth-child(5n+3) .avatar-initials { background: linear-gradient(135deg, #10b981, #0ea5e9); }
+.testimonial-marquee-card:nth-child(5n+4) .avatar-initials { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+.testimonial-marquee-card:nth-child(5n+5) .avatar-initials { background: linear-gradient(135deg, #14b8a6, #22c55e); }
+
+.marquee-user-name {
+    color: #f8fafc;
+    transform: translateZ(18px);
+}
+
+.marquee-user-title {
+    color: rgba(203, 213, 225, 0.72);
+}
+
+/* ===== RATING ===== */
+.marquee-stars {
+    color: #fbbf24;
+}
+
+.marquee-stars i {
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
+}
+
+.marquee-rating-text {
+    color: #f8fafc;
+}
+
+/* ===== QUOTE ===== */
+.marquee-testimonial-quote {
+    color: rgba(144, 224, 239, 0.35);
+}
+
+.marquee-testimonial-text {
+    color: #e2e8f0;
+    line-height: 1.65;
+}
+
+/* ===== FOOTER ===== */
+.marquee-testimonial-date {
+    color: rgba(203, 213, 225, 0.62);
+}
+
+.marquee-verified-badge {
+    background: rgba(16, 185, 129, 0.14);
+    color: #34d399;
+    border: 1px solid rgba(52, 211, 153, 0.35);
+    border-radius: 999px;
+    padding: 0.3rem 0.8rem;
+}
+
+/* ===== EDGE FADE: samakan dengan background section ===== */
+.testimonial-marquee-container::before {
+    background: linear-gradient(90deg, rgba(7, 17, 29, 0.92) 0%, transparent 100%);
+}
+
+.testimonial-marquee-container::after {
+    background: linear-gradient(90deg, transparent 0%, rgba(7, 17, 29, 0.92) 100%);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    .testimonial-marquee-card {
+        width: min(85vw, 350px);
+    }
+
+    .marquee-user-avatar {
+        width: 48px;
+        height: 48px;
+    }
+
+    .avatar-initials {
+        font-size: 17px;
+    }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    .testimonial-marquee-card {
+        transition: none;
+    }
+
+    #testimonial-three-canvas {
+        display: none;
+    }
+}
