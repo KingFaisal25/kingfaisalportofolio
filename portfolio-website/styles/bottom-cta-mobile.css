@@ -1,0 +1,56 @@
+/* ============================================================
+   BOTTOM CTA — mobile fix (loads LAST in <head>)
+   Problem (2026-11-07, kingfaisal's phone screenshot): on mobile
+   the fixed "Konsultasi Gratis" bar (~96px tall + iPhone
+   safe-area) covers the bottom of the page — the footer has NO
+   bottom padding, and the floating WhatsApp / back-to-top buttons
+   collide with the bar. Only mobile (<=768px) is touched.
+   Fix:
+   1. Footer gets bottom padding so its last content can scroll
+      fully above the bar.
+   2. The bar respects the iPhone home-indicator safe area.
+   3. When the user reaches #contact or the footer, the bar slides
+      away (body.cta-hidden, toggled by scripts/sticky-cta.js) and
+      the floating buttons drop down to the bottom edge — the CTA
+      is redundant there, and the bar must never cover the form's
+      submit button.
+   Desktop, validation/submit JS, and everything else: untouched.
+   ============================================================ */
+
+@media (max-width: 768px) {
+    /* 1. Reserve space: bar (~96px) + breathing room + safe area */
+    .footer-modern {
+        padding-bottom: calc(120px + env(safe-area-inset-bottom, 0px));
+    }
+
+    /* 2. Safe area inside the bar so the button clears the home indicator */
+    .sticky-cta {
+        padding-bottom: calc(var(--space-md) + env(safe-area-inset-bottom, 0px));
+        transition: transform 0.35s ease;
+    }
+
+    /* Floating buttons: sit above the bar while it is visible */
+    .cta-whatsapp {
+        bottom: 176px;
+        transition: opacity 250ms ease, transform 250ms ease, bottom 0.35s ease;
+    }
+
+    .back-to-top {
+        bottom: 116px;
+        transition: opacity 200ms ease, transform 200ms ease, bottom 0.35s ease;
+    }
+
+    /* 3. Bar hidden (user is at #contact / footer): buttons drop down */
+    body.cta-hidden .sticky-cta {
+        transform: translateY(110%);
+        pointer-events: none;
+    }
+
+    body.cta-hidden .cta-whatsapp {
+        bottom: 80px;
+    }
+
+    body.cta-hidden .back-to-top {
+        bottom: 20px;
+    }
+}
