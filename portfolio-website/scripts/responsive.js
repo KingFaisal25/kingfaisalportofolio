@@ -21,8 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (mobileMenuToggle && navMenu) {
-        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
-        
+        // JANGAN pasang klik di sini: satu-satunya pengendali menu ada di
+        // main-simple.js (setMenu boolean eksplisit). Dulu dua-duanya
+        // terpasang, sekali ketuk toggle dua kali = menu tidak pernah buka.
+        // toggleMobileMenu di bawah ini tetap dipakai penutup lain
+        // (tautan nav, ESC, resize ke desktop) yang sudah berjaga
+        // dengan contains('active').
         // Close menu when clicking on nav links
         const navLinks = navMenu.querySelectorAll('.nav-link');
         navLinks.forEach(link => {

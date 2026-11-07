@@ -174,6 +174,13 @@ document.addEventListener('DOMContentLoaded', () => {
             langToggle.classList.remove('lang-pop');
             void langToggle.offsetWidth;
             langToggle.classList.add('lang-pop');
+            // Fade singkat di judul hero supaya pergantian bahasa kelihatan
+            const heroTitleEl = document.getElementById('heroTitle');
+            if (heroTitleEl) {
+                heroTitleEl.classList.remove('lang-fade');
+                void heroTitleEl.offsetWidth;
+                heroTitleEl.classList.add('lang-fade');
+            }
         });
     }
 
