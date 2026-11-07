@@ -1,15 +1,16 @@
 /* ============================================================
-   NAV SHOWCASE — tombol navbar: hamburger + ganti bahasa
-   Override, dimuat paling akhir; hanya menyentuh navbar
-   (+ fade judul hero saat bahasa diganti dari tombol nav).
-   - Panel menu mobile: muncul dengan animasi slide + fade.
-   - Ikon hamburger: morph ke X lebih halus + efek tekan.
-   - Tombol bahasa: animasi pop tiap kali ditekan.
-   - Kunci scroll body saat menu mobile terbuka (pengganti
-     penguncian lama di responsive.js yang ikut dihapus
-     bersama binding klik gandanya).
-   - Lompatan anchor (dari menu / bar bawah) berhenti di bawah
-     navbar, tidak ketutup lagi.
+   NAV SHOWCASE — desain navbar: modern, rapih, sepasang tombol
+   Override, dimuat paling akhir; hanya menyentuh navbar.
+   - Bar lebih ramping + kaca gelap navy dengan garis cyan halus.
+   - Brand: logo </> jadi tile gradien cyan-violet, nama gradien.
+   - Tombol EN + hamburger sepasang: 44x44, kaca, hover cyan.
+   - Ikon hamburger: 3 garis putih tegas (bukan 1 bar), morph ke X.
+   - Hamburger disembunyikan di desktop (menu link sudah tampil).
+   - Link desktop jadi pill; panel menu mobile jadi kartu kaca
+     mengambang dengan animasi slide + fade.
+   - Perilaku lama yang dipertahankan: kunci scroll saat menu
+     terbuka, animasi pop tombol bahasa, fade judul hero saat
+     bahasa diganti, lompatan anchor berhenti di bawah navbar.
    ============================================================ */
 
 /* Kunci scroll saat menu mobile terbuka (main-simple.js setMenu) */
@@ -23,45 +24,249 @@ footer[id] {
     scroll-margin-top: 88px;
 }
 
-/* --- Panel menu mobile: animasi masuk --- */
+/* --- Bar: lebih ramping, kaca navy, garis cyan halus --- */
+.navbar-clean {
+    background: linear-gradient(180deg, rgba(13, 18, 32, 0.9), rgba(13, 18, 32, 0.8));
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    backdrop-filter: blur(20px) saturate(160%);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.16);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-clean.scrolled {
+    background: linear-gradient(180deg, rgba(10, 14, 26, 0.94), rgba(10, 14, 26, 0.88));
+    border-bottom-color: rgba(0, 212, 255, 0.22);
+    box-shadow: 0 10px 36px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-clean .nav-container {
+    padding: 14px 28px;
+    gap: 16px;
+}
+
 @media (max-width: 768px) {
-    .nav-menu.active {
-        animation: navDrop 0.32s cubic-bezier(0.4, 0, 0.2, 1) both;
+    .navbar-clean .nav-container {
+        padding: 12px 16px;
     }
 }
 
-@keyframes navDrop {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+/* --- Brand: tile gradien + nama gradien cyan-violet --- */
+.navbar-clean .nav-brand .brand-logo {
+    gap: 12px;
 }
 
-/* --- Hamburger: morph ke X lebih halus + efek tekan --- */
-.mobile-menu-toggle {
-    transition: transform 0.18s ease, background 0.25s ease, border-color 0.25s ease;
+.navbar-clean .brand-logo .logo-container {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #00b4d8, #667eea);
+    box-shadow: 0 4px 16px rgba(0, 180, 216, 0.35);
+    display: grid;
+    place-items: center;
 }
 
-.mobile-menu-toggle:active {
-    transform: scale(0.9);
+.navbar-clean .brand-logo .logo-bracket {
+    position: static;
+    font-size: 20px;
+    color: #fff;
+    bottom: auto;
+    right: auto;
 }
 
-.mobile-menu-toggle span {
+.navbar-clean .brand-logo .logo-name {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    background: linear-gradient(90deg, #90e0ef, #00d4ff 45%, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@media (max-width: 768px) {
+    .navbar-clean .brand-logo .logo-container {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+    }
+
+    .navbar-clean .brand-logo .logo-bracket {
+        font-size: 18px;
+    }
+
+    .navbar-clean .brand-logo .logo-name {
+        font-size: 1.05rem;
+    }
+}
+
+/* --- Tombol EN + hamburger: sepasang, 44x44, kaca --- */
+.navbar-clean .nav-actions {
+    gap: 10px;
+}
+
+.navbar-clean .lang-toggle,
+.navbar-clean .mobile-menu-toggle {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    color: var(--text-100);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.18s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.navbar-clean .lang-toggle {
+    padding: 0;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.navbar-clean .lang-toggle:hover,
+.navbar-clean .mobile-menu-toggle:hover {
+    border-color: rgba(0, 212, 255, 0.55);
+    background: rgba(0, 212, 255, 0.1);
+    box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.15), 0 8px 20px rgba(0, 212, 255, 0.18);
+    transform: translateY(-1px);
+}
+
+.navbar-clean .lang-toggle:active,
+.navbar-clean .mobile-menu-toggle:active {
+    transform: scale(0.92);
+}
+
+/* Hamburger hanya di mobile; di desktop menu link sudah tampil */
+@media (min-width: 769px) {
+    .navbar-clean .mobile-menu-toggle {
+        display: none !important;
+    }
+}
+
+/* --- Ikon hamburger: 3 garis putih tegas + morph ke X --- */
+.navbar-clean .mobile-menu-toggle {
+    gap: 5px;
+}
+
+.navbar-clean .mobile-menu-toggle span {
+    width: 20px;
+    height: 2.5px;
+    border-radius: 2px;
+    background: #fff;
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, background 0.25s ease;
 }
 
-.mobile-menu-toggle.active span:nth-child(2) {
+.navbar-clean .mobile-menu-toggle.active span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+}
+
+.navbar-clean .mobile-menu-toggle.active span:nth-child(2) {
     opacity: 0;
     transform: scaleX(0);
 }
 
+.navbar-clean .mobile-menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* --- Link desktop: pill cyan --- */
+@media (min-width: 769px) {
+    .navbar-clean .nav-menu {
+        gap: 8px;
+    }
+
+    .navbar-clean .nav-menu .nav-link {
+        padding: 10px 16px;
+        border-radius: 999px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        gap: 8px;
+        border: 1px solid transparent;
+    }
+
+    .navbar-clean .nav-menu .nav-link::after {
+        display: none;
+    }
+
+    .navbar-clean .nav-menu .nav-link:hover,
+    .navbar-clean .nav-menu .nav-link.active {
+        background: rgba(0, 212, 255, 0.12);
+        border-color: rgba(0, 212, 255, 0.25);
+        color: #fff;
+        box-shadow: none;
+        transform: none;
+    }
+
+    .navbar-clean .nav-menu .nav-link .nav-icon {
+        margin-right: 0;
+    }
+}
+
+/* --- Panel menu mobile: kartu kaca mengambang --- */
+@media (max-width: 768px) {
+    .navbar-clean .nav-menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 16px;
+        right: 16px;
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        padding: 10px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(12, 16, 28, 0.97);
+        -webkit-backdrop-filter: blur(20px) saturate(160%);
+        backdrop-filter: blur(20px) saturate(160%);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .navbar-clean .nav-menu.active {
+        display: flex;
+        animation: navDrop 0.32s cubic-bezier(0.4, 0, 0.2, 1) both;
+    }
+
+    .navbar-clean .nav-menu .nav-link {
+        display: flex;
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 600;
+        gap: 10px;
+        border: 1px solid transparent;
+    }
+
+    .navbar-clean .nav-menu .nav-link::after {
+        display: none;
+    }
+
+    .navbar-clean .nav-menu .nav-link:hover,
+    .navbar-clean .nav-menu .nav-link.active {
+        background: rgba(0, 212, 255, 0.12);
+        border-color: rgba(0, 212, 255, 0.22);
+        color: #fff;
+        box-shadow: none;
+        transform: none;
+    }
+
+    .navbar-clean .nav-menu .nav-link .nav-icon {
+        margin-right: 0;
+        color: var(--accent-400);
+    }
+}
+
+@keyframes navDrop {
+    from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 /* --- Tombol bahasa: pop tiap ganti bahasa --- */
-.lang-toggle {
-    transition: transform 0.18s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
-}
-
-.lang-toggle:active {
-    transform: scale(0.9);
-}
-
 .lang-toggle.lang-pop {
     animation: langPop 0.35s ease;
 }
