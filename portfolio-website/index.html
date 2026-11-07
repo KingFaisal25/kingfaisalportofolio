@@ -76,6 +76,9 @@
     <!-- Testimonial Marquee Styles -->
     <link rel="stylesheet" href="styles/testimonial-marquee.css" />
 
+    <!-- Testimonials Dark Glass 3D + Three.js Override (2026-11-07) -->
+    <link rel="stylesheet" href="styles/testimonials-dark-3d.css" />
+
     <!-- Modern Footer Styles -->
     <link rel="stylesheet" href="styles/footer-modern.css" />
 
@@ -1043,6 +1046,7 @@
 
     <!-- Testimonial Marquee Section -->
     <section class="testimonial-marquee-section">
+        <canvas id="testimonial-three-canvas" aria-hidden="true"></canvas>
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <div class="section-badge">
@@ -1060,8 +1064,7 @@
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
-                                    alt="Budi Santoso" loading="lazy">
+                                <span class="avatar-initials" aria-hidden="true">BS</span>
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Budi Santoso</div>
@@ -1101,8 +1104,7 @@
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=100&h=100&fit=crop&crop=face"
-                                    alt="Siti Nurhaliza" loading="lazy">
+                                <span class="avatar-initials" aria-hidden="true">SN</span>
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Siti Nurhaliza</div>
@@ -1142,8 +1144,7 @@
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
-                                    alt="Ahmad Rahman" loading="lazy">
+                                <span class="avatar-initials" aria-hidden="true">AR</span>
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Ahmad Rahman</div>
@@ -1183,8 +1184,7 @@
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
-                                    alt="Maya Sari" loading="lazy">
+                                <span class="avatar-initials" aria-hidden="true">MS</span>
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Maya Sari</div>
@@ -1224,8 +1224,7 @@
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face"
-                                    alt="Rizki Pratama" loading="lazy">
+                                <span class="avatar-initials" aria-hidden="true">RP</span>
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Rizki Pratama</div>
@@ -1265,8 +1264,7 @@
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face"
-                                    alt="Dewi Lestari" loading="lazy">
+                                <span class="avatar-initials" aria-hidden="true">DL</span>
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Dewi Lestari</div>
@@ -1306,8 +1304,7 @@
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face"
-                                    alt="Hendra Wijaya" loading="lazy">
+                                <span class="avatar-initials" aria-hidden="true">HW</span>
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Hendra Wijaya</div>
@@ -1347,8 +1344,7 @@
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face"
-                                    alt="Ratna Kusuma" loading="lazy">
+                                <span class="avatar-initials" aria-hidden="true">RK</span>
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Ratna Kusuma</div>
@@ -1388,8 +1384,7 @@
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face"
-                                    alt="Lestari Putri" loading="lazy">
+                                <span class="avatar-initials" aria-hidden="true">LP</span>
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Lestari Putri</div>
@@ -1429,8 +1424,7 @@
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=100&h=100&fit=crop&crop=face"
-                                    alt="Joko Susilo" loading="lazy">
+                                <span class="avatar-initials" aria-hidden="true">JS</span>
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Joko Susilo</div>
@@ -1470,8 +1464,7 @@
                     <div class="testimonial-marquee-card">
                         <div class="marquee-card-header">
                             <div class="marquee-user-avatar">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
-                                    alt="Putri Anggraeni" loading="lazy">
+                                <span class="avatar-initials" aria-hidden="true">PA</span>
                             </div>
                             <div class="marquee-user-info">
                                 <div class="marquee-user-name">Putri Anggraeni</div>
@@ -1786,6 +1779,8 @@
     <script src="scripts/testimonials-modern.js" defer></script>
     <script src="scripts/testimonial-animations.js" defer></script>
     <script src="scripts/testimonial-marquee.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="scripts/testimonials-three.js" defer></script>
     <script src="scripts/footer-animations.js" defer></script>
     <script src="scripts/contact-form-validation.js" defer></script>
     <script src="scripts/audio-controls.js" defer></script>
