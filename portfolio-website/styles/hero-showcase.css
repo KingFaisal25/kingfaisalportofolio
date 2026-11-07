@@ -4,10 +4,9 @@
  * Layar pertama adalah etalase skill frontend. File ini MENAMBAH
  * lapisan di atas hero yang sudah ada: canvas jaringan partikel
  * interaktif + glow lembut (digerakkan scripts/hero-three.js),
- * lencana status "Website & Aplikasi" dipindah dari atas foto ke
- * bawah foto supaya tidak menutupi foto, lalu dipercantik jadi
- * pill gradien + glow + shine, plus cincin orbit berputar pelan
- * di sekeliling foto.
+ * lencana status "Indonesia · Remote" kini tinggal di kolom teks
+ * (di bawah judul + teks peran), dipercantik jadi pill gradien +
+ * glow + shine, plus cincin orbit berputar pelan di sekeliling foto.
  * Palet tetap navy + cyan situs.
  */
 
@@ -46,12 +45,13 @@
     z-index: 1;
 }
 
-/* ===== LENCANA STATUS: dari atas foto pindah ke bawah foto =====
+/* ===== LENCANA STATUS: pindah ke kolom teks, di bawah judul =====
  * Sebelumnya .hero-status-indicator absolute di bawah foto
  * (bottom -20px / 20px), menutupi foto dan teksnya terlipat
- * jadi 3 baris di HP. Sekarang wadah foto jadi kolom dengan
- * tinggi otomatis, frame tetap kotak selebar wadah (aspect-ratio),
- * dan lencana jadi elemen biasa di bawah foto, satu baris. */
+ * jadi 3 baris di HP. Sekarang lencana tinggal di .hero-content
+ * (di bawah judul + teks peran), satu baris, selalu di tengah;
+ * wadah foto tetap kolom dengan tinggi otomatis, frame kotak
+ * selebar wadah (aspect-ratio). */
 .hero-visual .hero-image-container-modern {
     height: auto;
     flex-direction: column;
@@ -64,11 +64,8 @@
     flex-shrink: 0;
 }
 
-.hero-visual .hero-image-container-modern .hero-status-indicator {
+.hero-content .hero-status-indicator {
     position: relative;
-    bottom: auto;
-    left: auto;
-    transform: none;
     width: max-content;
     max-width: 100%;
     margin: 18px auto 0;
@@ -83,7 +80,7 @@
     animation: statusGlow 2.8s ease-in-out infinite;
 }
 
-.hero-visual .hero-image-container-modern .hero-status-indicator::after {
+.hero-content .hero-status-indicator::after {
     content: '';
     position: absolute;
     top: 0;
@@ -129,7 +126,7 @@
 }
 
 @media (max-width: 768px) {
-    .hero-visual .hero-image-container-modern .hero-status-indicator {
+    .hero-content .hero-status-indicator {
         margin-top: 14px;
     }
 }
@@ -159,8 +156,8 @@
     }
 
     .hero-visual .hero-image-container-modern::before,
-    .hero-visual .hero-image-container-modern .hero-status-indicator,
-    .hero-visual .hero-image-container-modern .hero-status-indicator::after {
+    .hero-content .hero-status-indicator,
+    .hero-content .hero-status-indicator::after {
         animation: none;
     }
 
