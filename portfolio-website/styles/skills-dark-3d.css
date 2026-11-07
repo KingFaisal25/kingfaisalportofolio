@@ -1,0 +1,186 @@
+/*
+ * SKILLS — DARK GLASS 3D OVERRIDE (v2.1, 2026-11-07)
+ * ---------------------------------------------------------------
+ * Masalah yang diperbaiki (laporan kingfaisal, screenshot 07 Nov 2026):
+ *  1. Kartu skill tampil PUTIH di atas tema gelap — tidak nyambung.
+ *     Penyebab: aturan generik `.skill-item` di modern-skills-card.css
+ *     memberi `background: rgba(255,255,255,0.8)` + `overflow: hidden`,
+ *     dan aturan keychain tidak pernah menimpa background itu.
+ *  2. Label kepotong ("JavaScript" jadi "JavaScrip", "PostgreSQL" jadi
+ *     "ostgreSQ") karena tile terlalu sempit + overflow hidden.
+ *  3. Tampilan datar — diminta modern, rapi, dan berdimensi 3D.
+ *
+ * File ini dimuat SETELAH modern-skills-card.css, jadi aturannya menang
+ * tanpa !important. Hanya menyentuh section `.skills-section-keychain`.
+ * Palet tetap navy + cyan situs (tidak ganti warna brand).
+ */
+
+/* ===== 3D STAGE ===== */
+.skills-section-keychain .skills-list {
+    perspective: 1100px;
+}
+
+/* ===== SKILL TILE: dark glass, miring 3D ===== */
+.skills-section-keychain .skill-item {
+    /* Matikan animasi masuk lama: keyframe-nya mengunci transform
+       (fill forwards) sehingga efek hover/tilt tidak pernah jalan. */
+    animation: skillFadeIn 0.5s ease both;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    overflow: visible;
+    padding: 14px 6px 12px;
+    border-radius: 18px;
+    border: 1px solid rgba(144, 224, 239, 0.22);
+    background: linear-gradient(
+        165deg,
+        rgba(56, 89, 199, 0.30) 0%,
+        rgba(15, 23, 42, 0.92) 55%,
+        rgba(2, 10, 22, 0.96) 100%
+    );
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.18),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+        0 14px 28px rgba(2, 10, 22, 0.50),
+        0 4px 12px rgba(0, 180, 216, 0.12);
+    transform: perspective(700px) rotateX(5deg);
+    transform-style: preserve-3d;
+    transition:
+        transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+}
+
+/* Garis cahaya cyan di tepi atas tile */
+.skills-section-keychain .skill-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 12%;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, transparent, rgba(144, 224, 239, 0.85), transparent);
+    pointer-events: none;
+}
+
+.skills-section-keychain .skill-item:hover,
+.skills-section-keychain .skill-item:focus-within {
+    transform: perspective(700px) rotateX(0deg) translateY(-6px) scale(1.05);
+    border-color: var(--kc-accent, rgba(144, 224, 239, 0.65));
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        0 24px 44px rgba(2, 10, 22, 0.55),
+        0 0 28px var(--kc-accent, rgba(0, 180, 216, 0.35));
+}
+
+.skills-section-keychain .skill-item:active {
+    transform: perspective(700px) rotateX(2deg) translateY(-2px) scale(1.02);
+}
+
+/* ===== ICON BOX: mengambang di atas tile (efek 3D) ===== */
+.skills-section-keychain .skill-icon-box {
+    background: linear-gradient(145deg, rgba(51, 65, 85, 0.95) 0%, rgba(15, 23, 42, 0.97) 100%);
+    border: 1px solid rgba(144, 224, 239, 0.28);
+    box-shadow:
+        0 10px 20px rgba(2, 10, 22, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.20),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.35);
+    transform: translateZ(26px);
+}
+
+.skills-section-keychain .skill-icon-box i {
+    color: var(--kc-accent, rgba(144, 224, 239, 0.95));
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.55));
+}
+
+.skills-section-keychain .skill-icon-box:hover {
+    transform: translateZ(34px) translateY(-2px) scale(1.06);
+    border-color: var(--kc-accent, rgba(144, 224, 239, 0.7));
+    box-shadow:
+        0 16px 30px rgba(2, 10, 22, 0.55),
+        0 0 26px var(--kc-accent, rgba(0, 180, 216, 0.45)),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* ===== LABEL: tidak lagi kepotong ===== */
+.skills-section-keychain .skill-name {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    min-height: 2.5em; /* ruang 2 baris: "JavaScript" / "PostgreSQL" boleh wrap */
+    color: #e8f4f8;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: break-word;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    transform: translateZ(18px);
+}
+
+.skills-section-keychain .skill-item:hover .skill-name {
+    color: #ffffff;
+}
+
+/* ===== CATEGORY PANEL: lebih dalam, tetap gelap ===== */
+.skills-section-keychain .skill-category {
+    animation: skillFadeIn 0.7s ease both;
+    background: linear-gradient(180deg, rgba(30, 41, 59, 0.78) 0%, rgba(15, 23, 42, 0.88) 100%);
+    border: 1px solid rgba(144, 224, 239, 0.16);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.10),
+        0 22px 48px rgba(2, 10, 22, 0.45);
+}
+
+.skills-section-keychain .skill-category:hover {
+    transform: translateY(-4px);
+    background: linear-gradient(180deg, rgba(30, 41, 59, 0.88) 0%, rgba(15, 23, 42, 0.94) 100%);
+    border-color: rgba(144, 224, 239, 0.30);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 30px 60px rgba(2, 10, 22, 0.55),
+        0 0 40px rgba(0, 180, 216, 0.14);
+}
+
+/* ===== ENTRANCE: hanya opacity, supaya tidak mengunci transform ===== */
+@keyframes skillFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* ===== MOBILE TUNING ===== */
+@media (max-width: 768px) {
+    .skills-section-keychain .skill-item {
+        padding: 12px 4px 10px;
+        border-radius: 16px;
+    }
+
+    .skills-section-keychain .skill-name {
+        font-size: 10.5px;
+    }
+}
+
+@media (max-width: 375px) {
+    .skills-section-keychain .skill-name {
+        font-size: 10px;
+    }
+}
+
+/* ===== REDUCED MOTION: tanpa tilt/animasi ===== */
+@media (prefers-reduced-motion: reduce) {
+    .skills-section-keychain .skill-item,
+    .skills-section-keychain .skill-category {
+        animation: none;
+        transform: none;
+    }
+
+    .skills-section-keychain .skill-item:hover,
+    .skills-section-keychain .skill-category:hover {
+        transform: none;
+    }
+}
