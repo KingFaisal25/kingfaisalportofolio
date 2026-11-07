@@ -7,58 +7,58 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const navMenu = document.querySelector('.nav-menu');
     if (navMenu) navMenu.classList.remove('active');
-    if (mobileMenuToggle) mobileMenuToggle.setAttribute('aria-expanded', 'true');
+    if (mobileMenuToggle) mobileMenuToggle.setAttribute('aria-expanded', 'false');
 
     // Language toggle & i18n
     const i18n = {
         en: {
-            nav: { home: 'Beranda', about: 'Tentang', services: 'Layanan', projects: 'Proyek', skills: 'Keahlian', contact: 'Kontak' },
-            badge: '🚀 Tersedia untuk proyek baru',
-            heroTitle: '<span class="gradient-text">King Faisal</span> <span class="title-accent">IT Enginner </span>',
-            heroDescription: '🚀 Profesional di bidang <strong>Teknologi Informasi</strong> yang fokus pada <span class="highlight-tech">Keamanan Siber</span>, <span class="highlight-tech">Arsitektur Database</span>, dan <span class="highlight-tech">Infrastruktur Cloud</span>. Saya merancang solusi yang <strong>skalabel</strong>, <strong>aman</strong>, dan <strong>berperforma tinggi</strong> untuk mempercepat transformasi digital Anda.<br><br>Saya juga menyediakan layanan <strong>Pengembangan Web Modern</strong> dan <strong>Aplikasi Mobile (Android/iOS)</strong> — responsif, cepat, dan berorientasi pada hasil untuk mengembangkan merek dan bisnis Anda.',
-            ctaPrimary: '<i class="fas fa-globe"></i> 🌐 Pesan Website & Aplikasi',
-            ctaSecondary: '<i class="fas fa-comments"></i> 💬 Konsultasi Gratis',
-            footer: { nav: 'Navigasi', services: 'Layanan', contact: 'Kontak' },
-            newsletter: { text: 'Dapatkan wawasan teknologi dan tips keamanan langsung ke email Anda.', button: '<i class="fas fa-envelope"></i> Berlangganan' },
+            nav: { home: 'Home', about: 'About', services: 'Services', projects: 'Projects', skills: 'Skills', contact: 'Contact' },
+            badge: '🚀 Available for new projects',
+            heroTitle: '<span class="gradient-text">King Faisal</span> <span class="title-accent">IT Engineer </span>',
+            heroDescription: '🚀 A professional in <strong>Information Technology</strong> focused on <span class="highlight-tech">Cybersecurity</span>, <span class="highlight-tech">Database Architecture</span>, and <span class="highlight-tech">Cloud Infrastructure</span>. I design solutions that are <strong>scalable</strong>, <strong>secure</strong>, and <strong>high-performing</strong> to accelerate your digital transformation.<br><br>I also provide <strong>Modern Web Development</strong> and <strong>Mobile App (Android/iOS)</strong> services — responsive, fast, and results-driven to grow your brand and business.',
+            ctaPrimary: '<i class="fas fa-globe"></i> 🌐 Order a Website & App',
+            ctaSecondary: '<i class="fas fa-comments"></i> 💬 Free Consultation',
+            footer: { nav: 'Navigation', services: 'Services', contact: 'Contact' },
+            newsletter: { text: 'Get tech insights and security tips straight to your email.', button: '<i class="fas fa-envelope"></i> Subscribe' },
             contact: {
-                labels: { name: 'Nama Lengkap', email: 'Alamat Email', subject: 'Judul Proyek', service: 'Jenis Layanan', message: 'Pesan Anda' },
-                submit: { idle: '<span class="btn-text">Kirim Pesan</span><i class="fas fa-paper-plane"></i>', sending: '<i class="fas fa-spinner fa-spin"></i> Mengirim...', sent: '<i class="fas fa-check"></i> Pesan Terkirim!' },
-                invalid: 'Mohon lengkapi semua field yang wajib diisi.'
+                labels: { name: 'Full Name', email: 'Email Address', subject: 'Project Title', service: 'Service Type', message: 'Your Message' },
+                submit: { idle: '<span class="btn-text">Send Message</span><i class="fas fa-paper-plane"></i>', sending: '<i class="fas fa-spinner fa-spin"></i> Sending...', sent: '<i class="fas fa-check"></i> Message Sent!' },
+                invalid: 'Please complete all required fields.'
             },
-            misc: { backToTop: 'Kembali ke atas', breadcrumbHome: 'Beranda' },
+            misc: { backToTop: 'Back to top', breadcrumbHome: 'Home' },
             dict: {
-                'contact.cta.form': '<i class="fas fa-edit"></i> Isi Formulir Proyek',
-                'hero.status': '🟢 Tersedia untuk Proyek Baru',
-                'services.badge': 'Layanan',
-                'services.title': 'Solusi Digital End-to-End',
-                'services.desc': 'Layanan terintegrasi untuk <span class="gradient-text">website modern</span>, <span class="gradient-text">aplikasi mobile</span>, dan <span class="gradient-text">keamanan & operasi</span> dengan performa tinggi dan hasil yang terukur.',
-                'services.web.title': 'Pengembangan Website',
-                'services.web.text': 'Company profile, landing page, e-commerce, dan admin dashboard dengan desain modern, SEO-ready, akses cepat, dan konversi optimal.',
-                'services.web.cta': '<i class="fas fa-rocket"></i> Pesan Sekarang',
-                'services.app.title': 'Pengembangan Aplikasi Mobile (APK)',
-                'services.app.text': 'Aplikasi Android/iOS dengan React Native atau Flutter — stabil, aman, mudah dikembangkan, dan siap berskala untuk bisnis Anda.',
-                'services.app.cta': '<i class="fas fa-rocket"></i> Pesan Sekarang',
-                'services.sec.title': 'Perawatan & Keamanan',
-                'services.sec.cta': '<i class="fas fa-rocket"></i> Minta Penawaran',
-                'services.footer.cta': '<i class="fas fa-comments"></i> Diskusikan Kebutuhan Anda',
-                'about.badge': 'Tentang Saya',
-                'about.title': 'Engineer IT | Keamanan Siber | Full Stack Developer',
-                'about.desc': 'Mengubah sistem kompleks menjadi solusi yang <span class="gradient-text">aman</span>, <span class="gradient-text">skalabel</span>, dan <span class="gradient-text">berperforma tinggi</span>.',
-                'about.heading': 'Merancang <span class="gradient-text">Solusi Digital</span> untuk <span class="gradient-text">Perusahaan</span>',
-                'about.actions.services': '<i class="fas fa-toolbox"></i> Lihat Layanan',
-                'about.actions.quote': '<i class="fas fa-paper-plane"></i> Minta Penawaran',
-                'about.info.location.label': 'Lokasi',
+                'contact.cta.form': '<i class="fas fa-edit"></i> Fill in the Project Form',
+                'hero.status': '🟢 Available for New Projects',
+                'services.badge': 'Services',
+                'services.title': 'End-to-End Digital Solutions',
+                'services.desc': 'Integrated services for <span class="gradient-text">modern websites</span>, <span class="gradient-text">mobile apps</span>, and <span class="gradient-text">security & operations</span> — high performance with measurable results.',
+                'services.web.title': 'Website Development',
+                'services.web.text': 'Company profiles, landing pages, e-commerce, and admin dashboards with modern design, SEO-ready, fast access, and optimal conversion.',
+                'services.web.cta': '<i class="fas fa-rocket"></i> Order Now',
+                'services.app.title': 'Mobile App Development (APK)',
+                'services.app.text': 'Android/iOS apps with React Native or Flutter — stable, secure, easy to scale, and ready to grow with your business.',
+                'services.app.cta': '<i class="fas fa-rocket"></i> Order Now',
+                'services.sec.title': 'Maintenance & Security',
+                'services.sec.cta': '<i class="fas fa-rocket"></i> Request a Quote',
+                'services.footer.cta': '<i class="fas fa-comments"></i> Discuss Your Needs',
+                'about.badge': 'About Me',
+                'about.title': 'IT Engineer | Cybersecurity | Full Stack Developer',
+                'about.desc': 'Turning complex systems into <span class="gradient-text">secure</span>, <span class="gradient-text">scalable</span>, and <span class="gradient-text">high-performing</span> solutions.',
+                'about.heading': 'Designing <span class="gradient-text">Digital Solutions</span> for <span class="gradient-text">Businesses</span>',
+                'about.actions.services': '<i class="fas fa-toolbox"></i> View Services',
+                'about.actions.quote': '<i class="fas fa-paper-plane"></i> Request a Quote',
+                'about.info.location.label': 'Location',
                 'about.info.email.label': 'Email',
-                'skills.badge': 'Penguasaan Teknis',
-                'skills.title': 'Keunggulan Enginer IT',
-                'skills.desc': 'Menguasai <span class="gradient-text">infrastruktur enterprise</span>, <span class="gradient-text">keamanan siber</span>, dan <span class="gradient-text">stack pengembangan modern</span> untuk solusi IT kelas dunia.',
-                'projects.badge': 'Portofolio',
-                'projects.title': 'Proyek Unggulan',
-                'projects.desc': 'Menampilkan <span class="gradient-text">solusi inovatif</span> dan <span class="gradient-text">keunggulan teknis</span> dalam implementasi dunia nyata.',
-                'contact.badge': 'Hubungi Saya',
-                'contact.title': 'Mari Bekerja Sama',
-                'contact.desc': 'Siap mengubah ide Anda menjadi <span class="gradient-text">solusi digital</span> yang berdampak? Mari mulai.' ,
-                'footer.availability': 'Tersedia untuk proyek baru'
+                'skills.badge': 'Technical Expertise',
+                'skills.title': 'IT Engineering Excellence',
+                'skills.desc': 'Mastering <span class="gradient-text">enterprise infrastructure</span>, <span class="gradient-text">cybersecurity</span>, and a <span class="gradient-text">modern development stack</span> for world-class IT solutions.',
+                'projects.badge': 'Portfolio',
+                'projects.title': 'Featured Projects',
+                'projects.desc': 'Showcasing <span class="gradient-text">innovative solutions</span> and <span class="gradient-text">technical excellence</span> in real-world implementations.',
+                'contact.badge': 'Contact Me',
+                'contact.title': 'Let Us Work Together',
+                'contact.desc': 'Ready to turn your idea into an <span class="gradient-text">impactful digital solution</span>? Let us get started.' ,
+                'footer.availability': 'Available for new projects'
             }
         },
         id: {
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('lang', lang);
     }
 
-    const savedLang = localStorage.getItem('lang') || (navigator.language || 'id').startsWith('en') ? 'en' : 'id';
+    const savedLang = localStorage.getItem('lang') || ((navigator.language || 'id').startsWith('en') ? 'en' : 'id');
     applyLanguage(savedLang);
     const langToggle = document.getElementById('langToggle');
     if (langToggle) {
@@ -170,6 +170,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const current = localStorage.getItem('lang') || 'id';
             const next = current === 'id' ? 'en' : 'id';
             applyLanguage(next);
+            // Animasi pop kecil tiap ganti bahasa (lihat styles/nav-showcase.css)
+            langToggle.classList.remove('lang-pop');
+            void langToggle.offsetWidth;
+            langToggle.classList.add('lang-pop');
         });
     }
 
@@ -224,32 +228,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     })();
     if (mobileMenuToggle && navMenu) {
-        mobileMenuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileMenuToggle.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
-            const expanded = mobileMenuToggle.classList.contains('active');
-            mobileMenuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        // Satu sumber kebenaran untuk status menu: boolean eksplisit,
+        // bukan toggle ganda yang bisa meleset kalau event sampai dua kali.
+        const setMenu = (open) => {
+            navMenu.classList.toggle('active', open);
+            mobileMenuToggle.classList.toggle('active', open);
+            document.body.classList.toggle('menu-open', open);
+            mobileMenuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        };
+        mobileMenuToggle.addEventListener('click', (e) => {
+            // Hentikan gelembung ke document: klik tombol sendiri tidak
+            // boleh langsung ditutup lagi oleh penutup-klik-di-luar.
+            e.stopPropagation();
+            setMenu(!navMenu.classList.contains('active'));
         });
+        // Ketuk salah satu tautan menu -> menu menutup.
+        navMenu.querySelectorAll('.nav-link').forEach((link) => {
+            link.addEventListener('click', () => setMenu(false));
+        });
+        // Ketuk di luar menu -> menu menutup.
         document.addEventListener('click', (e) => {
-            const t = e.target;
-            const withinToggle = mobileMenuToggle.contains(t);
-            const withinMenu = navMenu.contains(t);
-            if (navMenu.classList.contains('active') && !withinToggle && !withinMenu) {
-                navMenu.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                document.body.classList.remove('menu-open');
+            if (navMenu.classList.contains('active')
+                && !mobileMenuToggle.contains(e.target)
+                && !navMenu.contains(e.target)) {
+                setMenu(false);
             }
-        }, { passive: true });
+        });
+        // Tombol Escape menutup menu.
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') setMenu(false);
+        });
+        // Balik ke desktop -> menu menutup.
         window.addEventListener('resize', () => {
-            const isMobile = window.matchMedia('(max-width: 768px)').matches;
-            if (!isMobile) {
-                navMenu.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                document.body.classList.remove('menu-open');
-            }
+            if (!window.matchMedia('(max-width: 768px)').matches) setMenu(false);
         });
     }
     
