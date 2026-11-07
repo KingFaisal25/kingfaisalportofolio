@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             misc: { backToTop: 'Back to top', breadcrumbHome: 'Home' },
             dict: {
                 'contact.cta.form': '<i class="fas fa-edit"></i> Fill in the Project Form',
-                'hero.status': '🟢 Available for New Projects',
+                'hero.status': '🌐 Websites & Apps',
                 'services.badge': 'Services',
                 'services.title': 'End-to-End Digital Solutions',
                 'services.desc': 'Integrated services for <span class="gradient-text">modern websites</span>, <span class="gradient-text">mobile apps</span>, and <span class="gradient-text">security & operations</span> — high performance with measurable results.',
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             misc: { backToTop: 'Kembali ke atas', breadcrumbHome: 'Beranda' },
             dict: {
                 'contact.cta.form': '<i class="fas fa-edit"></i> Isi Form Proyek',
-                'hero.status': '🟢 Tersedia untuk Proyek Baru',
+                'hero.status': '🌐 Website & Aplikasi',
                 'services.badge': 'Layanan',
                 'services.title': 'Solusi Digital End‑to‑End',
                 'services.desc': 'Layanan terintegr asi untuk <span class="gradient-text">website modern</span>, <span class="gradient-text">aplikasi mobile</span>, dan <span class="gradient-text">keamanan & operasi</span> dengan performa tinggi serta hasil yang terukur.',
