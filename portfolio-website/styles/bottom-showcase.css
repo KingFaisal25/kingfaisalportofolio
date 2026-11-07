@@ -1,0 +1,138 @@
+/* ============================================================
+   BOTTOM SHOWCASE — Three.js footer canvas + glass bar (mobile)
+   Upgrade of the bottom area (sticky CTA bar + floating buttons
+   + footer) with Three.js, glassmorphism, interactive motion and
+   parallax. Loads LAST in <head>.
+   - Footer canvas: #footer-three-canvas (scripts/footer-three.js),
+     particles + wireframes with scroll parallax.
+   - Sticky bar: stronger glass (blur 20px + saturate), cyan top
+     accent line, animated gradient button with shine sweep,
+     glow pulse and press effect.
+   - Floating buttons (WhatsApp / back-to-top): glass border +
+     hover glow.
+   - Only the bottom area is touched. Desktop: only the footer
+     canvas rules apply (the bar is hidden on desktop anyway).
+   - Reduced motion: button animations off, canvas hidden (JS
+     also draws one static frame instead of looping).
+   ============================================================ */
+
+/* ---------- Footer Three.js canvas layer ---------- */
+#footer-three-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.footer-modern > .container {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    #footer-three-canvas {
+        opacity: 0.35;
+    }
+}
+
+/* ---------- Sticky bar: glassmorphism ---------- */
+@media (max-width: 768px) {
+    .sticky-cta {
+        background: linear-gradient(135deg, rgba(13, 27, 62, 0.78) 0%, rgba(8, 15, 35, 0.85) 100%);
+        -webkit-backdrop-filter: blur(20px) saturate(1.4);
+        backdrop-filter: blur(20px) saturate(1.4);
+        border-top: 1px solid rgba(0, 212, 255, 0.28);
+        box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    }
+
+    /* Cyan -> violet top accent line */
+    .sticky-cta::before {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.9), rgba(139, 92, 246, 0.9), transparent);
+        pointer-events: none;
+    }
+
+    /* ---------- CTA button: animated gradient + shine + pulse ---------- */
+    .sticky-cta-btn {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #00b4d8, #667eea, #00b4d8);
+        background-size: 200% 200%;
+        animation: ctaGradient 6s ease infinite, ctaGlow 2.8s ease-in-out infinite;
+    }
+
+    @keyframes ctaGradient {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+
+    @keyframes ctaGlow {
+        0%, 100% { box-shadow: 0 8px 24px rgba(0, 212, 255, 0.3); }
+        50% { box-shadow: 0 8px 34px rgba(0, 212, 255, 0.55); }
+    }
+
+    /* Shine sweep on hover */
+    .sticky-cta-btn::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -80%;
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+        transform: skewX(-20deg);
+        transition: left 0.6s ease;
+        pointer-events: none;
+    }
+
+    .sticky-cta-btn:hover::after {
+        left: 130%;
+    }
+
+    .sticky-cta-btn:active {
+        transform: scale(0.97);
+    }
+
+    /* ---------- Floating buttons: glass + hover glow ---------- */
+    .cta-whatsapp,
+    .back-to-top {
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+    }
+
+    .cta-whatsapp:hover {
+        box-shadow: 0 12px 30px rgba(16, 185, 129, 0.5);
+    }
+
+    .cta-whatsapp:active {
+        transform: scale(0.94);
+    }
+
+    .back-to-top:hover {
+        box-shadow: 0 12px 30px rgba(139, 92, 246, 0.5);
+    }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .sticky-cta-btn {
+        animation: none;
+    }
+
+    .sticky-cta-btn::after {
+        display: none;
+    }
+
+    #footer-three-canvas {
+        display: none;
+    }
+}
