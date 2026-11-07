@@ -151,6 +151,12 @@ class ContactFormValidator {
             field.element.addEventListener('input', (e) => {
                 this.debounceValidation(fieldName, e.target.value);
             });
+
+            // Change event for selects and autofill (covers iOS Safari,
+            // where select elements don't reliably fire 'input')
+            field.element.addEventListener('change', (e) => {
+                this.validateField(fieldName, e.target.value);
+            });
             
             // Blur event for immediate validation
             field.element.addEventListener('blur', (e) => {
