@@ -1,0 +1,315 @@
+/* ============================================================
+   CONTACT SHOWCASE — dark glassmorphism + Three.js + GSAP
+   Override layer (loads LAST in <head>) for the contact form.
+
+   Fixes the 3 problems in the screenshot + on mobile:
+   1. WHITE CARD — .contact-form-modern had a white->black gradient
+      (rgba(255,255,255,0.95) -> rgba(13,13,13,0.95)).
+   2. BLACK-BAR LABELS — .floating-label .form-label had a black
+      gradient background (and `background: black` when floated).
+   3. ICON BOXES STACKED BELOW INPUTS — .input-group-prepend is a
+      sibling AFTER the input (no .input-group wrapper in the HTML),
+      so it rendered as a separate full-width grey block. Now it is
+      absolutely positioned INSIDE the field, left of the text.
+   4. MOBILE — tighter paddings, single-column rows, 16px inputs
+      (iOS zoom guard kept), steps that don't overflow.
+
+   Does NOT touch validation/submit JS: every class name and id
+   the JS hooks into (.progress-fill, .progress-text, .form-step,
+   .btn-submit, .form-control, .form-label, .input-group-prepend)
+   is kept exactly as-is.
+   ============================================================ */
+
+/* ---------- Three.js canvas layer ---------- */
+.contact-section {
+    position: relative;
+}
+
+#contact-three-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.contact-section > .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------- Form card: dark glass (kills the white card) ---------- */
+.contact-form-modern {
+    background: linear-gradient(160deg, rgba(13, 27, 62, 0.85) 0%, rgba(8, 15, 35, 0.9) 100%);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(0, 212, 255, 0.22);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transform-style: preserve-3d;
+}
+
+/* Top accent line: cyan -> violet (was blue, kept as gradient bar) */
+.contact-form-modern::before {
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.9), rgba(102, 126, 234, 0.9), transparent);
+}
+
+/* ---------- Fields: dark glass inputs ---------- */
+.contact-form-modern .form-group {
+    position: relative;
+}
+
+.contact-form-modern .form-control {
+    background: rgba(8, 17, 40, 0.72);
+    border: 1.5px solid rgba(148, 163, 184, 0.28);
+    color: #f1f5f9;
+    padding-left: 3rem; /* room for the icon inside the field */
+}
+
+.contact-form-modern .form-control::placeholder {
+    color: rgba(148, 163, 184, 0.55);
+}
+
+.contact-form-modern .form-control:hover {
+    border-color: rgba(0, 212, 255, 0.45);
+}
+
+.contact-form-modern .form-control:focus {
+    background: rgba(10, 22, 48, 0.88);
+    border-color: #00d4ff;
+    box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.15), 0 10px 28px rgba(0, 212, 255, 0.12);
+}
+
+/* Floating inputs keep their top/bottom padding, icon room on the left */
+.contact-form-modern .floating-label .form-control {
+    padding: 1.5rem 1.25rem 0.5rem 3rem;
+}
+
+/* ---------- Icons: inside the field, not a box below it ---------- */
+.contact-form-modern .input-group-prepend {
+    position: absolute;
+    left: 0.95rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.contact-form-modern .input-group-prepend .input-icon {
+    color: rgba(148, 163, 184, 0.85);
+    font-size: 1rem;
+}
+
+.contact-form-modern .form-control:focus ~ .input-group-prepend .input-icon {
+    color: #00d4ff;
+}
+
+.contact-form-modern .form-control.is-valid ~ .input-group-prepend .input-icon {
+    color: #4ade80;
+}
+
+.contact-form-modern .form-control.is-invalid ~ .input-group-prepend .input-icon {
+    color: #f87171;
+}
+
+/* Textarea: icon at the top, aligned with the first line */
+.contact-form-modern .floating-label textarea.form-control ~ .input-group-prepend {
+    top: 1.55rem;
+    transform: none;
+}
+
+/* ---------- Labels: no more black bars ---------- */
+.contact-form-modern .form-group:not(.floating-label) > .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: rgba(226, 232, 240, 0.9);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.contact-form-modern .floating-label .form-label {
+    top: 1.05rem;
+    left: 3rem;
+    background: transparent;
+    color: rgba(203, 213, 225, 0.72);
+}
+
+.contact-form-modern .floating-label .form-control:focus + .form-label,
+.contact-form-modern .floating-label .form-control:not(:placeholder-shown) + .form-label {
+    top: 0.55rem;
+    left: 3rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #00d4ff;
+    background: transparent;
+}
+
+/* ---------- Select: dark + cyan chevron ---------- */
+.contact-form-modern select.form-control {
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2300d4ff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 14px;
+    padding-right: 2.75rem;
+    cursor: pointer;
+}
+
+.contact-form-modern select.form-control option {
+    background: #0b1530;
+    color: #e2e8f0;
+}
+
+/* ---------- Validation states on dark ---------- */
+.contact-form-modern .form-control.is-valid {
+    border-color: #22c55e;
+}
+
+.contact-form-modern .form-control.is-invalid {
+    border-color: #ef4444;
+}
+
+.contact-form-modern .valid-feedback {
+    color: #4ade80;
+}
+
+.contact-form-modern .invalid-feedback {
+    color: #f87171;
+}
+
+/* ---------- Progress: dark track, glowing cyan fill ---------- */
+.contact-form-modern .progress-bar {
+    background: rgba(148, 163, 184, 0.18);
+}
+
+.contact-form-modern .progress-fill {
+    background: linear-gradient(90deg, #00d4ff 0%, #667eea 100%);
+    box-shadow: 0 0 12px rgba(0, 212, 255, 0.5);
+}
+
+.contact-form-modern .progress-text {
+    color: rgba(203, 213, 225, 0.8);
+}
+
+/* ---------- Submit button: stronger glow ---------- */
+.contact-form-modern .btn-submit {
+    box-shadow: 0 10px 28px rgba(0, 212, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.contact-form-modern .btn-submit:hover {
+    box-shadow: 0 16px 38px rgba(0, 212, 255, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* ---------- Steps + icon badges (header area) ---------- */
+.contact-form-container .form-step {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* base had translateY(-70px) here — a typo that flung icons off-screen */
+.contact-form-container .icon-badge:hover {
+    transform: translateY(-2px);
+}
+
+/* ---------- Responsive: the mobile fixes ---------- */
+@media (max-width: 768px) {
+    .contact-form-container {
+        padding: 1.25rem;
+    }
+
+    .contact-form-modern {
+        padding: 1.5rem;
+        border-radius: 20px;
+    }
+
+    .contact-form-modern .form-row {
+        grid-template-columns: 1fr;
+        gap: 0.875rem;
+    }
+
+    /* 16px keeps iOS from auto-zooming on focus */
+    .contact-form-modern .form-control {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-section {
+        padding: 3rem 0;
+    }
+
+    .contact-form-container {
+        padding: 0.75rem;
+    }
+
+    .contact-form-modern {
+        padding: 1.25rem 1rem;
+        border-radius: 18px;
+    }
+
+    .contact-form-modern .form-control {
+        padding-left: 2.75rem;
+    }
+
+    .contact-form-modern .floating-label .form-control {
+        padding: 1.25rem 1rem 0.375rem 2.75rem;
+    }
+
+    .contact-form-modern .floating-label .form-label {
+        left: 2.75rem;
+        top: 0.8rem;
+    }
+
+    .contact-form-modern .floating-label .form-control:focus + .form-label,
+    .contact-form-modern .floating-label .form-control:not(:placeholder-shown) + .form-label {
+        left: 2.75rem;
+        top: 0.45rem;
+    }
+
+    .contact-form-modern .input-group-prepend {
+        left: 0.8rem;
+    }
+
+    .contact-form-modern .form-steps {
+        gap: 6px;
+        margin: 10px 0 16px;
+    }
+
+    .contact-form-container .form-step {
+        font-size: 0.75rem;
+        padding: 6px 4px;
+    }
+
+    .contact-form-modern .btn-submit {
+        padding: 0.875rem 1rem;
+    }
+
+    #contact-three-canvas {
+        opacity: 0.35;
+    }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .contact-form-modern:hover {
+        transform: none;
+    }
+
+    #contact-three-canvas {
+        display: none;
+    }
+}
