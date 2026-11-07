@@ -66,6 +66,12 @@
 
 .hero-content .hero-status-indicator {
     position: relative;
+    /* PENTING: aturan dasar (.hero-status-indicator) masih memberi
+       left: 50% + transform: translateX(-50%) — tanpa reset ini pill
+       yang sudah in-flow ikut kegeser ke kanan sampai terpotong di HP. */
+    left: auto;
+    transform: none;
+    align-self: center;
     width: max-content;
     max-width: 100%;
     margin: 18px auto 0;
