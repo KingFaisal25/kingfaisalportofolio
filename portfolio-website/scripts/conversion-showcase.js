@@ -2,8 +2,9 @@
    Hanya untuk section baru/baru-direstyle di ronde ini:
    - count-up angka stats (.stat-count)
    - parallax orbs (.stats-orb / .process-orb)
-   - particle field Three.js untuk #stats-three-canvas + #process-three-canvas
-     (Three.js r128 sudah dimuat global; guarded kalau CDN gagal)
+   - TIDAK ADA canvas Three.js baru di ronde ini (sengaja dilepas 2026-11-08:
+     7 konteks WebGL sekaligus bikin tab iPhone Safari crash-reload pas scroll).
+     Efek 3D di section baru hanya orbs parallax + glass + tilt (CSS/JS ringan).
    - tilt 3D kartu testimoni (.testimonial-marquee-card)
    Semua guarded + menghormati prefers-reduced-motion.
    Tidak menyentuh kode section lain. */
@@ -73,79 +74,6 @@
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
     }
-
-    /* ---------- Three.js particle fields ---------- */
-    function particleField(canvasId, count) {
-        var canvas = document.getElementById(canvasId);
-        if (!canvas || typeof THREE === 'undefined') return;
-
-        var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: false });
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-        var scene = new THREE.Scene();
-        var camera = new THREE.PerspectiveCamera(60, 1, 0.1, 100);
-        camera.position.z = 6;
-
-        var geo = new THREE.BufferGeometry();
-        var pos = new Float32Array(count * 3);
-        var col = new Float32Array(count * 3);
-        var c1 = new THREE.Color(0x00d4ff);
-        var c2 = new THREE.Color(0x8b5cf6);
-        for (var i = 0; i < count; i++) {
-            pos[i * 3] = (Math.random() - 0.5) * 12;
-            pos[i * 3 + 1] = (Math.random() - 0.5) * 6;
-            pos[i * 3 + 2] = (Math.random() - 0.5) * 4;
-            var c = Math.random() > 0.5 ? c1 : c2;
-            col[i * 3] = c.r;
-            col[i * 3 + 1] = c.g;
-            col[i * 3 + 2] = c.b;
-        }
-        geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-        geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
-        var mat = new THREE.PointsMaterial({ size: 0.08, vertexColors: true, transparent: true, opacity: 0.8 });
-        var points = new THREE.Points(geo, mat);
-        scene.add(points);
-
-        function resize() {
-            var w = canvas.clientWidth || (canvas.parentElement && canvas.parentElement.clientWidth) || 0;
-            var h = canvas.clientHeight || (canvas.parentElement && canvas.parentElement.clientHeight) || 0;
-            if (!w || !h) return;
-            renderer.setSize(w, h, false);
-            camera.aspect = w / h;
-            camera.updateProjectionMatrix();
-        }
-        resize();
-        window.addEventListener('resize', resize);
-
-        if (reduceMotion) {
-            renderer.render(scene, camera);
-            return;
-        }
-
-        var visible = false;
-        var raf = null;
-        function tick() {
-            raf = null;
-            if (!visible) return;
-            points.rotation.y += 0.0009;
-            points.rotation.x += 0.0004;
-            renderer.render(scene, camera);
-            raf = requestAnimationFrame(tick);
-        }
-        if ('IntersectionObserver' in window) {
-            new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    visible = entry.isIntersecting;
-                    if (visible && !raf) tick();
-                });
-            }, { threshold: 0 }).observe(canvas);
-        } else {
-            visible = true;
-            tick();
-        }
-    }
-
-    particleField('stats-three-canvas', 60);
-    particleField('process-three-canvas', 50);
 
     /* ---------- Testimonial card tilt (mouse saja) ---------- */
     if (!reduceMotion && window.matchMedia('(pointer: fine)').matches) {
