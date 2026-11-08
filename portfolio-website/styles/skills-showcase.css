@@ -500,3 +500,110 @@
         transition: none !important;
     }
 }
+
+/* ---------- Animasi lanjutan (2026-11-08, ronde "makin keren") ----------
+   Semua vanilla CSS/JS — TANPA library baru, TANPA WebGL (kasus refresh iPhone).
+   - code typing: baris kode muncul satu per satu + kursor berkedip
+   - shimmer: kilau bergerak di atas bar keahlian
+   - spotlight: cahaya ngikutin kursor di browser mockup + kartu
+   - browser tilt: jendela browser miring halus ngikutin mouse (desktop) */
+
+.skills-browser {
+    position: relative;
+    transition: transform 0.35s ease;
+    transform-style: preserve-3d;
+}
+
+.skills-browser::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 0%), rgba(0, 212, 255, 0.13), transparent 65%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.skills-browser:hover::after { opacity: 1; }
+
+/* Code typing: baris muncul satu per satu */
+.skills-code .code-line {
+    display: block;
+    opacity: 0;
+}
+
+.skills-code.typing .code-line {
+    animation: code-line-in 0.35s ease forwards;
+}
+
+@keyframes code-line-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.code-caret {
+    display: inline-block;
+    width: 8px;
+    height: 1em;
+    margin-top: 4px;
+    background: #00d4ff;
+    vertical-align: text-bottom;
+    animation: caret-blink 1s steps(1) infinite;
+}
+
+@keyframes caret-blink {
+    0%, 55% { opacity: 1; }
+    56%, 100% { opacity: 0; }
+}
+
+/* Shimmer di atas bar keahlian */
+.skills-bar-fill {
+    position: relative;
+    overflow: hidden;
+}
+
+.skills-bar-fill.filled::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.45) 50%, transparent 100%);
+    transform: translateX(-100%);
+    animation: bar-shine 2.4s ease infinite;
+}
+
+@keyframes bar-shine {
+    0% { transform: translateX(-100%); }
+    55%, 100% { transform: translateX(100%); }
+}
+
+/* Spotlight ngikutin kursor di kartu */
+.skills-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(200px circle at var(--mx, 50%) var(--my, 50%), rgba(0, 212, 255, 0.14), transparent 65%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.skills-card:hover::before { opacity: 1; }
+
+.skills-card-icon,
+.skills-card-body {
+    position: relative;
+    z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .skills-code.typing .code-line,
+    .skills-bar-fill.filled::after,
+    .code-caret {
+        animation: none !important;
+    }
+    .skills-code .code-line { opacity: 1; }
+    .skills-browser { transition: none; }
+}
