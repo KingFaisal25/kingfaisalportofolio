@@ -241,3 +241,146 @@
         });
     }
 })();
+
+/* ---------- Three.js Skills (2026-11-08, "kasih Three.js tapi jangan banyak") ----------
+   SATU canvas kecil di belakang section: partikel + 2 wireframe yang berputar pelan.
+   Dibuat HANYA saat section terlihat, DIHAPUS (canvas dilepas dari DOM) 3 detik
+   setelah di-scroll lewat — jadi konteks WebGL tidak menumpuk (kasus refresh iPhone).
+   Render hanya saat terlihat. Tanpa WebGL di Three.js? Tidak jalan, aman (guarded). */
+(function () {
+    'use strict';
+
+    var section = document.querySelector('.skills-showcase');
+    if (!section || typeof THREE === 'undefined') return;
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var renderer = null, scene = null, camera = null, group = null;
+    var raf = null, visible = false, disposeTimer = null;
+
+    function create() {
+        var canvas = document.createElement('canvas');
+        canvas.id = 'skills-three-canvas';
+        canvas.setAttribute('aria-hidden', 'true');
+        section.insertBefore(canvas, section.firstChild);
+
+        renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: false });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(60, 1, 0.1, 100);
+        camera.position.z = 7;
+        group = new THREE.Group();
+
+        var count = 45;
+        var geo = new THREE.BufferGeometry();
+        var pos = new Float32Array(count * 3);
+        var col = new Float32Array(count * 3);
+        var c1 = new THREE.Color(0x00d4ff);
+        var c2 = new THREE.Color(0x8b5cf6);
+        for (var i = 0; i < count; i++) {
+            pos[i * 3] = (Math.random() - 0.5) * 14;
+            pos[i * 3 + 1] = (Math.random() - 0.5) * 7;
+            pos[i * 3 + 2] = (Math.random() - 0.5) * 3;
+            var c = Math.random() > 0.5 ? c1 : c2;
+            col[i * 3] = c.r;
+            col[i * 3 + 1] = c.g;
+            col[i * 3 + 2] = c.b;
+        }
+        geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+        geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+        group.add(new THREE.Points(geo, new THREE.PointsMaterial({ size: 0.09, vertexColors: true, transparent: true, opacity: 0.75 })));
+
+        var ico = new THREE.Mesh(
+            new THREE.IcosahedronGeometry(0.9, 0),
+            new THREE.MeshBasicMaterial({ color: 0x00d4ff, wireframe: true, transparent: true, opacity: 0.5 })
+        );
+        ico.position.set(-4.5, 1.2, -1);
+        group.add(ico);
+
+        var torus = new THREE.Mesh(
+            new THREE.TorusGeometry(0.7, 0.22, 10, 24),
+            new THREE.MeshBasicMaterial({ color: 0x8b5cf6, wireframe: true, transparent: true, opacity: 0.5 })
+        );
+        torus.position.set(4.6, -1.1, -0.5);
+        group.add(torus);
+
+        scene.add(group);
+        resize();
+        window.addEventListener('resize', resize);
+
+        if (reduceMotion) {
+            renderer.render(scene, camera);
+            return;
+        }
+        tick();
+    }
+
+    function resize() {
+        if (!renderer || !camera) return;
+        var w = section.clientWidth;
+        var h = section.clientHeight;
+        if (!w || !h) return;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+    }
+
+    function tick() {
+        raf = null;
+        if (!visible || !renderer || !group) return;
+        group.rotation.y += 0.0012;
+        if (group.children[1]) group.children[1].rotation.x += 0.008;
+        if (group.children[2]) group.children[2].rotation.y += 0.01;
+        renderer.render(scene, camera);
+        raf = requestAnimationFrame(tick);
+    }
+
+    function dispose() {
+        if (raf) cancelAnimationFrame(raf);
+        raf = null;
+        if (renderer) {
+            window.removeEventListener('resize', resize);
+            if (scene) {
+                scene.traverse(function (obj) {
+                    if (obj.geometry) obj.geometry.dispose();
+                    if (obj.material) obj.material.dispose();
+                });
+            }
+            renderer.dispose();
+            var canvas = renderer.domElement;
+            if (canvas && canvas.parentNode) canvas.parentNode.removeChild(canvas);
+            renderer = null;
+            scene = null;
+            camera = null;
+            group = null;
+        }
+    }
+
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    if (disposeTimer) {
+                        clearTimeout(disposeTimer);
+                        disposeTimer = null;
+                    }
+                    visible = true;
+                    if (!renderer) create();
+                    else if (!raf && !reduceMotion) tick();
+                } else {
+                    visible = false;
+                    if (raf) {
+                        cancelAnimationFrame(raf);
+                        raf = null;
+                    }
+                    if (disposeTimer) clearTimeout(disposeTimer);
+                    disposeTimer = setTimeout(function () {
+                        if (!visible) dispose();
+                    }, 3000);
+                }
+            });
+        }, { threshold: 0 }).observe(section);
+    } else {
+        visible = true;
+        create();
+    }
+})();
