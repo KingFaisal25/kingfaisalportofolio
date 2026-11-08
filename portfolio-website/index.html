@@ -110,6 +110,9 @@
     <link rel="stylesheet" href="styles/bottom-showcase.css" />
     <link rel="stylesheet" href="styles/nav-showcase.css" />
     <link rel="stylesheet" href="styles/sections-showcase.css" />
+    <link rel="stylesheet" href="styles/stats-showcase.css" />
+    <link rel="stylesheet" href="styles/process-showcase.css" />
+    <link rel="stylesheet" href="styles/testimonials-showcase.css" />
 
     <!-- Security & Performance -->
     <meta http-equiv="Content-Security-Policy"
@@ -466,6 +469,69 @@
         </div>
     </section>
 
+    <!-- Cara Pesan Section -->
+    <section id="cara-pesan" class="process-section">
+        <canvas id="process-three-canvas" aria-hidden="true"></canvas>
+        <div class="process-orb process-orb-1" aria-hidden="true"></div>
+        <div class="process-orb process-orb-2" aria-hidden="true"></div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge">
+                    <i class="fas fa-route"></i>
+                    <span data-i18n="process.badge">Cara Pesan</span>
+                </div>
+                <h2 class="section-title" data-i18n="process.title">Mudah, Cepat, Tanpa Ribet</h2>
+                <p class="section-description" data-i18n="process.desc">
+                    Dari konsultasi sampai website kamu jadi — empat langkah simpel, tanpa proses yang membingungkan.
+                </p>
+            </div>
+
+            <div class="process-timeline">
+                <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="process-node"><span class="process-number">1</span></div>
+                    <div class="process-icon"><i class="fas fa-comments"></i></div>
+                    <h3 class="process-step-title" data-i18n="process.step1.title">Konsultasi Gratis</h3>
+                    <p class="process-step-text" data-i18n="process.step1.text">
+                        Ceritakan kebutuhanmu lewat form atau WhatsApp. 30 menit pertama gratis, tanpa komitmen apa pun.
+                    </p>
+                </div>
+
+                <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="process-node"><span class="process-number">2</span></div>
+                    <div class="process-icon"><i class="fas fa-clipboard-list"></i></div>
+                    <h3 class="process-step-title" data-i18n="process.step2.title">Proposal &amp; Penawaran</h3>
+                    <p class="process-step-text" data-i18n="process.step2.text">
+                        Kamu terima proposal teknis detail dengan harga transparan, mulai dari Rp500.000.
+                    </p>
+                </div>
+
+                <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                    <div class="process-node"><span class="process-number">3</span></div>
+                    <div class="process-icon"><i class="fas fa-code"></i></div>
+                    <h3 class="process-step-title" data-i18n="process.step3.title">Pengerjaan</h3>
+                    <p class="process-step-text" data-i18n="process.step3.text">
+                        Website atau aplikasimu dibangun: desain modern, responsif, dan SEO-ready.
+                    </p>
+                </div>
+
+                <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                    <div class="process-node"><span class="process-number">4</span></div>
+                    <div class="process-icon"><i class="fas fa-rocket"></i></div>
+                    <h3 class="process-step-title" data-i18n="process.step4.title">Serah Terima</h3>
+                    <p class="process-step-text" data-i18n="process.step4.text">
+                        Hasil jadi diserahkan dan siap dipakai untuk bisnismu.
+                    </p>
+                </div>
+            </div>
+
+            <div class="process-cta" data-aos="fade-up">
+                <a href="#contact" class="btn-primary" data-i18n="process.cta">
+                    <i class="fas fa-comments"></i> Mulai Konsultasi Gratis
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="about" class="about-section">
         <div class="container">
@@ -736,6 +802,29 @@
                     </div>
                 </div>
             </div>
+    </section>
+
+    <!-- Stats Band -->
+    <section class="stats-band" aria-label="Statistik">
+        <canvas id="stats-three-canvas" aria-hidden="true"></canvas>
+        <div class="stats-orb stats-orb-1" aria-hidden="true"></div>
+        <div class="stats-orb stats-orb-2" aria-hidden="true"></div>
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-number"><span class="stat-count" data-target="6">6</span><span class="stat-suffix">+</span></div>
+                    <div class="stat-label" data-i18n="stats.projects">Proyek Selesai</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-number"><span class="stat-count" data-target="2">2</span><span class="stat-suffix">+</span></div>
+                    <div class="stat-label" data-i18n="stats.years">Tahun Pengalaman</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-number"><span class="stat-count" data-target="6">6</span><span class="stat-suffix">+</span></div>
+                    <div class="stat-label" data-i18n="stats.clients">Klien Dilayani</div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Projects Section -->
@@ -1749,7 +1838,7 @@
                         <div class="footer-column">
                             <h4>Kontak</h4>
                             <ul>
-                                <li><a href="mailto:king.faisal@example.com">Email</a></li>
+                                <li><a href="mailto:kingfaisalramadhan@gmail.com">Email</a></li>
                                 <li><a href="#contact">Formulir Kontak</a></li>
                             </ul>
                         </div>
@@ -1826,6 +1915,7 @@
     <script src="scripts/testimonials-three.js" defer></script>
     <script src="scripts/hero-three.js" defer></script>
     <script src="scripts/sections-three.js" defer></script>
+    <script src="scripts/conversion-showcase.js" defer></script>
     <script src="scripts/showcase-motion.js" defer></script>
         <script src="scripts/contact-showcase.js" defer></script>
     <script src="scripts/sticky-cta.js" defer></script>
