@@ -113,6 +113,7 @@
     <link rel="stylesheet" href="styles/stats-showcase.css" />
     <link rel="stylesheet" href="styles/process-showcase.css" />
     <link rel="stylesheet" href="styles/testimonials-showcase.css" />
+    <link rel="stylesheet" href="styles/skills-showcase.css" />
 
     <!-- Security & Performance -->
     <meta http-equiv="Content-Security-Policy"
@@ -645,158 +646,277 @@
                         </div>
                     </div> -->
 
-                        <section class="skills-section-keychain">
-                            <div class="particles" aria-hidden="true">
-                                <span class="particle"
-                                    style="width:6px;height:6px;left:10%;animation-duration:7s;animation-delay:0s;"></span>
-                                <span class="particle"
-                                    style="width:8px;height:8px;left:25%;animation-duration:9s;animation-delay:1s;"></span>
-                                <span class="particle"
-                                    style="width:5px;height:5px;left:40%;animation-duration:6.5s;animation-delay:2s;"></span>
-                                <span class="particle"
-                                    style="width:7px;height:7px;left:55%;animation-duration:8s;animation-delay:0.5s;"></span>
-                                <span class="particle"
-                                    style="width:9px;height:9px;left:70%;animation-duration:10s;animation-delay:1.5s;"></span>
-                                <span class="particle"
-                                    style="width:6px;height:6px;left:85%;animation-duration:7.5s;animation-delay:2.5s;"></span>
-                                <span class="particle"
-                                    style="width:4px;height:4px;left:15%;animation-duration:6s;animation-delay:1.2s;"></span>
-                                <span class="particle"
-                                    style="width:10px;height:10px;left:32%;animation-duration:11s;animation-delay:2.2s;"></span>
-                                <span class="particle"
-                                    style="width:6px;height:6px;left:48%;animation-duration:8.5s;animation-delay:0.8s;"></span>
-                                <span class="particle"
-                                    style="width:7px;height:7px;left:62%;animation-duration:9.5s;animation-delay:1.8s;"></span>
-                                <span class="particle"
-                                    style="width:5px;height:5px;left:76%;animation-duration:7.2s;animation-delay:2.8s;"></span>
-                                <span class="particle"
-                                    style="width:8px;height:8px;left:92%;animation-duration:10.5s;animation-delay:3s;"></span>
-                            </div>
-                            <div class="scene">
-                                <div class="ceiling-mount"></div>
-                                <div class="carabiner" aria-hidden="true">
-                                    <svg viewBox="0 0 60 80" focusable="false" aria-hidden="true">
-                                        <path
-                                            d="M30 6c-9 0-16 7-16 16v24c0 9 7 16 16 16s16-7 16-16v-6h-8v6c0 4.4-3.6 8-8 8s-8-3.6-8-8V22c0-4.4 3.6-8 8-8s8 3.6 8 8v2h8v-2c0-9-7-16-16-16z"
-                                            fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
+                        <section class="skills-showcase" aria-label="Skills">
+                            <div class="skills-orb skills-orb-1" aria-hidden="true"></div>
+                            <div class="skills-orb skills-orb-2" aria-hidden="true"></div>
+                            <div class="skills-showcase-inner">
+                                <div class="section-header" data-aos="fade-up">
+                                    <div class="section-badge">
+                                        <i class="fas fa-laptop-code"></i>
+                                        <span data-i18n="skills.badge">Keahlian</span>
+                                    </div>
+                                    <h2 class="section-title" data-i18n="skills.title">Skillset yang Saya Pakai Setiap Hari</h2>
+                                    <p class="section-description" data-i18n="skills.desc">
+                                        Bukan sekadar daftar — coba langsung. Pilih tab di bawah dan lihat skill-nya bekerja secara live.
+                                    </p>
                                 </div>
-                                <div class="wire"></div>
-                                <div class="keychain-wrapper">
-                                    <div class="keychain-card">
-                                        <div class="card-top">
-                                            <div class="card-hole"></div>
+
+                                <!-- Browser mockup: tab demo live -->
+                                <div class="skills-browser" data-aos="fade-up">
+                                    <div class="skills-browser-bar">
+                                        <span class="browser-dot dot-red" aria-hidden="true"></span>
+                                        <span class="browser-dot dot-yellow" aria-hidden="true"></span>
+                                        <span class="browser-dot dot-green" aria-hidden="true"></span>
+                                        <span class="browser-url"><i class="fas fa-lock"></i> kingfaisalyy.web.id/skills</span>
+                                    </div>
+                                    <div class="skills-tabs" role="tablist" aria-label="Skill demo">
+                                        <button class="skills-tab active" role="tab" aria-selected="true" data-tab="html"><i class="fab fa-html5"></i> HTML</button>
+                                        <button class="skills-tab" role="tab" aria-selected="false" data-tab="css"><i class="fab fa-css3-alt"></i> CSS</button>
+                                        <button class="skills-tab" role="tab" aria-selected="false" data-tab="js"><i class="fab fa-js-square"></i> JavaScript</button>
+                                        <button class="skills-tab" role="tab" aria-selected="false" data-tab="react"><i class="fab fa-react"></i> React</button>
+                                    </div>
+                                    <div class="skills-tab-panels">
+                                        <div class="skills-panel active" data-panel="html" role="tabpanel">
+                                            <div class="skills-panel-info">
+                                                <div class="skills-panel-icon"><i class="fab fa-html5"></i></div>
+                                                <h3>HTML</h3>
+                                                <p data-i18n="skills.demo.html.text">Struktur semantik yang rapi — fondasi setiap website yang saya bangun.</p>
+                                                <div class="skills-bar"><div class="skills-bar-fill" style="--level:95%"></div></div>
+                                                <span class="skills-level">95%</span>
+                                            </div>
+                                            <pre class="skills-code"><code><span class="tk-tag">&lt;header</span> <span class="tk-attr">class</span>=<span class="tk-str">"hero"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;h1&gt;</span>King Faisal<span class="tk-tag">&lt;/h1&gt;</span>
+  <span class="tk-tag">&lt;p&gt;</span>IT Engineer<span class="tk-tag">&lt;/p&gt;</span>
+<span class="tk-tag">&lt;/header&gt;</span></code></pre>
+                                            <div class="skills-demo">
+                                                <div class="skills-demo-label" data-i18n="skills.demo.label">Live preview</div>
+                                                <div class="skills-demo-html"><strong>King Faisal</strong><span>IT Engineer</span></div>
+                                            </div>
                                         </div>
-                                        <h2 class="skills-title">SKILLS</h2>
-                                        <div class="skills-body">
-                                            <div class="skill-category">
-                                                <div class="category-label">Front-End</div>
-                                                <div class="skills-list">
-                                                    <div class="skill-item" tabindex="0">
-                                                        <div class="skill-icon-box html">
-                                                            <i class="fab fa-html5"></i>
-                                                        </div>
-                                                        <span class="skill-name">HTML</span>
-                                                    </div>
-                                                    <div class="skill-item" tabindex="0">
-                                                        <div class="skill-icon-box css">
-                                                            <i class="fab fa-css3-alt"></i>
-                                                        </div>
-                                                        <span class="skill-name">CSS</span>
-                                                    </div>
-                                                    <div class="skill-item" tabindex="0">
-                                                        <div class="skill-icon-box js">
-                                                            <i class="fab fa-js-square"></i>
-                                                        </div>
-                                                        <span class="skill-name">JavaScript</span>
-                                                    </div>
-                                                    <div class="skill-item" tabindex="0">
-                                                        <div class="skill-icon-box python">
-                                                            <i class="fab fa-python"></i>
-                                                        </div>
-                                                        <span class="skill-name">Python</span>
-                                                    </div>
-                                                </div>
+                                        <div class="skills-panel" data-panel="css" role="tabpanel">
+                                            <div class="skills-panel-info">
+                                                <div class="skills-panel-icon"><i class="fab fa-css3-alt"></i></div>
+                                                <h3>CSS</h3>
+                                                <p data-i18n="skills.demo.css.text">Styling modern, animasi, dan layout responsif — bagian yang benar-benar dilihat pengunjung.</p>
+                                                <div class="skills-bar"><div class="skills-bar-fill" style="--level:92%"></div></div>
+                                                <span class="skills-level">92%</span>
                                             </div>
-                                            <div class="divider"></div>
-                                            <div class="skill-category">
-                                                <div class="category-label">Framework</div>
-                                                <div class="skills-list">
-                                                    <div class="skill-item" tabindex="0">
-                                                        <div class="skill-icon-box laravel">
-                                                            <i class="fab fa-laravel"></i>
-                                                        </div>
-                                                        <span class="skill-name">Laravel</span>
-                                                    </div>
-                                                    <div class="skill-item" tabindex="0">
-                                                        <div class="skill-icon-box flutter">
-                                                            <i class="fab fa-flutter"></i>
-                                                        </div>
-                                                        <span class="skill-name">Flutter</span>
-                                                    </div>
-                                                    <div class="skill-item" tabindex="0">
-                                                        <div class="skill-icon-box ci">
-                                                            <i class="fas fa-code"></i>
-                                                        </div>
-                                                        <span class="skill-name">CodeIgniter</span>
-                                                    </div>
-                                                </div>
+                                            <pre class="skills-code"><code><span class="tk-tag">.card</span> {
+  <span class="tk-attr">background</span>: <span class="tk-fn">linear-gradient</span>(<span class="tk-num">120deg</span>, #00d4ff, #8b5cf6);
+  <span class="tk-attr">animation</span>: gradient-pan <span class="tk-num">5s</span> ease infinite;
+}</code></pre>
+                                            <div class="skills-demo">
+                                                <div class="skills-demo-label" data-i18n="skills.demo.label">Live preview</div>
+                                                <div class="skills-demo-cssbox" aria-hidden="true"></div>
+                                                <p class="skills-demo-note" data-i18n="skills.demo.css.note">Gradient ini jalan pakai CSS murni — tanpa JavaScript.</p>
                                             </div>
-                                            <div class="divider"></div>
-                                            <div class="skill-category">
-                                                <div class="category-label">Back-End</div>
-                                                <div class="skills-list">
-                                                    <div class="skill-item" tabindex="0">
-                                                        <div class="skill-icon-box mysql">
-                                                            <i class="fas fa-database"></i>
-                                                        </div>
-                                                        <span class="skill-name">MySQL</span>
-                                                    </div>
-                                                    <div class="skill-item" tabindex="0">
-                                                        <div class="skill-icon-box php">
-                                                            <i class="fab fa-php"></i>
-                                                        </div>
-                                                        <span class="skill-name">PHP</span>
-                                                    </div>
-                                                    <div class="skill-item" tabindex="0">
-                                                        <div class="skill-icon-box postgres">
-                                                            <i class="fas fa-database"></i>
-                                                        </div>
-                                                        <span class="skill-name">PostgreSQL</span>
-                                                    </div>
-                                                </div>
+                                        </div>
+                                        <div class="skills-panel" data-panel="js" role="tabpanel">
+                                            <div class="skills-panel-info">
+                                                <div class="skills-panel-icon"><i class="fab fa-js-square"></i></div>
+                                                <h3>JavaScript</h3>
+                                                <p data-i18n="skills.demo.js.text">Logika interaktif yang bikin halaman merespons — tombol, counter, dan data, semuanya live.</p>
+                                                <div class="skills-bar"><div class="skills-bar-fill" style="--level:90%"></div></div>
+                                                <span class="skills-level">90%</span>
                                             </div>
-                                            <div class="divider"></div>
-                                            <div class="skill-category">
-                                                <div class="category-label">Tools & Design</div>
-                                                <div class="skills-list">
-                                                    <div class="skill-item" tabindex="0">
-                                                        <div class="skill-icon-box figma">
-                                                            <i class="fab fa-figma"></i>
-                                                        </div>
-                                                        <span class="skill-name">Figma</span>
-                                                    </div>
-                                                    <div class="skill-item" tabindex="0">
-                                                        <div class="skill-icon-box vscode">
-                                                            <i class="fas fa-code"></i>
-                                                        </div>
-                                                        <span class="skill-name">VS Code</span>
-                                                    </div>
-                                                    <div class="skill-item" tabindex="0">
-                                                        <div class="skill-icon-box canva">
-                                                            <i class="fas fa-paint-brush"></i>
-                                                        </div>
-                                                        <span class="skill-name">Canva</span>
-                                                    </div>
+                                            <pre class="skills-code"><code><span class="tk-kw">let</span> count = <span class="tk-num">0</span>;
+btnPlus.<span class="tk-fn">onclick</span> = () =&gt; {
+  count++;
+  label.textContent = count;
+};</code></pre>
+                                            <div class="skills-demo">
+                                                <div class="skills-demo-label" data-i18n="skills.demo.label">Live preview</div>
+                                                <div class="skills-counter">
+                                                    <button class="skills-counter-btn" data-count-action="dec" aria-label="Kurangi">−</button>
+                                                    <span class="skills-counter-value" id="skills-js-count">0</span>
+                                                    <button class="skills-counter-btn" data-count-action="inc" aria-label="Tambah">+</button>
                                                 </div>
+                                                <p class="skills-demo-note" data-i18n="skills.demo.js.note">Coba pencet + / −, angkanya berubah beneran.</p>
+                                            </div>
+                                        </div>
+                                        <div class="skills-panel" data-panel="react" role="tabpanel">
+                                            <div class="skills-panel-info">
+                                                <div class="skills-panel-icon"><i class="fab fa-react"></i></div>
+                                                <h3>React</h3>
+                                                <p data-i18n="skills.demo.react.text">Komponen yang bisa dipakai ulang dengan state live — pendekatan yang sama di balik aplikasi web modern.</p>
+                                                <div class="skills-bar"><div class="skills-bar-fill" style="--level:88%"></div></div>
+                                                <span class="skills-level">88%</span>
+                                            </div>
+                                            <pre class="skills-code"><code><span class="tk-kw">function</span> <span class="tk-fn">LikeButton</span>() {
+  <span class="tk-kw">const</span> [liked, setLiked] = <span class="tk-fn">useState</span>(<span class="tk-kw">false</span>);
+  <span class="tk-kw">return</span> (
+    <span class="tk-tag">&lt;button</span> <span class="tk-attr">onClick</span>={() =&gt; <span class="tk-fn">setLiked</span>(!liked)}<span class="tk-tag">&gt;</span>
+      {liked ? <span class="tk-str">'Liked'</span> : <span class="tk-str">'Like'</span>}
+    <span class="tk-tag">&lt;/button&gt;</span>
+  );
+}</code></pre>
+                                            <div class="skills-demo">
+                                                <div class="skills-demo-label" data-i18n="skills.demo.label">Live preview</div>
+                                                <button class="skills-like-btn" id="skills-react-like" aria-pressed="false"><i class="fas fa-heart"></i> Like · <span id="skills-react-count">0</span></button>
+                                                <p class="skills-demo-note" data-i18n="skills.demo.react.note">State React: pencet sekali, hati menyala dan angka naik.</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- Filter + bento grid semua skill -->
+                                <div class="skills-filters" data-aos="fade-up">
+                                    <button class="skills-filter active" data-filter="all" data-i18n="skills.filter.all">Semua</button>
+                                    <button class="skills-filter" data-filter="frontend">Front-End</button>
+                                    <button class="skills-filter" data-filter="framework">Framework</button>
+                                    <button class="skills-filter" data-filter="backend">Back-End</button>
+                                    <button class="skills-filter" data-filter="tools">Tools &amp; Cloud</button>
+                                </div>
+                                <div class="skills-grid">
+                                    <div class="skills-card" data-cat="frontend" data-aos="fade-up">
+                                        <div class="skills-card-icon"><i class="fab fa-html5"></i></div>
+                                        <div class="skills-card-body">
+                                            <div class="skills-card-top"><span class="skills-card-name">HTML</span><span class="skills-card-level">95%</span></div>
+                                            <div class="skills-bar"><div class="skills-bar-fill" style="--level:95%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="skills-card" data-cat="frontend" data-aos="fade-up">
+                                        <div class="skills-card-icon"><i class="fab fa-css3-alt"></i></div>
+                                        <div class="skills-card-body">
+                                            <div class="skills-card-top"><span class="skills-card-name">CSS</span><span class="skills-card-level">92%</span></div>
+                                            <div class="skills-bar"><div class="skills-bar-fill" style="--level:92%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="skills-card" data-cat="frontend" data-aos="fade-up">
+                                        <div class="skills-card-icon"><i class="fab fa-js-square"></i></div>
+                                        <div class="skills-card-body">
+                                            <div class="skills-card-top"><span class="skills-card-name">JavaScript</span><span class="skills-card-level">90%</span></div>
+                                            <div class="skills-bar"><div class="skills-bar-fill" style="--level:90%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="skills-card" data-cat="frontend" data-aos="fade-up">
+                                        <div class="skills-card-icon"><i class="fab fa-react"></i></div>
+                                        <div class="skills-card-body">
+                                            <div class="skills-card-top"><span class="skills-card-name">React</span><span class="skills-card-level">88%</span></div>
+                                            <div class="skills-bar"><div class="skills-bar-fill" style="--level:88%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="skills-card" data-cat="frontend" data-aos="fade-up">
+                                        <div class="skills-card-icon"><i class="fas fa-layer-group"></i></div>
+                                        <div class="skills-card-body">
+                                            <div class="skills-card-top"><span class="skills-card-name">Next.js</span><span class="skills-card-level">82%</span></div>
+                                            <div class="skills-bar"><div class="skills-bar-fill" style="--level:82%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="skills-card" data-cat="frontend" data-aos="fade-up">
+                                        <div class="skills-card-icon"><i class="fab fa-vuejs"></i></div>
+                                        <div class="skills-card-body">
+                                            <div class="skills-card-top"><span class="skills-card-name">Vue.js</span><span class="skills-card-level">80%</span></div>
+                                            <div class="skills-bar"><div class="skills-bar-fill" style="--level:80%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="skills-card" data-cat="frontend" data-aos="fade-up">
+                                        <div class="skills-card-icon"><i class="fas fa-wind"></i></div>
+                                        <div class="skills-card-body">
+                                            <div class="skills-card-top"><span class="skills-card-name">Tailwind CSS</span><span class="skills-card-level">90%</span></div>
+                                            <div class="skills-bar"><div class="skills-bar-fill" style="--level:90%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="skills-card" data-cat="framework" data-aos="fade-up">
+                                        <div class="skills-card-icon"><i class="fab fa-laravel"></i></div>
+                                        <div class="skills-card-body">
+                                            <div class="skills-card-top"><span class="skills-card-name">Laravel</span><span class="skills-card-level">90%</span></div>
+                                            <div class="skills-bar"><div class="skills-bar-fill" style="--level:90%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="skills-card" data-cat="framework" data-aos="fade-up">
+                                        <div class="skills-card-icon"><i class="fas fa-mobile-alt"></i></div>
+                                        <div class="skills-card-body">
+                                            <div class="skills-card-top"><span class="skills-card-name">Flutter</span><span class="skills-card-level">85%</span></div>
+                                            <div class="skills-bar"><div class="skills-bar-fill" style="--level:85%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="skills-card" data-cat="framework" data-aos="fade-up">
+                                        <div class="skills-card-icon"><i class="fas fa-code"></i></div>
+                                        <div class="skills-card-body">
+                                            <div class="skills-card-top"><span class="skills-card-name">CodeIgniter</span><span class="skills-card-level">80%</span></div>
+                                            <div class="skills-bar"><div class="skills-bar-fill" style="--level:80%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="skills-card" data-cat="framework" data-aos="fade-up">
+                                        <div class="skills-card-icon"><i class="fab fa-react"></i></div>
+                                        <div class="skills-card-body">
+                                            <div class="skills-card-top"><span class="skills-card-name">React Native</span><span class="skills-card-level">82%</span></div>
+                                            <div class="skills-bar"><div class="skills-bar-fill" style="--level:82%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="skills-card" data-cat="backend" data-aos="fade-up">
+                                        <div class="skills-card-icon"><i class="fas fa-database"></i></div>
+                                        <div class="skills-card-body">
+                                            <div class="skills-card-top"><span class="skills-card-name">MySQL</span><span class="skills-card-level">88%</span></div>
+                                            <div class="skills-bar"><div class="skills-bar-fill" style="--level:88%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="skills-card" data-cat="backend" data-aos="fade-up">
+                                        <div class="skills-card-icon"><i class="fab fa-php"></i></div>
+                                        <div class="skills-card-body">
+                                            <div class="skills-card-top"><span class="skills-card-name">PHP</span><span class="skills-card-level">90%</span></div>
+                                            <div class="skills-bar"><div class="skills-bar-fill" style="--level:90%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="skills-card" data-cat="backend" data-aos="fade-up">
+                                        <div class="skills-card-icon"><i class="fas fa-database"></i></div>
+                                        <div class="skills-card-body">
+                                            <div class="skills-card-top"><span class="skills-card-name">PostgreSQL</span><span class="skills-card-level">82%</span></div>
+                                            <div class="skills-bar"><div class="skills-bar-fill" style="--level:82%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="skills-card" data-cat="backend" data-aos="fade-up">
+                                        <div class="skills-card-icon"><i class="fab fa-python"></i></div>
+                                        <div class="skills-card-body">
+                                            <div class="skills-card-top"><span class="skills-card-name">Python</span><span class="skills-card-level">88%</span></div>
+                                            <div class="skills-bar"><div class="skills-bar-fill" style="--level:88%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="skills-card" data-cat="backend" data-aos="fade-up">
+                                        <div class="skills-card-icon"><i class="fab fa-node-js"></i></div>
+                                        <div class="skills-card-body">
+                                            <div class="skills-card-top"><span class="skills-card-name">Node.js</span><span class="skills-card-level">84%</span></div>
+                                            <div class="skills-bar"><div class="skills-bar-fill" style="--level:84%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="skills-card" data-cat="tools" data-aos="fade-up">
+                                        <div class="skills-card-icon"><i class="fab fa-figma"></i></div>
+                                        <div class="skills-card-body">
+                                            <div class="skills-card-top"><span class="skills-card-name">Figma</span><span class="skills-card-level">85%</span></div>
+                                            <div class="skills-bar"><div class="skills-bar-fill" style="--level:85%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="skills-card" data-cat="tools" data-aos="fade-up">
+                                        <div class="skills-card-icon"><i class="fas fa-code"></i></div>
+                                        <div class="skills-card-body">
+                                            <div class="skills-card-top"><span class="skills-card-name">VS Code</span><span class="skills-card-level">95%</span></div>
+                                            <div class="skills-bar"><div class="skills-bar-fill" style="--level:95%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="skills-card" data-cat="tools" data-aos="fade-up">
+                                        <div class="skills-card-icon"><i class="fas fa-paint-brush"></i></div>
+                                        <div class="skills-card-body">
+                                            <div class="skills-card-top"><span class="skills-card-name">Canva</span><span class="skills-card-level">88%</span></div>
+                                            <div class="skills-bar"><div class="skills-bar-fill" style="--level:88%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="skills-card" data-cat="tools" data-aos="fade-up">
+                                        <div class="skills-card-icon"><i class="fab fa-aws"></i></div>
+                                        <div class="skills-card-body">
+                                            <div class="skills-card-top"><span class="skills-card-name">AWS</span><span class="skills-card-level">78%</span></div>
+                                            <div class="skills-bar"><div class="skills-bar-fill" style="--level:78%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="skills-card" data-cat="tools" data-aos="fade-up">
+                                        <div class="skills-card-icon"><i class="fab fa-docker"></i></div>
+                                        <div class="skills-card-body">
+                                            <div class="skills-card-top"><span class="skills-card-name">Docker</span><span class="skills-card-level">75%</span></div>
+                                            <div class="skills-bar"><div class="skills-bar-fill" style="--level:75%"></div></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="glow-orb orb-1" aria-hidden="true"></div>
-                            <div class="glow-orb orb-2" aria-hidden="true"></div>
                         </section>
                     </div>
                 </div>
@@ -1904,7 +2024,6 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="scripts/main-simple.js"></script>
-    <script src="scripts/keychain-animations.js" defer></script>
     <script src="scripts/responsive.js" defer></script>
     <script src="scripts/testimonials-modern.js" defer></script>
     <script src="scripts/testimonial-animations.js" defer></script>
@@ -1914,6 +2033,7 @@
     <script src="scripts/hero-three.js" defer></script>
     <script src="scripts/sections-three.js" defer></script>
     <script src="scripts/conversion-showcase.js" defer></script>
+    <script src="scripts/skills-showcase.js" defer></script>
     <script src="scripts/showcase-motion.js" defer></script>
         <script src="scripts/contact-showcase.js" defer></script>
     <script src="scripts/sticky-cta.js" defer></script>
