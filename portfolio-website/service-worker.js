@@ -1,4 +1,4 @@
-const CACHE_NAME = 'portfolio-cache-v4';
+const CACHE_NAME = 'portfolio-cache-v5';
 const CORE_ASSETS = [
   './index.html',
   './styles/main-optimized.css',
