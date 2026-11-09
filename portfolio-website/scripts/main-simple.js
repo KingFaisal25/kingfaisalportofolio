@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
         en: {
             nav: { home: 'Home', about: 'About', services: 'Services', projects: 'Projects', skills: 'Skills', contact: 'Contact' },
             badge: '🚀 Available for new projects',
-            heroTitle: '<span class="gradient-text">King Faisal</span> <span class="title-accent">IT Engineer </span>',
-            heroDescription: '🚀 A professional in <strong>Information Technology</strong> focused on <span class="highlight-tech">Cybersecurity</span>, <span class="highlight-tech">Database Architecture</span>, and <span class="highlight-tech">Cloud Infrastructure</span>. I design solutions that are <strong>scalable</strong>, <strong>secure</strong>, and <strong>high-performing</strong> to accelerate your digital transformation.<br><br>I also provide <strong>Modern Web Development</strong> and <strong>Mobile App (Android/iOS)</strong> services — responsive, fast, and results-driven to grow your brand and business.',
+            heroTitle: '<span class="gradient-text">King Faisal</span> <span class="title-accent">Builds Websites &amp; Apps</span>',
+            heroDescription: 'I help your business get a modern, fast, easy-to-use website, app, or bot — from company profiles and online stores to Telegram bots that work for you 24/7.<br><br>Free 30-minute consultation, prices start from <strong>Rp500,000</strong> — tell me what you need and I will build it.',
             ctaPrimary: '<i class="fas fa-globe"></i> 🌐 Order a Website & App',
             ctaSecondary: '<i class="fas fa-comments"></i> 💬 Free Consultation',
             footer: { nav: 'Navigation', services: 'Services', contact: 'Contact' },
@@ -69,9 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 'skills.desc': 'Pick a tab — watch the skill work live.',
                 'skills.demo.label': 'Live preview',
                 'about.badge': 'About Me',
-                'about.title': 'IT Engineer | Cybersecurity | Full Stack Developer',
-                'about.desc': 'Turning complex systems into <span class="gradient-text">secure</span>, <span class="gradient-text">scalable</span>, and <span class="gradient-text">high-performing</span> solutions.',
-                'about.heading': 'Designing <span class="gradient-text">Digital Solutions</span> for <span class="gradient-text">Businesses</span>',
+                'about.title': 'I Build Websites, Apps & Bots for Your Business',
+                'about.desc': 'From idea to a website and app that is <span class="gradient-text">ready to use</span> — fast, secure, and <span class="gradient-text">easy for your customers</span>.',
+                'about.heading': 'Websites & Apps <span class="gradient-text">Ready to Use</span> for Your Business',
                 'about.actions.services': '<i class="fas fa-toolbox"></i> View Services',
                 'about.actions.quote': '<i class="fas fa-paper-plane"></i> Request a Quote',
                 'about.info.location.label': 'Location',
@@ -85,14 +85,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 'contact.badge': 'Contact Me',
                 'contact.title': 'Let Us Work Together',
                 'contact.desc': 'Ready to turn your idea into an <span class="gradient-text">impactful digital solution</span>? Let us get started.' ,
-                'footer.availability': 'Available for new projects'
+                'footer.availability': 'Available for new projects',
+                'faq.badge': 'FAQ',
+                'faq.title': 'Frequently Asked Questions',
+                'faq.desc': 'Quick answers before you reach out — if you cannot find yours, just ask for free.',
+                'faq.q1': 'How much does a website cost?',
+                'faq.a1': 'Websites and apps start from Rp500,000, Telegram bots from Rp750,000, and AI for marketplaces is priced per project. The final price depends on your needs and is written clearly in the proposal — no hidden fees.',
+                'faq.q2': 'How do I order?',
+                'faq.a2': 'Just four steps: a free 30-minute consultation, a proposal and quote, development, then handover — the finished result is ready to use for your business.',
+                'faq.q3': 'Is the consultation really free?',
+                'faq.a3': 'Yes. The first 30 minutes are free via the form or WhatsApp, with zero commitment — you decide whether to continue afterwards.',
+                'faq.q4': 'How long does it take?',
+                'faq.a4': 'It depends on the type and size of the project. The exact timeline is written in the proposal after the consultation, so you know from the start when it will be ready.',
+                'faq.q5': 'Is there a down payment?',
+                'faq.a5': 'The down payment is discussed in the proposal — every project is different, so there is no fixed number. All costs are written transparently before work starts.',
+                'faq.q6': 'What about revisions?',
+                'faq.a6': 'Revisions are discussed up front and written in the proposal, so everything is clear before work starts — no surprise charges.',
+                'faq.q7': 'Can you build AI for my online store?',
+                'faq.a7': 'Yes. I build AI chatbots, smart auto-replies, and AI assistants that answer customers and help you sell on Shopee, Tokopedia, and WhatsApp. Pricing is tailored to your needs.',
+                'faq.cta.text': 'Still have questions?',
+                'faq.cta.button': '<i class="fas fa-comments"></i> Free 30-Minute Consultation',
             }
         },
         id: {
             nav: { home: 'Beranda', about: 'Tentang', services: 'Layanan', projects: 'Projek', skills: 'Keahlian', contact: 'Kontak' },
             badge: '🚀 Tersedia untuk proyek baru',
-            heroTitle: '<span class="gradient-text">King Faisal</span> <span class="title-accent">IT Engineer</span>',
-            heroDescription: '🚀 Profesional di bidang <strong>IT Engineering</strong> dan <strong>Enterprise Architecture</strong> yang fokus pada <span class="highlight-tech">Keamanan Siber</span>, <span class="highlight-tech">Arsitektur Database</span>, dan <span class="highlight-tech">Infrastruktur Cloud</span>. Saya merancang solusi yang <strong>scalable</strong>, <strong>aman</strong>, dan <strong>berkinerja tinggi</strong> untuk mempercepat transformasi digital Anda.<br><br>Menerima <strong>Pembuatan Website</strong> dan <strong>Aplikasi (Android/iOS)</strong> modern yang responsif, cepat, dan berorientasi hasil — siap membantu brand dan bisnis Anda tumbuh.',
+            heroTitle: '<span class="gradient-text">King Faisal</span> <span class="title-accent">Bikin Website &amp; Aplikasi</span>',
+            heroDescription: 'Saya bantu bisnis kamu punya website, aplikasi, dan bot yang modern, cepat, dan gampang dipakai — dari company profile dan toko online sampai bot Telegram yang kerja otomatis 24 jam.<br><br>Konsultasi gratis 30 menit, harga mulai <strong>Rp500.000</strong> — ceritakan kebutuhanmu, saya buatkan solusinya.',
             ctaPrimary: '<i class="fas fa-globe"></i> 🌐 Pesan Jasa Website & Aplikasi',
             ctaSecondary: '<i class="fas fa-comments"></i> 💬 Konsultasi Gratis',
                 footer: { nav: 'Navigasi', services: 'Layanan', contact: 'Kontak' },
@@ -146,9 +165,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 'skills.desc': 'Pilih tab — lihat skill-nya bekerja secara live.',
                 'skills.demo.label': 'Live preview',
                 'about.badge': 'Tentang Saya',
-                'about.title': 'IT Engineer | Cybersecurity | Full Stack Developer',
-                'about.desc': 'Mengubah sistem kompleks menjadi solusi yang <span class="gradient-text">aman</span>, <span class="gradient-text">scalable</span>, dan <span class="gradient-text">berkinerja tinggi</span>.',
-                'about.heading': 'Merancang <span class="gradient-text">Solusi Digital</span> Kelas <span class="gradient-text">Enterprise</span>',
+                'about.title': 'Bikin Website, Aplikasi & Bot Buat Bisnismu',
+                'about.desc': 'Dari ide jadi website dan aplikasi yang <span class="gradient-text">siap dipakai</span> — cepat, aman, dan <span class="gradient-text">gampang dipakai</span> pelangganmu.',
+                'about.heading': 'Website & Aplikasi <span class="gradient-text">Siap Pakai</span> Buat Bisnismu',
                 'about.actions.services': '<i class="fas fa-toolbox"></i> Lihat Layanan',
                 'about.actions.quote': '<i class="fas fa-paper-plane"></i> Minta Penawaran',
                 'about.info.location.label': 'Lokasi',
@@ -162,7 +181,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 'contact.badge': 'Hubungi Saya',
                 'contact.title': 'Mari Bekerja Sama',
                 'contact.desc': 'Siap mengubah ide Anda menjadi <span class="gradient-text">solusi digital</span> yang berdampak? Ayo mulai.',
-                'footer.availability': 'Tersedia untuk proyek baru'
+                'footer.availability': 'Tersedia untuk proyek baru',
+                'faq.badge': 'FAQ',
+                'faq.title': 'Pertanyaan yang Sering Ditanyakan',
+                'faq.desc': 'Jawaban cepat sebelum kamu konsultasi — kalau belum ketemu jawabannya, tanya langsung, gratis.',
+                'faq.q1': 'Berapa harga pembuatan website?',
+                'faq.a1': 'Website dan aplikasi mulai dari Rp500.000, bot Telegram mulai dari Rp750.000, sedangkan AI untuk marketplace menyesuaikan kebutuhan. Harga akhir tergantung kebutuhanmu dan ditulis jelas di proposal — tanpa biaya tersembunyi.',
+                'faq.q2': 'Bagaimana cara pesannya?',
+                'faq.a2': 'Empat langkah saja: konsultasi gratis 30 menit, terima proposal dan penawaran, pengerjaan, lalu serah terima — hasil jadi langsung siap dipakai untuk bisnismu.',
+                'faq.q3': 'Apakah konsultasinya benar-benar gratis?',
+                'faq.a3': 'Ya. 30 menit pertama gratis lewat form atau WhatsApp, tanpa komitmen apa pun — kamu bebas lanjut atau tidak setelah itu.',
+                'faq.q4': 'Berapa lama pengerjaannya?',
+                'faq.a4': 'Tergantung jenis dan besar proyeknya. Timeline pastinya ditulis di proposal setelah konsultasi, jadi kamu tahu sejak awal kapan hasilnya jadi.',
+                'faq.q5': 'Apakah ada DP?',
+                'faq.a5': 'Soal DP dibahas di proposal — setiap proyek beda, jadi tidak ada angka paten. Semua biaya ditulis transparan sebelum pengerjaan mulai.',
+                'faq.q6': 'Bagaimana soal revisi?',
+                'faq.a6': 'Revisi dibahas di awal dan ditulis di proposal, jadi jelas sebelum pengerjaan mulai — tidak ada revisi yang tiba-tiba berbayar tanpa kesepakatan.',
+                'faq.q7': 'Apakah bisa dibuatkan AI untuk toko online saya?',
+                'faq.a7': 'Bisa. Saya buatkan chatbot AI, auto reply pintar, dan asisten AI yang menjawab pelanggan dan membantu jualan di Shopee, Tokopedia, dan WhatsApp. Harganya menyesuaikan kebutuhan.',
+                'faq.cta.text': 'Masih ada pertanyaan?',
+                'faq.cta.button': '<i class="fas fa-comments"></i> Konsultasi Gratis 30 Menit',
             }
         }
     };
@@ -200,6 +238,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (t.dict && t.dict[key]) el.innerHTML = t.dict[key];
+        });
+        // Sesuaikan tinggi jawaban FAQ yang sedang terbuka setelah ganti bahasa
+        document.querySelectorAll('.faq-item.open .faq-answer').forEach(a => {
+            a.style.maxHeight = a.scrollHeight + 'px';
         });
         // Contact form labels
         const labelMap = [
@@ -416,7 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Simple typing effect
     const typingText = document.getElementById('typingText');
     if (typingText) {
-        const words = ['IT Engineer', 'Database Administrator', 'Cybersecurity Engineer', 'Cloud & DevOps', 'Full Stack Developer'];
+        const words = ['Websites', 'Mobile Apps', 'Telegram Bots', 'AI for Marketplace', 'Online Stores'];
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -444,7 +486,33 @@ document.addEventListener('DOMContentLoaded', () => {
         
         typeEffect();
     }
-    
+
+    // FAQ accordion (scoped to #faq only, vanilla — no library)
+    (function initFaq() {
+        var list = document.querySelector('.faq-list');
+        if (!list) return;
+        function setOpen(item, open) {
+            var answer = item.querySelector('.faq-answer');
+            var btn = item.querySelector('.faq-question');
+            item.classList.toggle('open', open);
+            if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            if (answer) answer.style.maxHeight = open ? answer.scrollHeight + 'px' : null;
+        }
+        list.addEventListener('click', function (e) {
+            var btn = e.target.closest('.faq-question');
+            if (!btn) return;
+            var item = btn.closest('.faq-item');
+            var wasOpen = item.classList.contains('open');
+            list.querySelectorAll('.faq-item.open').forEach(function (other) {
+                if (other !== item) setOpen(other, false);
+            });
+            setOpen(item, !wasOpen);
+        });
+        // Buka pertanyaan pertama supaya pengunjung langsung lihat jawaban harga
+        var first = list.querySelector('.faq-item');
+        if (first) setOpen(first, true);
+    })();
+
     // Contact form handling
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
