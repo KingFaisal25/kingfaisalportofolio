@@ -3679,6 +3679,28 @@ img, video, canvas { max-width: 100%; height: auto; }
     letter-spacing: 0.5px;
   }
 
+  .badge-health {
+    background: linear-gradient(135deg, var(--primary-400), var(--primary-700));
+    color: white;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .badge-gis {
+    background: linear-gradient(135deg, var(--accent-300), var(--accent-500));
+    color: white;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
 /* Responsive Portfolio Grid */
 @media (max-width: 1024px) {
   .projects-grid {
